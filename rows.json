@@ -66,8 +66,9 @@
    "key": "display",
    "name": "UHD HD Display (the resolution beside the star; click or shortcut switches)",
    "group": "Resolve",
-   "kind": "lua",
-   "about": "Resolve's resolution as a word beside the star; a click switches HD and UHD"
+   "kind": "app",
+   "about": "Resolve's resolution as a word beside the star; a click switches HD and UHD",
+   "app": "/Applications/UHD HD Display (Mantra).app"
   },
   {
    "key": "pages",
