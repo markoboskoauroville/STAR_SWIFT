@@ -98,8 +98,9 @@
    "key": "dock",
    "name": "Dock Switcher (⌃` over everything on the Dock, running or not)",
    "group": "Keyboard and mouse",
-   "kind": "lua",
-   "about": "Control-backtick switches between everything on the Dock, running or not"
+   "kind": "app",
+   "about": "Control-backtick switches between everything on the Dock, running or not",
+   "app": "/Applications/Dock Switcher (Mantra).app"
   },
   {
    "key": "appstore",
