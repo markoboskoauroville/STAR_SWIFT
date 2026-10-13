@@ -1,0 +1,229 @@
+{
+ "note": "The rows of Star (Mantra), in the default order. kind \"app\": a Swift .app, opened and quit directly by the star. kind \"lua\": still a Hammerspoon app, toggled through hs (STAR.toggleKey). Converting an app to Swift changes only its row here: kind \"app\" and \"app\" = its path in /Applications. build.sh installs this file as ~/.config/star-rows.json.",
+ "folders": [
+  "Claude",
+  "Resolve",
+  "Ableton Live",
+  "Audio Tools",
+  "Keyboard and mouse",
+  "Mac"
+ ],
+ "rows": [
+  {
+   "key": "mouse",
+   "name": "Automated Mouse Actions",
+   "group": "Keyboard and mouse",
+   "kind": "app",
+   "about": "Plays back mouse moves and clicks you have recorded",
+   "app": "/Applications/Automated Mouse Actions (Mantra).app"
+  },
+  {
+   "key": "enter",
+   "name": "Enter sends in Claude",
+   "group": "Claude",
+   "kind": "lua",
+   "about": "A plain Return sends the message in a claude.ai tab; Shift+Return makes a new line"
+  },
+  {
+   "key": "buckets",
+   "name": "Buckets",
+   "group": "Keyboard and mouse",
+   "kind": "lua",
+   "about": "The Hammerspoon keyboard: clipboard dispenser, F keys, hand and deck"
+  },
+  {
+   "key": "sister",
+   "name": "Sister app (MANTRA CHAT)",
+   "group": "Claude",
+   "kind": "lua",
+   "url": "http://127.0.0.1:8825",
+   "about": "MANTRA CHAT: the page that mirrors this session and reads it aloud"
+  },
+  {
+   "key": "macro",
+   "name": "Macro Recorder",
+   "group": "Keyboard and mouse",
+   "kind": "lua",
+   "about": "Records what you do and plays it back; the star reddens while it records"
+  },
+  {
+   "key": "download",
+   "name": "Download Monitor",
+   "group": "Mac",
+   "kind": "lua",
+   "url": "http://127.0.0.1:8833",
+   "about": "Every download on this Mac, each with its own bar"
+  },
+  {
+   "key": "voice",
+   "name": "Voices (how the computer talks)",
+   "group": "Claude",
+   "kind": "lua",
+   "url": "http://127.0.0.1:8837",
+   "about": "The ears and the mouth: Whisper listening, the cloned voice speaking"
+  },
+  {
+   "key": "display",
+   "name": "UHD HD Display (the resolution beside the star; click or shortcut switches)",
+   "group": "Resolve",
+   "kind": "lua",
+   "about": "Resolve's resolution as a word beside the star; a click switches HD and UHD"
+  },
+  {
+   "key": "pages",
+   "name": "Pages (⌥` switches Resolve's pages like ⌘Tab; the page beside the star)",
+   "group": "Resolve",
+   "kind": "lua",
+   "about": "Command-Tab for Resolve's pages: Option-backtick walks them"
+  },
+  {
+   "key": "cloning",
+   "name": "Voice cloning (clone, choose, test every voice)",
+   "group": "Claude",
+   "kind": "lua",
+   "url": "http://127.0.0.1:8837",
+   "about": "Clone a voice, choose which one talks, and test every voice you have"
+  },
+  {
+   "key": "find",
+   "name": "Find a file (the terminal's find as a page)",
+   "group": "Mac",
+   "kind": "lua",
+   "url": "http://127.0.0.1:8845",
+   "about": "The terminal's find as a page: a folder, a name, the hits in four views"
+  },
+  {
+   "key": "spotlight",
+   "name": "Spotlight (an index for one folder)",
+   "group": "Mac",
+   "kind": "lua",
+   "url": "http://127.0.0.1:8847",
+   "about": "Builds a Spotlight index for one folder alone, and searches inside it"
+  },
+  {
+   "key": "importbutton",
+   "name": "Import Button (mouse button 4 in Resolve is ⌘I, Import Media)",
+   "group": "Resolve",
+   "kind": "lua",
+   "about": "The thumb button pressed inside Resolve becomes Command-I, Import Media"
+  },
+  {
+   "key": "dock",
+   "name": "Dock Switcher (⌃` over everything on the Dock, running or not)",
+   "group": "Keyboard and mouse",
+   "kind": "lua",
+   "about": "Control-backtick switches between everything on the Dock, running or not"
+  },
+  {
+   "key": "appstore",
+   "name": "App Store",
+   "group": "Mac",
+   "kind": "lua",
+   "url": "http://127.0.0.1:8839",
+   "about": "Search for an app, fetch the developer's own .dmg, install it"
+  },
+  {
+   "key": "appledoor",
+   "name": "Apple Door",
+   "group": "Mac",
+   "kind": "lua",
+   "about": "Opens Apple's update servers for thirty minutes, then shuts them again"
+  },
+  {
+   "key": "a1",
+   "name": "Ableton Assistant A1 (Space continues; 1 and 2 zoom; h splits; 7, 8 and 9 are the markers (back, set or delete, on); the arrows walk the transients and ⌘ with them walks the tracks; I and O jump to the next transient and mark the loop's in and out on its waveform's zero, L turns the loop on; the markers on the page, two ticked are the loop; the last set opens where you stopped; the time blob is the clock of the insert point; every override has its tick on the page)",
+   "group": "Ableton Live",
+   "kind": "lua",
+   "url": "http://127.0.0.1:8849",
+   "about": "Ableton fitted to your hands: the keys, the markers, the loop and the clock blob"
+  },
+  {
+   "key": "keys",
+   "name": "Key Ring Tester (every key in ~/Downloads/API, one real call each)",
+   "group": "Mac",
+   "kind": "lua",
+   "about": "Tests every key in ~/Downloads/API with one real call each"
+  },
+  {
+   "key": "installer",
+   "name": "Installation Logger",
+   "group": "Mac",
+   "kind": "lua",
+   "url": "http://127.0.0.1:8841",
+   "about": "Records every file an installer writes, so it can all be taken out again"
+  },
+  {
+   "key": "speechify",
+   "name": "Speechify splash closer (closes the window Speechify opens at launch)",
+   "group": "Mac",
+   "kind": "lua",
+   "about": "Closes the window Speechify opens at launch, leaving it in the menu bar"
+  },
+  {
+   "key": "monitor",
+   "name": "Star Monitor (every app: start, stop, reorder, what comes back, time run)",
+   "group": "Mac",
+   "kind": "lua",
+   "url": "http://127.0.0.1:8851",
+   "about": "The page that runs the star: start, stop, reorder, and how long each app has run"
+  },
+  {
+   "key": "claudevoice",
+   "name": "Claude to Marko voice (Mantra) (the subtitle while the voice speaks)",
+   "group": "Claude",
+   "kind": "app",
+   "app": "/Applications/Claude to Marko Voice (Mantra).app",
+   "about": "How the spoken words are written on the screens: size, colour, band, where"
+  },
+  {
+   "key": "voiceofclaude",
+   "name": "Voice of Claude (Mantra) (the voice engine on and off)",
+   "group": "Claude",
+   "kind": "app",
+   "app": "/Applications/Voice of Claude (Mantra).app",
+   "about": "One switch: the voice engine on or off, and its three parts"
+  },
+  {
+   "key": "spectral",
+   "name": "Spectral Analyzer (Mantra) (the sound seen: FLUX's meters, clicks found)",
+   "group": "Audio Tools",
+   "kind": "app",
+   "app": "/Applications/Spectral Analyzer (Mantra).app",
+   "about": "Any sound passed through and measured like FLUX:: Analyzer; the voice's clips checked for clicks"
+  },
+  {
+   "key": "mackie",
+   "name": "MIDI to MK Control (a knob becomes a Mackie Control command: the playback position under a knob, which Live's own MIDI mapping will not give)",
+   "group": "Ableton Live",
+   "kind": "app",
+   "app": "~/Developer/MANTRA_CONTROLS/apps/MIDI to MK Control.app",
+   "url": "http://127.0.0.1:8855",
+   "about": "A knob on a MIDI controller becomes a Mackie Control command in Live"
+  },
+  {
+   "key": "midikeys",
+   "name": "MIDI to Key Stroke (a knob's CC or a key's note becomes a key, or the system volume)",
+   "group": "Ableton Live",
+   "kind": "app",
+   "app": "~/Developer/MANTRA_CONTROLS/apps/MIDI to Key Stroke.app",
+   "url": "http://127.0.0.1:8853",
+   "about": "A knob's CC or a key's note becomes a key stroke, or the Mac's own volume"
+  },
+  {
+   "key": "g815",
+   "name": "G815 Lights (every key of the Logitech G815 its own still colour)",
+   "group": "Keyboard and mouse",
+   "kind": "app",
+   "app": "~/Developer/G815_LIGHTS/build/G815 Lights.app",
+   "about": "Every key of the G815 its own still colour and brightness, three banks M1 M2 M3, painted at every start"
+  },
+  {
+   "key": "launcher",
+   "name": "Star Menu (alt+space, search and open)",
+   "group": "Mac",
+   "kind": "app",
+   "app": "~/Developer/STAR_LAUNCHER/Star Menu.app",
+   "about": "This box: alt+space searches the Mac's applications and the rows of this menu"
+  }
+ ]
+}
