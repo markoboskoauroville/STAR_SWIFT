@@ -14,7 +14,7 @@
    "name": "Automated Mouse Actions",
    "group": "Keyboard and mouse",
    "kind": "app",
-   "about": "Plays back mouse moves and clicks you have recorded",
+   "about": "When a pop-up appears, puts the pointer on its default button",
    "app": "/Applications/Automated Mouse Actions (Mantra).app"
   },
   {
@@ -126,8 +126,9 @@
    "key": "appledoor",
    "name": "Apple Door",
    "group": "Mac",
-   "kind": "lua",
-   "about": "Opens Apple's update servers for thirty minutes, then shuts them again"
+   "kind": "app",
+   "about": "Opens Apple's update servers for thirty minutes, then shuts them again",
+   "app": "/Applications/Apple Door (Mantra).app"
   },
   {
    "key": "a1",
