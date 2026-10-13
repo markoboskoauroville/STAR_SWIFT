@@ -157,8 +157,9 @@
    "key": "speechify",
    "name": "Speechify splash closer (closes the window Speechify opens at launch)",
    "group": "Mac",
-   "kind": "lua",
-   "about": "Closes the window Speechify opens at launch, leaving it in the menu bar"
+   "kind": "app",
+   "about": "Closes the window Speechify opens at launch, leaving it in the menu bar",
+   "app": "/Applications/Speechify Splash Closer (Mantra).app"
   },
   {
    "key": "monitor",
