@@ -63,20 +63,12 @@
    "about": "The ears and the mouth: Whisper listening, the cloned voice speaking"
   },
   {
-   "key": "display",
-   "name": "UHD HD Display (the resolution beside the star; click or shortcut switches)",
+   "key": "resolveactions",
+   "name": "DaVinci Resolve Actions",
    "group": "Resolve",
    "kind": "app",
-   "about": "Resolve's resolution as a word beside the star; a click switches HD and UHD",
-   "app": "/Applications/UHD HD Display (Mantra).app"
-  },
-  {
-   "key": "pages",
-   "name": "Pages (⌥` switches Resolve's pages like ⌘Tab; the page beside the star)",
-   "group": "Resolve",
-   "kind": "app",
-   "about": "Command-Tab for Resolve's pages: Option-backtick walks them",
-   "app": "/Applications/Resolve Pages (Mantra).app"
+   "about": "Everything for Resolve in one app: pages on ⌥`, HD/UHD, the import button, one-button actions",
+   "app": "/Applications/DaVinci Resolve Actions (Mantra).app"
   },
   {
    "key": "cloning",
@@ -101,14 +93,6 @@
    "kind": "app",
    "about": "Builds a Spotlight index for one folder alone, and searches inside it",
    "app": "/Applications/Spotlight Folder (Mantra).app"
-  },
-  {
-   "key": "importbutton",
-   "name": "Import Button (mouse button 4 in Resolve is ⌘I, Import Media)",
-   "group": "Resolve",
-   "kind": "app",
-   "about": "The thumb button pressed inside Resolve becomes Command-I, Import Media",
-   "app": "/Applications/Import Button (Mantra).app"
   },
   {
    "key": "dock",
