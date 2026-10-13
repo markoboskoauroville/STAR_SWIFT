@@ -74,8 +74,9 @@
    "key": "pages",
    "name": "Pages (⌥` switches Resolve's pages like ⌘Tab; the page beside the star)",
    "group": "Resolve",
-   "kind": "lua",
-   "about": "Command-Tab for Resolve's pages: Option-backtick walks them"
+   "kind": "app",
+   "about": "Command-Tab for Resolve's pages: Option-backtick walks them",
+   "app": "/Applications/Resolve Pages (Mantra).app"
   },
   {
    "key": "cloning",
@@ -120,9 +121,9 @@
    "key": "appstore",
    "name": "App Store",
    "group": "Mac",
-   "kind": "lua",
-   "url": "http://127.0.0.1:8839",
-   "about": "Search for an app, fetch the developer's own .dmg, install it"
+   "kind": "app",
+   "about": "Search for an app, fetch the developer's own .dmg, install it",
+   "app": "/Applications/App Store (Mantra).app"
   },
   {
    "key": "appledoor",
@@ -151,9 +152,9 @@
    "key": "installer",
    "name": "Installation Logger",
    "group": "Mac",
-   "kind": "lua",
-   "url": "http://127.0.0.1:8841",
-   "about": "Records every file an installer writes, so it can all be taken out again"
+   "kind": "app",
+   "about": "Records every file an installer writes, so it can all be taken out again",
+   "app": "/Applications/Installation Logger (Mantra).app"
   },
   {
    "key": "speechify",
@@ -167,9 +168,9 @@
    "key": "monitor",
    "name": "Star Monitor (every app: start, stop, reorder, what comes back, time run)",
    "group": "Mac",
-   "kind": "lua",
-   "url": "http://127.0.0.1:8851",
-   "about": "The page that runs the star: start, stop, reorder, and how long each app has run"
+   "kind": "app",
+   "about": "The page that runs the star: start, stop, reorder, and how long each app has run",
+   "app": "/Applications/Star Monitor (Mantra).app"
   },
   {
    "key": "claudevoice",
