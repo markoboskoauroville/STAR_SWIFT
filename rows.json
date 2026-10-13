@@ -185,19 +185,19 @@
    "key": "mackie",
    "name": "MIDI to MK Control (a knob becomes a Mackie Control command: the playback position under a knob, which Live's own MIDI mapping will not give)",
    "group": "Ableton Live",
-   "kind": "app",
-   "app": "~/Developer/MANTRA_CONTROLS/apps/MIDI to MK Control.app",
+   "kind": "lua",
    "url": "http://127.0.0.1:8855",
-   "about": "A knob on a MIDI controller becomes a Mackie Control command in Live"
+   "about": "A knob on a MIDI controller becomes a Mackie Control command in Live",
+   "window": "~/Developer/MANTRA_CONTROLS/apps/MIDI to MK Control.app"
   },
   {
    "key": "midikeys",
    "name": "MIDI to Key Stroke (a knob's CC or a key's note becomes a key, or the system volume)",
    "group": "Ableton Live",
-   "kind": "app",
-   "app": "~/Developer/MANTRA_CONTROLS/apps/MIDI to Key Stroke.app",
+   "kind": "lua",
    "url": "http://127.0.0.1:8853",
-   "about": "A knob's CC or a key's note becomes a key stroke, or the Mac's own volume"
+   "about": "A knob's CC or a key's note becomes a key stroke, or the Mac's own volume",
+   "window": "~/Developer/MANTRA_CONTROLS/apps/MIDI to Key Stroke.app"
   },
   {
    "key": "g815",
