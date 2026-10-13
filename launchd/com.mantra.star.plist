@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!-- Star (Mantra) at login. Marko, 13.10.2026: "now you can make a replacement for Luastar with Swiftstar".
+     The Swift star is the star in the menu bar; it brings back the apps that were open (star-running.json).
+     Hammerspoon still starts by its own login item, headless, for the apps not yet in Swift.
+     KeepAlive is false: if he quits it, it stays quit. -->
+<plist version="1.0">
+<dict>
+  <key>Label</key><string>com.mantra.star</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/usr/bin/open</string><string>-a</string><string>/Applications/Star (Mantra).app</string>
+  </array>
+  <key>RunAtLoad</key><true/>
+  <key>KeepAlive</key><false/>
+  <key>ProcessType</key><string>Interactive</string>
+</dict>
+</plist>

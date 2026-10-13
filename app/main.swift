@@ -8,15 +8,15 @@
 // converted. The rows are ~/.config/star-rows.json (rows.json in the repo), so converting an app changes
 // one row and no code.
 //
-// THE FILES ARE THE LUA STAR'S, AND ONE OWNER WRITES THEM. star-running.json (what comes back) and
-// star-time.json (how long each runs) keep the formats MANTRA_STAR/star.lua writes. While Hammerspoon runs,
-// the Lua star still writes them (it sees every app, the Swift ones through their wrappers); this app only
-// asks it to remember after a direct open or quit. When Hammerspoon is gone, this app writes them and
-// restores the remembered apps at its own launch. Two writers would count every minute twice.
+// THE FILES ARE SHARED, EACH STAR WRITES ITS OWN KEYS (v2, 13.10.2026: "make a replacement for Luastar with
+// Swiftstar"). This app is the only star in the menu bar and starts at login (LaunchAgent community.auroville.star).
+// star-running.json (what comes back) and star-time.json (how long each runs) keep the Lua star's formats: this app
+// writes and restores its kind-"app" rows, keeping the other keys as they are; Hammerspoon, headless now, hosts the
+// kind-"lua" rows that are not converted yet and merges only their keys (MANTRA_STAR star.lua).
 
 import AppKit
 
-let VERSION = 1
+let VERSION = 2
 let HOME = NSHomeDirectory()
 let CONF = HOME + "/.config"
 let ROWS_FILE = CONF + "/star-rows.json"
@@ -148,8 +148,10 @@ final class Star {
         }
     }
     func recorded() {
+        // v2 (13.10.2026, the Swift star is the only star): its own apps are always its to write; the Lua star merges
+        // its Lua keys into the same file and leaves these alone
+        remember(); clock()
         if hsAlive() { DispatchQueue.global().async { hs("STAR.remember()") } }
-        else { remember(); clock() }
     }
 
     // MARK: the files, when Hammerspoon is gone
@@ -189,7 +191,7 @@ final class Star {
     }
     // at launch, with Hammerspoon gone: the remembered Swift apps come back, half a second apart
     func restore() {
-        guard !hsAlive() else { return }             // the Lua star restores everything itself
+        // v2: the Swift apps are always brought back here; Hammerspoon (headless) brings back only its Lua ones
         let want = Set((readJSON(RUNNING_FILE) as? [String]) ?? [])
         let queue = rows.filter { $0.kind == "app" && want.contains($0.key) && !isOn($0) && usable($0) }
         for (i, r) in queue.enumerated() {
@@ -206,21 +208,23 @@ final class Star {
             }
             Thread.sleep(forTimeInterval: 1.5)
             DispatchQueue.main.async {
-                if hsAlive() { hs("STAR.remember()") } else { writeJSON([String](), RUNNING_FILE); self.clock() }
+                self.remember(); self.clock()
+                if hsAlive() { hs("STAR.remember()") }
                 self.refresh(); done()
             }
         }
     }
     // the desk is written down first, then everything stops; tomorrow it comes back
     func quitEverything() {
+        // v2: the desk is written first (the Swift apps here, the Lua ones by the Lua star), then everything stops
+        remember(); clock()
+        for r in rows where r.kind == "app" && r.key != "launcher" && isOn(r) { stop(r) }
         if hsAlive() {
             DispatchQueue.global().async {
-                hs("STAR.quitAll()", timeout: 30)    // the Lua star writes the desk, stops every app, quits Hammerspoon
+                hs("STAR.quitAll()", timeout: 30)    // the Lua star writes its own keys, stops its apps, quits Hammerspoon
                 DispatchQueue.main.async { NSApp.terminate(nil) }
             }
         } else {
-            remember(); clock()
-            for r in rows where r.kind == "app" && r.key != "launcher" && isOn(r) { stop(r) }
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) { NSApp.terminate(nil) }
         }
     }
@@ -301,9 +305,9 @@ final class Controller: NSObject, NSMenuDelegate {
         menu.autoenablesItems = false
         item.menu = menu
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) { self.star.restore() }
-        // once a minute, as the Lua star did, but only while it is gone
+        // once a minute, as the Lua star did: its own apps (v2: always; the Lua star counts only its Lua ones)
         let t = Timer(timeInterval: 60, repeats: true) { _ in
-            if !hsAlive() { self.star.remember(); self.star.clock() }
+            self.star.remember(); self.star.clock()
         }
         RunLoop.main.add(t, forMode: .common)
         // asked from outside, without the mouse (a test, the launcher):
