@@ -50,9 +50,9 @@
    "key": "download",
    "name": "Download Monitor",
    "group": "Mac",
-   "kind": "lua",
-   "url": "http://127.0.0.1:8833",
-   "about": "Every download on this Mac, each with its own bar"
+   "kind": "app",
+   "about": "Every download on this Mac, each with its own bar",
+   "app": "/Applications/Download Monitor (Mantra).app"
   },
   {
    "key": "voice",
@@ -74,9 +74,9 @@
    "key": "cloning",
    "name": "Voice cloning (clone, choose, test every voice)",
    "group": "Claude",
-   "kind": "lua",
-   "url": "http://127.0.0.1:8837",
-   "about": "Clone a voice, choose which one talks, and test every voice you have"
+   "kind": "app",
+   "about": "Clone a voice, choose which one talks, and test every voice you have",
+   "app": "/Applications/Voice Cloning (Mantra).app"
   },
   {
    "key": "find",
