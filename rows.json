@@ -88,17 +88,17 @@
    "key": "find",
    "name": "Find a file (the terminal's find as a page)",
    "group": "Mac",
-   "kind": "lua",
-   "url": "http://127.0.0.1:8845",
-   "about": "The terminal's find as a page: a folder, a name, the hits in four views"
+   "kind": "app",
+   "about": "The terminal's find as a page: a folder, a name, the hits in four views",
+   "app": "/Applications/Find a File (Mantra).app"
   },
   {
    "key": "spotlight",
    "name": "Spotlight (an index for one folder)",
    "group": "Mac",
-   "kind": "lua",
-   "url": "http://127.0.0.1:8847",
-   "about": "Builds a Spotlight index for one folder alone, and searches inside it"
+   "kind": "app",
+   "about": "Builds a Spotlight index for one folder alone, and searches inside it",
+   "app": "/Applications/Spotlight Folder (Mantra).app"
   },
   {
    "key": "importbutton",
