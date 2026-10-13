@@ -1,5 +1,7 @@
 # Star (Mantra)
 
+**The sign** (Marko, 13.10.2026): *"the logo is David Star or Yogic Star Shiva Shakti Balance Sri Aurobindo Ananda Marko Yoga"*. Two equal triangles interlaced, one up, one down: the six-pointed star, in soft white in the menu bar. Never a five-pointed star.
+
 **The star menu as a Swift app: a launcher, and nothing else.** Marko, 13.10.2026: *"We are quitting the Lua, no
 more Lua, only Swift ... we just use this start menu as a launcher. This launcher can also be a Swift application."*
 

@@ -16,7 +16,7 @@
 
 import AppKit
 
-let VERSION = 2
+let VERSION = 3
 let HOME = NSHomeDirectory()
 let CONF = HOME + "/.config"
 let ROWS_FILE = CONF + "/star-rows.json"
@@ -332,6 +332,9 @@ final class Controller: NSObject, NSMenuDelegate {
     }
 
     // the David star: two equilateral triangles, one up one down, soft white at 60 % (star.lua's drawing)
+    // THE SIGN (Marko, 13.10.2026): "the logo is David Star or Yogic Star Shiva Shakti Balance Sri Aurobindo Ananda
+    // Marko Yoga". Two equal triangles, one pointing up and one down, interlaced: the six-pointed star, never a
+    // five-pointed one.
     static func starImage() -> NSImage {
         let s: CGFloat = 18
         let img = NSImage(size: NSSize(width: s, height: s), flipped: false) { _ in
@@ -355,7 +358,8 @@ final class Controller: NSObject, NSMenuDelegate {
         m.removeAllItems()
         add(m, "⌕   Launcher  (search · favourites · ⌥Space)") { self.openPath(HOME + "/Developer/STAR_LAUNCHER/Star Menu.app") }
         if let mon = star.rows.first(where: { $0.key == "monitor" }) {
-            let it = add(m, "✡   Star Monitor") { DispatchQueue.global().async { hs("STAR.openPageKey('monitor')") } }
+            // v3: Star Monitor is a Swift app (13.10.2026), opened like any app row
+            let it = add(m, "✡   Star Monitor") { self.openPath(mon.app ?? "/Applications/Star Monitor (Mantra).app") }
             it.isEnabled = star.usable(mon)
         }
         m.addItem(.separator())
