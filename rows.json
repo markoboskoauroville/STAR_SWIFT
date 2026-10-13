@@ -104,8 +104,9 @@
    "key": "importbutton",
    "name": "Import Button (mouse button 4 in Resolve is ⌘I, Import Media)",
    "group": "Resolve",
-   "kind": "lua",
-   "about": "The thumb button pressed inside Resolve becomes Command-I, Import Media"
+   "kind": "app",
+   "about": "The thumb button pressed inside Resolve becomes Command-I, Import Media",
+   "app": "/Applications/Import Button (Mantra).app"
   },
   {
    "key": "dock",
