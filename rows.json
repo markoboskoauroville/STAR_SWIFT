@@ -120,6 +120,14 @@
    "app": "/Applications/Apple Door (Mantra).app"
   },
   {
+   "key": "liveactions",
+   "name": "Ableton Live Actions",
+   "group": "Ableton Live",
+   "kind": "app",
+   "about": "Everything for Live in one app: A1, MIDI to MK Control, MIDI to Key Stroke",
+   "app": "/Applications/Ableton Live Actions (Mantra).app"
+  },
+  {
    "key": "a1",
    "name": "Ableton Assistant A1 (Space continues; 1 and 2 zoom; h splits; 7, 8 and 9 are the markers (back, set or delete, on); the arrows walk the transients and ⌘ with them walks the tracks; I and O jump to the next transient and mark the loop's in and out on its waveform's zero, L turns the loop on; the markers on the page, two ticked are the loop; the last set opens where you stopped; the time blob is the clock of the insert point; every override has its tick on the page)",
    "group": "Ableton Live",
