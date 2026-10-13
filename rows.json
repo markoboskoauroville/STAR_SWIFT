@@ -21,8 +21,9 @@
    "key": "enter",
    "name": "Enter sends in Claude",
    "group": "Claude",
-   "kind": "lua",
-   "about": "A plain Return sends the message in a claude.ai tab; Shift+Return makes a new line"
+   "kind": "app",
+   "about": "A plain Return sends the message in a claude.ai tab; Shift+Return makes a new line",
+   "app": "/Applications/Claude Enter (Mantra).app"
   },
   {
    "key": "buckets",
@@ -130,8 +131,9 @@
    "key": "keys",
    "name": "Key Ring Tester (every key in ~/Downloads/API, one real call each)",
    "group": "Mac",
-   "kind": "lua",
-   "about": "Tests every key in ~/Downloads/API with one real call each"
+   "kind": "app",
+   "about": "Tests every key in ~/Downloads/API with one real call each",
+   "app": "/Applications/Key Ring Tester (Mantra).app"
   },
   {
    "key": "installer",
