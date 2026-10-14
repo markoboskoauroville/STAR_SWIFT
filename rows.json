@@ -5,6 +5,7 @@
   "Resolve",
   "Ableton Live",
   "Audio Tools",
+  "DJing",
   "Keyboard and mouse",
   "Mac"
  ],
@@ -232,6 +233,14 @@
    "kind": "app",
    "app": "~/Developer/STAR_LAUNCHER/Star Menu.app",
    "about": "This box: alt+space searches the Mac's applications and the rows of this menu"
+  },
+  {
+   "key": "djtransfer",
+   "name": "DJ Transfer Monitor (Mantra) (what is copying to the phone: from which Mac folder into which phone folder, how fast)",
+   "group": "DJing",
+   "kind": "app",
+   "about": "Live view of djay-sync / adb push: playlist, file, FROM -> TO, file and total bars, MB/s, ETA, files done and skipped",
+   "app": "/Applications/DJ Transfer Monitor (Mantra).app"
   }
  ]
 }
