@@ -146,11 +146,11 @@
   },
   {
    "key": "keys",
-   "name": "Key Ring Tester (every key in ~/Downloads/API, one real call each)",
+   "name": "KeyringTester (open any file of keys, or every file in ~/Downloads/API; Google keys API by API)",
    "group": "Mac",
    "kind": "app",
-   "about": "Tests every key in ~/Downloads/API with one real call each",
-   "app": "/Applications/Key Ring Tester (Mantra).app"
+   "about": "Opens any file of keys and tests each with the cheapest read call; Google keys API by API",
+   "app": "/Applications/KeyringTester (Mantra).app"
   },
   {
    "key": "installer",
