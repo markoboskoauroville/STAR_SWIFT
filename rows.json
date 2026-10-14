@@ -6,6 +6,7 @@
   "Ableton Live",
   "Audio Tools",
   "DJing",
+  "Percussions",
   "Keyboard and mouse",
   "Mac"
  ],
@@ -257,6 +258,14 @@
    "kind": "app",
    "about": "Reads the newest 3 Desktop screenshots on the Mac (Vision), artist / title rows, finds each on TIDAL with a confidence, CREATE PLAYLIST on his account",
    "app": "/Applications/Screenshot to TIDAL (Mantra).app"
+  },
+  {
+   "key": "yshai",
+   "name": "Yshai Afterman Percussion School (Mantra) (DOWNLOAD LATEST LESSON from the portal into ~/Movies/Yhshai AfterMan)",
+   "group": "Percussions",
+   "kind": "app",
+   "about": "One button: Firefox opens the lesson portal, the newest lesson is compared with LESSON<N>, only what is missing comes down (videos through Video DownloadHelper's ffmpeg, Notation PDFs) in the LESSON6 layout",
+   "app": "/Applications/Yshai Afterman Percussion School (Mantra).app"
   }
  ]
 }
