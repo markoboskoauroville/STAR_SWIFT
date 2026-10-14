@@ -10,6 +10,14 @@
  ],
  "rows": [
   {
+   "key": "matrix",
+   "name": "Swift Matrix (Mantra) (what runs now and what starts with the Mac: quit it, or switch its auto-start)",
+   "group": "Mac",
+   "kind": "app",
+   "app": "/Applications/Swift Matrix (Mantra).app",
+   "about": "A simple task manager: every app running and everything that starts at login, each with QUIT and AUTO-START"
+  },
+  {
    "key": "mouse",
    "name": "Automated Mouse Actions",
    "group": "Keyboard and mouse",

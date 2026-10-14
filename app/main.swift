@@ -16,7 +16,7 @@
 
 import AppKit
 
-let VERSION = 3
+let VERSION = 4
 let HOME = NSHomeDirectory()
 let CONF = HOME + "/.config"
 let ROWS_FILE = CONF + "/star-rows.json"
@@ -24,6 +24,9 @@ let ORDER_FILE = CONF + "/star-order.json"
 let RUNNING_FILE = CONF + "/star-running.json"
 let TIME_FILE = CONF + "/star-time.json"
 let GROUPS_FILE = CONF + "/star-groups.json"
+// v4 (14.10.2026): what Swift Matrix (Mantra) decides for the next login: ALWAYS starts whatever was open, NEVER stays away
+let AUTOSTART_FILE = CONF + "/star-autostart.json"
+let MATRIX_APP = "/Applications/Swift Matrix (Mantra).app"
 let HS = "/opt/homebrew/bin/hs"
 let HS_BUNDLE = "org.hammerspoon.Hammerspoon"
 let REPO_URL = "https://github.com/markoboskoauroville/STAR_SWIFT"
@@ -129,6 +132,7 @@ final class Star {
         }
     }
     func stop(_ r: Row) {
+        pending.remove(r.key)                     // a real close: it is not wanted back
         let apps = running(r)
         apps.forEach { $0.terminate() }
         DispatchQueue.main.asyncAfter(deadline: .now() + 4) { apps.filter { !$0.isTerminated }.forEach { $0.forceTerminate() } }
@@ -157,13 +161,36 @@ final class Star {
     // MARK: the files, when Hammerspoon is gone
 
     // what is open stays open: the keys that are on; a Lua app's wish is kept while Hammerspoon cannot run it
+    //
+    // v4 (14.10.2026, Marko: "the housekeeping when the computer starts is not working"): three ways this lost an app,
+    // each closed here.
+    //  1. A key this star did not know (a row added to star-rows.json while it ran: Ableton Live Actions on 13.10) was
+    //     dropped. Now the rows are read fresh, and a key that is not a row is kept as it is.
+    //  2. An app restored at login but not up yet (or that failed to open) was written off at the first minute. Now it
+    //     stays wanted (pending) until it is seen running or he closes it (the Lua star's "stuck").
+    //  3. At log out, restart or shut down macOS quits the apps before this star; the minute's tick then wrote them all
+    //     off. Now nothing is written once the Mac says it is powering off.
+    var pending = Set<String>()
+    var poweringOff = false
     func remember() {
-        let before = Set((readJSON(RUNNING_FILE) as? [String]) ?? [])
+        if poweringOff { return }
+        load()
+        let before = (readJSON(RUNNING_FILE) as? [String]) ?? []
+        let known = Set(rows.map { $0.key })
         var on: [String] = []
         for r in rows {
-            if r.kind == "app" ? isOn(r) : before.contains(r.key) { on.append(r.key) }
+            if r.kind == "app" {
+                if isOn(r) { pending.remove(r.key); on.append(r.key) } else if pending.contains(r.key) { on.append(r.key) }
+            } else if before.contains(r.key) { on.append(r.key) }
         }
+        for k in before where !known.contains(k) && !on.contains(k) { on.append(k) }
         writeJSON(on, RUNNING_FILE)
+    }
+    // Swift Matrix's word on the next login: (what was open + ALWAYS) - NEVER
+    func wanted() -> Set<String> {
+        let a = (readJSON(AUTOSTART_FILE) as? [String: Any]) ?? [:]
+        let always = Set((a["always"] as? [String]) ?? []), never = Set((a["never"] as? [String]) ?? [])
+        return Set((readJSON(RUNNING_FILE) as? [String]) ?? []).union(always).subtracting(never)
     }
     // the time an app runs, the Lua star's ledger: { key: { days: { "YYYY-MM-DD": s }, starts, last_start, last_stop } }
     var lastLook = Date().timeIntervalSince1970
@@ -190,14 +217,41 @@ final class Star {
         writeJSON(L, TIME_FILE)
     }
     // at launch, with Hammerspoon gone: the remembered Swift apps come back, half a second apart
+    // v4: SILENT. Marko, 14.10.2026: "random apps are opening every time I'm starting my computer and I need to manually
+    // click on each window and close it ... It should listen and behave and be silent." An app brought back here opens
+    // hidden and does not take the front: its engine runs, its window waits until he opens it from the star or the Dock.
     func restore() {
-        // v2: the Swift apps are always brought back here; Hammerspoon (headless) brings back only its Lua ones
-        let want = Set((readJSON(RUNNING_FILE) as? [String]) ?? [])
+        load()
+        let want = wanted()
         let queue = rows.filter { $0.kind == "app" && want.contains($0.key) && !isOn($0) && usable($0) }
+        pending = Set(queue.map { $0.key })
         for (i, r) in queue.enumerated() {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5 * Double(i)) { self.start(r) }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5 * Double(i)) { self.startSilently(r) }
         }
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5 * Double(queue.count) + 2) { self.clock() }
+        // the Lua rows Swift Matrix switched ALWAYS or NEVER, once Hammerspoon's own restore has run
+        let a = (readJSON(AUTOSTART_FILE) as? [String: Any]) ?? [:]
+        let always = Set((a["always"] as? [String]) ?? []), never = Set((a["never"] as? [String]) ?? [])
+        let lua = rows.filter { $0.kind == "lua" && (always.contains($0.key) || never.contains($0.key)) }
+        if !lua.isEmpty {
+            DispatchQueue.global().asyncAfter(deadline: .now() + 20) {
+                guard let s = hsStates() else { return }
+                for r in lua {
+                    let on = s[r.key] ?? false
+                    if never.contains(r.key) && on { hs("STAR.command('\(r.key)','stop')", timeout: 20) }
+                    else if always.contains(r.key) && !on { hs("STAR.command('\(r.key)','start')", timeout: 20) }
+                }
+            }
+        }
+    }
+    func startSilently(_ r: Row) {
+        guard let p = r.path else { return }
+        let c = NSWorkspace.OpenConfiguration()
+        c.activates = false; c.hides = true; c.addsToRecentItems = false
+        c.arguments = ["--login"]
+        NSWorkspace.shared.openApplication(at: URL(fileURLWithPath: p), configuration: c) { _, err in
+            if let err = err { NSLog("star: %@ did not come back: %@", r.key, err.localizedDescription) }
+        }
     }
     func allOff(done: @escaping () -> Void) {
         let on = rows.filter { isOn($0) }
@@ -218,6 +272,7 @@ final class Star {
     func quitEverything() {
         // v2: the desk is written first (the Swift apps here, the Lua ones by the Lua star), then everything stops
         remember(); clock()
+        poweringOff = true                         // v4: the desk is written; the apps quitting now must not change it
         for r in rows where r.kind == "app" && r.key != "launcher" && isOn(r) { stop(r) }
         if hsAlive() {
             DispatchQueue.global().async {
@@ -305,6 +360,10 @@ final class Controller: NSObject, NSMenuDelegate {
         menu.autoenablesItems = false
         item.menu = menu
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) { self.star.restore() }
+        // v4: from the moment the Mac logs out, restarts or shuts down, nothing is written (macOS quits the apps first)
+        NSWorkspace.shared.notificationCenter.addObserver(forName: NSWorkspace.willPowerOffNotification, object: nil, queue: .main) { _ in
+            self.star.poweringOff = true
+        }
         // once a minute, as the Lua star did: its own apps (v2: always; the Lua star counts only its Lua ones)
         let t = Timer(timeInterval: 60, repeats: true) { _ in
             self.star.remember(); self.star.clock()
@@ -356,6 +415,9 @@ final class Controller: NSObject, NSMenuDelegate {
         star.load()
         star.refresh()
         m.removeAllItems()
+        // v4: the first row, Swift Matrix (Marko, 14.10.2026: "one more Swift in the star menu, which will be the first one")
+        add(m, "▦   Swift Matrix  (what runs, what starts with the Mac)") { self.openPath(MATRIX_APP) }
+            .isEnabled = FileManager.default.fileExists(atPath: MATRIX_APP)
         add(m, "⌕   Launcher  (search · favourites · ⌥Space)") { self.openPath(HOME + "/Developer/STAR_LAUNCHER/Star Menu.app") }
         if let mon = star.rows.first(where: { $0.key == "monitor" }) {
             // v3: Star Monitor is a Swift app (13.10.2026), opened like any app row
@@ -364,7 +426,7 @@ final class Controller: NSObject, NSMenuDelegate {
         }
         m.addItem(.separator())
 
-        let apps = star.rows.filter { $0.key != "monitor" }
+        let apps = star.rows.filter { $0.key != "monitor" && $0.key != "matrix" }
         let numbered = apps.enumerated().map { ($0 + 1, $1) }
         if star.foldersOn {
             var order = star.folders

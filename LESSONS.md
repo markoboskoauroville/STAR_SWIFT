@@ -11,3 +11,10 @@
    mouseUp and redraws its tick; the Lua star had to reopen the whole menu after each tick.
 5. **One writer for star-running.json and star-time.json.** While the Lua star runs, it already counts every
    app (the Swift ones through their wrappers); a second writer would count each minute twice.
+
+- (14.10.2026) **The memory file lost apps three ways**: a key not among the rows the process had loaded was dropped
+  (a row added while it ran); an app being restored was written off at the first minute; at log out the apps quit
+  before the star and were written off. v4: read rows fresh, keep unknown keys, keep pending, freeze on
+  `NSWorkspace.willPowerOffNotification`.
+- (14.10.2026) **Bring apps back hidden**: `OpenConfiguration.activates = false, hides = true`. A SwiftUI WindowGroup
+  app otherwise opens its window at every login.

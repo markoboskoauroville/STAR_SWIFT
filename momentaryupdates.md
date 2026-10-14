@@ -7,8 +7,21 @@
 ("Specify" = Speechify.)
 
 1. Startup housekeeping: everything the Lua star did at login (Speechify killed, splash windows closed, the other
-   jobs) done again, now from Swift, silently. — **Status:** started
-2. Find why random apps open at login (login items, LaunchAgents, reopen-windows) and list them. — **Status:** started
+   jobs) done again, now from Swift, silently. — **Status:** done 14.10.2026, Star v4 (see below)
+2. Find why random apps open at login (login items, LaunchAgents, reopen-windows) and list them. — **Status:** listed 14.10.2026 (below); nothing removed, the Swift Matrix is his switch
 3. **Swift Matrix (Mantra)**, the first row of the star: a simple task manager of every app running now and everything
    that starts with the Mac; from it, close any of them or switch its auto-start; mark what comes from the star.
-   Silent: it opens only when chosen. Own repo SWIFT_MATRIX. — **Status:** started
+   Silent: it opens only when chosen. Own repo SWIFT_MATRIX. — **Status:** built, v2, the star's first row
+
+### What was found (14.10.2026)
+
+- The Lua star did one thing at login: bring back what was open (star-running.json); the Speechify splash closer and
+  A1 were among them, so Speechify's Home window was closed at every start. In the move to Swift two keys fell out of
+  the file: `speechify` (the Swift closer was not running when the Swift star first wrote the file) and `liveactions`
+  (added to the rows while the old star process ran; it dropped keys it did not know). So at login 14.10 nothing closed
+  Speechify's window and Ableton Live Actions (A1) did not come back. Both put back.
+- The Swift star opened the apps it brought back in front, each with its window (Automated Mouse Actions, Dock
+  Switcher, Claude to Marko Voice): the "windows I click to close".
+- Star v4: restore opens hidden and in the background (`--login`); keys it does not know are kept; an app being
+  restored stays wanted until seen or closed; nothing is written once the Mac powers off (macOS quits the apps first);
+  `~/.config/star-autostart.json` (ALWAYS / NEVER, from Swift Matrix) on top of what was open; Swift Matrix the first row.
