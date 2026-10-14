@@ -261,10 +261,10 @@
   },
   {
    "key": "yshai",
-   "name": "Yshai Afterman Percussion School (Mantra) (DOWNLOAD LATEST LESSON from the portal into ~/Movies/Yhshai AfterMan)",
+   "name": "Yshai Afterman Percussion School (Mantra) (which lessons are missing; DOWNLOAD MISSING into ~/Movies/Yhshai AfterMan)",
    "group": "Percussions",
    "kind": "app",
-   "about": "One button: Firefox opens the lesson portal, the newest lesson is compared with LESSON<N>, only what is missing comes down (videos through Video DownloadHelper's ffmpeg, Notation PDFs) in the LESSON6 layout",
+   "about": "Checks every lesson of the course against LESSON<N>: Complete / Missing / partial, DOWNLOAD MISSING or per lesson, never the same file twice (videos by duration); videos through Video DownloadHelper's ffmpeg, Notation PDFs",
    "app": "/Applications/Yshai Afterman Percussion School (Mantra).app"
   }
  ]
