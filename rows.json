@@ -235,6 +235,14 @@
    "about": "This box: alt+space searches the Mac's applications and the rows of this menu"
   },
   {
+   "key": "djaysync",
+   "name": "djay Sync (Mantra) (djay Pro's playlists <-> DJ Mantra on the phone, over adb)",
+   "group": "DJing",
+   "kind": "app",
+   "about": "Both sides in one window, each playlist SAME / NEW / CHANGED; SYNC Mac -> phone, PULL phone -> djay; can sync by itself when the phone appears",
+   "app": "/Applications/djay Sync (Mantra).app"
+  },
+  {
    "key": "djtransfer",
    "name": "DJ Transfer Monitor (Mantra) (what is copying to the phone: from which Mac folder into which phone folder, how fast)",
    "group": "DJing",
