@@ -249,6 +249,14 @@
    "kind": "app",
    "about": "Live view of djay-sync / adb push: playlist, file, FROM -> TO, file and total bars, MB/s, ETA, files done and skipped",
    "app": "/Applications/DJ Transfer Monitor (Mantra).app"
+  },
+  {
+   "key": "screenshot2tidal",
+   "name": "Screenshot to TIDAL (Mantra) (screenshots of a chart or tracklist -> a playlist on your TIDAL)",
+   "group": "DJing",
+   "kind": "app",
+   "about": "Reads the newest 3 Desktop screenshots on the Mac (Vision), artist / title rows, finds each on TIDAL with a confidence, CREATE PLAYLIST on his account",
+   "app": "/Applications/Screenshot to TIDAL (Mantra).app"
   }
  ]
 }
