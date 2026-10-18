@@ -18,3 +18,13 @@
   `NSWorkspace.willPowerOffNotification`.
 - (14.10.2026) **Bring apps back hidden**: `OpenConfiguration.activates = false, hides = true`. A SwiftUI WindowGroup
   app otherwise opens its window at every login.
+- (18.10.2026) **`hides = true` is not enough: the app must also keep its own hands off the window.** Marko's
+  screenshot after login still showed Dock Switcher, Automated Mouse Actions and Claude to Marko Voice open: each
+  called `makeKeyAndOrderFront` + `NSApp.activate` in `applicationDidFinishLaunching`, which beats the star's hidden
+  launch. Every app the star brings back must read `--login` and skip its window (and any Accessibility dialog).
+  Fixed in Automated Mouse Actions v6, Dock Switcher v2, Claude to Marko Voice v9; proven with CGWindowList: 0
+  windows after `open -g -j ... --args --login`, 1 window after a plain open.
+- (18.10.2026) **Hammerspoon asleep.** Its Lua star had brought back the sister row at login, which started MANTRA
+  CHAT (chatd.py, :8825) by itself. Hammerspoon is out of the login items; the Lua rows (Buckets, Sister, Macro,
+  Voices, A1, MIDI to MK Control, MIDI to Key Stroke) stay grey "(Hammerspoon is off)" and the star's row
+  "Hammerspoon is off: the Lua apps wait for it" wakes it when one is wanted.

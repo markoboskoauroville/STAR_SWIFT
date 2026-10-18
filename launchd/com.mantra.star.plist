@@ -2,7 +2,7 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <!-- Star (Mantra) at login. Marko, 13.10.2026: "now you can make a replacement for Luastar with Swiftstar".
      The Swift star is the star in the menu bar; it brings back the apps that were open (star-running.json).
-     Hammerspoon still starts by its own login item, headless, for the apps not yet in Swift.
+     Hammerspoon no longer starts at login (18.10.2026: asleep); the star wakes it when a Lua row is wanted.
      KeepAlive is false: if he quits it, it stays quit. -->
 <plist version="1.0">
 <dict>
