@@ -25,3 +25,7 @@
 - Star v4: restore opens hidden and in the background (`--login`); keys it does not know are kept; an app being
   restored stays wanted until seen or closed; nothing is written once the Mac powers off (macOS quits the apps first);
   `~/.config/star-autostart.json` (ALWAYS / NEVER, from Swift Matrix) on top of what was open; Swift Matrix the first row.
+
+## 18.10.2026, 08:40
+
+Marko: "please check the latest screenshot. This is my desktop. Still something is opening automatically, so basically please compare the star menu of Hammerspoon, the star menu of Swift, and if everything works in both, stop running Hammerspoon. Please automatically put it to sleep"
