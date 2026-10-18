@@ -194,6 +194,14 @@
    "about": "One switch: the voice engine on or off, and its three parts"
   },
   {
+   "key": "transcribe",
+   "name": "Marko Transcribe (Mantra) (talk, and it types: Speechify, Whisper, Groq, Haiku)",
+   "group": "Claude",
+   "kind": "app",
+   "about": "F2: talk, F2 again: what you said is cleaned in your style and typed where the cursor is; the engines on the stripe",
+   "app": "/Applications/Marko Transcribe (Mantra).app"
+  },
+  {
    "key": "spectral",
    "name": "Spectral Analyzer (Mantra) (the sound seen: FLUX's meters, clicks found)",
    "group": "Audio Tools",
