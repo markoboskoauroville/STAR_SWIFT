@@ -34,5 +34,6 @@ Marko: "please check the latest screenshot. This is my desktop. Still something 
 > please fix the behavior of the Swiftstar menu. When I select any of the apps, the user interface opens up. In the top of every user interface, there will now be an on/off switch. Should I activate or deactivate this engine, but the settings are opening up. If I say on, I close it's on very easily. We don't want any more this behavior. When I just switch the check mark, and that's how I activate it. This is gone. Let's work like this. This is the workflow now
 
 Status: the star, v5 19.10.2026: a click on a Swift row opens the app (running: its window comes back) and closes the
-menu; it never quits. Restarted (pid 728 → 11634). Next: ON / OFF at the top of every Swift app's window, in each
-app's own repository; the Lua rows still toggle.
+menu; it never quits. Restarted (pid 728 → 11634). Then, the same day, ON / OFF and ✕ at the top of all 25 other
+Swift apps' windows, each in its own repository (versions in the hub's HANDOVER, 19.10.2026); the Lua rows still toggle.
+Marko to try OFF and ✕.
