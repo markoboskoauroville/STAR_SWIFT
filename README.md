@@ -7,8 +7,9 @@ more Lua, only Swift ... we just use this start menu as a launcher. This launche
 
 `/Applications/Star (Mantra).app`, a David star in the menu bar (soft white, two equilateral triangles, as the Lua
 star drew it). Under it, every app of the Mac's star, one row each, numbered in his order, in the same folders.
-**A click opens or closes the app and the menu stays open**, so he can switch several in a row; the tick is the
-app's real running state.
+**v5 (19.10.2026): a click opens the app's window and closes the menu; it never quits the app.** Running, the
+click brings its window back. ON / OFF is the first row of every app's own window (OFF quits it); the tick only shows
+what runs. The Lua rows (Hammerspoon) still toggle on a click.
 
 ## How it works
 

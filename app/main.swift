@@ -16,7 +16,7 @@
 
 import AppKit
 
-let VERSION = 4
+let VERSION = 5
 let HOME = NSHomeDirectory()
 let CONF = HOME + "/.config"
 let ROWS_FILE = CONF + "/star-rows.json"
@@ -138,7 +138,16 @@ final class Star {
         DispatchQueue.main.asyncAfter(deadline: .now() + 4) { apps.filter { !$0.isTerminated }.forEach { $0.forceTerminate() } }
     }
 
-    // a click: open or close, then the right owner writes it down
+    // v5 (19.10.2026). Marko: "When I select any of the apps, the user interface opens up. In the top of every user
+    // interface, there will now be an on/off switch ... When I just switch the check mark, and that's how I activate
+    // it. This is gone." A click on a Swift row opens the app, or, running, brings its window (the reopen); it never
+    // quits it. OFF is the switch at the top of the app's own window. The tick only shows what runs.
+    func open(_ r: Row) {
+        start(r)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) { self.recorded() }
+    }
+
+    // a click: open or close, then the right owner writes it down (v5: only the Lua rows and `ask toggle` still toggle)
     func toggle(_ r: Row, done: @escaping () -> Void) {
         if r.kind == "app" {
             isOn(r) ? stop(r) : start(r)
@@ -319,6 +328,7 @@ final class RowView: NSView {
     override func mouseExited(with e: NSEvent) { hover = false; needsDisplay = true }
     override func mouseUp(with e: NSEvent) {
         guard let star = star, !busy, star.usable(row) else { NSSound.beep(); return }
+        if row.kind == "app" { enclosingMenuItem?.menu?.supermenu?.cancelTracking(); enclosingMenuItem?.menu?.cancelTracking(); star.open(row); return }
         busy = true; needsDisplay = true
         star.toggle(row) { [weak self] in self?.busy = false; self?.needsDisplay = true }
     }
@@ -355,7 +365,7 @@ final class Controller: NSObject, NSMenuDelegate {
     func setup() {
         star.load()
         item.button?.image = Controller.starImage()
-        item.button?.toolTip = "Star (Mantra) v\(VERSION): every app, a click opens or closes it"
+        item.button?.toolTip = "Star (Mantra) v\(VERSION): every app, a click opens its window; ON / OFF is at the top of the window"
         menu.delegate = self
         menu.autoenablesItems = false
         item.menu = menu
