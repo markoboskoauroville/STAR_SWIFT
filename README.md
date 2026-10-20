@@ -41,3 +41,8 @@ what runs. The Lua rows (Hammerspoon) still toggle on a click.
 
 Distributed notifications `community.auroville.star.open|close|toggle` (object: the key). A toggle goes through
 the same code as a click. The menu opens on the display whose menu bar holds the star (here: the MacBook's own).
+
+## Hammerspoon to Swift
+
+The plan for the last Lua rows and for retiring Hammerspoon: [HAMMERSPOON_TO_SWIFT.md](HAMMERSPOON_TO_SWIFT.md)
+(20.10.2026). Each step starts only at Marko's word.

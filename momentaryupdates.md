@@ -56,4 +56,4 @@ is left, Hammerspoon is retired. — **Status:** 2 of 7 done 20.10.2026:
 > please lay out the whole plan for transferring to Swift in the MDS and don't do it now. I will trigger you where to do it. That's it
 
 The plan goes in STAR_SWIFT/HAMMERSPOON_TO_SWIFT.md, one section per app, each one started only when Marko says so.
-— **Status:** in progress
+— **Status:** written 20.10.2026. Nothing converted beyond Voices and Sister; each step waits for his word.
