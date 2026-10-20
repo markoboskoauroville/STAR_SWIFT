@@ -44,11 +44,12 @@
   },
   {
    "key": "sister",
-   "name": "Sister app (MANTRA CHAT)",
+   "name": "Sister App (Mantra) (MANTRA CHAT on and off, and its page)",
    "group": "Claude",
-   "kind": "lua",
+   "kind": "app",
    "url": "http://127.0.0.1:8825",
-   "about": "MANTRA CHAT: the page that mirrors this session and reads it aloud"
+   "about": "MANTRA CHAT: the page that mirrors this session and reads it aloud",
+   "app": "/Applications/Sister App (Mantra).app"
   },
   {
    "key": "macro",
@@ -64,14 +65,6 @@
    "kind": "app",
    "about": "Every download on this Mac, each with its own bar",
    "app": "/Applications/Download Monitor (Mantra).app"
-  },
-  {
-   "key": "voice",
-   "name": "Voices (how the computer talks)",
-   "group": "Claude",
-   "kind": "lua",
-   "url": "http://127.0.0.1:8837",
-   "about": "The ears and the mouth: Whisper listening, the cloned voice speaking"
   },
   {
    "key": "resolveactions",
