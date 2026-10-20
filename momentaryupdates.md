@@ -57,3 +57,6 @@ is left, Hammerspoon is retired. — **Status:** 2 of 7 done 20.10.2026:
 
 The plan goes in STAR_SWIFT/HAMMERSPOON_TO_SWIFT.md, one section per app, each one started only when Marko says so.
 — **Status:** written 20.10.2026. Nothing converted beyond Voices and Sister; each step waits for his word.
+
+## 20.10.2026: the Elevate Media folder
+Marko, through the Elevate Media V3 cloud session: "add a NEW ENTRY in his start menu ... called "Elevate Media". Inside it go the apps for working with Elevate Media; the first one is "Elevate Media Monitor"". Done: folder "Elevate Media" after Resolve in rows.json, row emmonitor.
