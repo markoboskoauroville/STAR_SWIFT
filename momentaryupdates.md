@@ -37,3 +37,11 @@ Status: the star, v5 19.10.2026: a click on a Swift row opens the app (running: 
 menu; it never quits. Restarted (pid 728 → 11634). Then, the same day, ON / OFF and ✕ at the top of all 25 other
 Swift apps' windows, each in its own repository (versions in the hub's HANDOVER, 19.10.2026); the Lua rows still toggle.
 Marko to try OFF and ✕.
+
+## 20.10.2026: the seven Lua rows become Swift apps; Hammerspoon retired
+
+> (asked: the seven star rows that still need Hammerspoon — take them out of the star, or convert them to Swift?) convert them to Swift. In the meantime, I'm going to check the font
+
+Buckets, Sister app (MANTRA CHAT), Macro Recorder, Voices, Ableton Assistant A1, MIDI to MK Control, MIDI to Key
+Stroke: each a Swift app "(Mantra)" with its own repo, icon, ON / OFF row and ✕; its star row kind "app". When none
+is left, Hammerspoon is retired. — **Status:** started 20.10.2026
