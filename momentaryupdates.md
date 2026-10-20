@@ -44,4 +44,9 @@ Marko to try OFF and ✕.
 
 Buckets, Sister app (MANTRA CHAT), Macro Recorder, Voices, Ableton Assistant A1, MIDI to MK Control, MIDI to Key
 Stroke: each a Swift app "(Mantra)" with its own repo, icon, ON / OFF row and ✕; its star row kind "app". When none
-is left, Hammerspoon is retired. — **Status:** started 20.10.2026
+is left, Hammerspoon is retired. — **Status:** 2 of 7 done 20.10.2026:
+   - Voices: retired; Voice of Claude (Mantra) v5 switches the same engine and now has THE PAGE link.
+   - Sister app: Sister App (Mantra) v1 (repo SISTER_APP), row kind "app".
+   - Left, by size of the Lua engine: MIDI to Key Stroke (~2,000 lines, a Swift window already in MANTRA_CONTROLS),
+     MIDI to MK Control (~2,500, same), Ableton Assistant A1 (~4,600 + Python), Macro Recorder (~4,900), Buckets
+     (~330 KB in BRAIN_BRAKE_KEYBOARD; its boot file is not on this Mac, so the row cannot start today).
