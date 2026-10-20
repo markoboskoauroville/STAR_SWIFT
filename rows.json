@@ -274,6 +274,14 @@
    "kind": "app",
    "about": "Checks every lesson of the course against LESSON<N>: Complete / Missing / partial, DOWNLOAD MISSING or per lesson, never the same file twice (videos by duration); videos through Video DownloadHelper's ffmpeg, Notation PDFs",
    "app": "/Applications/Yshai Afterman Percussion School (Mantra).app"
+  },
+  {
+   "key": "timer",
+   "name": "Timer Stopwatch Clock (S stopwatch, T timer, R the time of day; enormous digits)",
+   "group": "Mac",
+   "kind": "app",
+   "app": "/Applications/Timer Stopwatch Clock (Mantra).app",
+   "about": "A stopwatch, a timer and a clock in one black window, read across a room"
   }
  ]
 }
