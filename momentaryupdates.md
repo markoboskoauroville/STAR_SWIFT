@@ -50,3 +50,10 @@ is left, Hammerspoon is retired. — **Status:** 2 of 7 done 20.10.2026:
    - Left, by size of the Lua engine: MIDI to Key Stroke (~2,000 lines, a Swift window already in MANTRA_CONTROLS),
      MIDI to MK Control (~2,500, same), Ableton Assistant A1 (~4,600 + Python), Macro Recorder (~4,900), Buckets
      (~330 KB in BRAIN_BRAKE_KEYBOARD; its boot file is not on this Mac, so the row cannot start today).
+
+## 20.10.2026: the plan in Markdown, no conversion now
+
+> please lay out the whole plan for transferring to Swift in the MDS and don't do it now. I will trigger you where to do it. That's it
+
+The plan goes in STAR_SWIFT/HAMMERSPOON_TO_SWIFT.md, one section per app, each one started only when Marko says so.
+— **Status:** in progress
