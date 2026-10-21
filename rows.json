@@ -124,6 +124,14 @@
    "app": "/Applications/Apple Door (Mantra).app"
   },
   {
+   "key": "freedom",
+   "name": "Freedom",
+   "group": "Mac",
+   "kind": "app",
+   "about": "Every Apple service and server, step by step: check, free, undo",
+   "app": "/Applications/Freedom (Mantra).app"
+  },
+  {
    "key": "liveactions",
    "name": "Ableton Live Actions",
    "group": "Ableton Live",

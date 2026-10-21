@@ -60,3 +60,7 @@ The plan goes in STAR_SWIFT/HAMMERSPOON_TO_SWIFT.md, one section per app, each o
 
 ## 20.10.2026: the Elevate Media folder
 Marko, through the Elevate Media V3 cloud session: "add a NEW ENTRY in his start menu ... called "Elevate Media". Inside it go the apps for working with Elevate Media; the first one is "Elevate Media Monitor"". Done: folder "Elevate Media" after Resolve in rows.json, row emmonitor.
+
+## 21.10.2026: Freedom under Mac
+
+Marko, 21.10.2026: *"Add it to the start menu under Mac"* (Freedom (Mantra), FREE_MAC).
