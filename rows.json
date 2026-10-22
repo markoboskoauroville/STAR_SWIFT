@@ -165,11 +165,11 @@
   },
   {
    "key": "speechify",
-   "name": "Speechify splash closer (closes the window Speechify opens at launch)",
+   "name": "Automatic Closer (closes Speechify's Home window and the Login Item Added banner)",
    "group": "Mac",
    "kind": "app",
-   "about": "Closes the window Speechify opens at launch, leaving it in the menu bar",
-   "app": "/Applications/Speechify Splash Closer (Mantra).app"
+   "about": "Closes what comes up by itself: Speechify's Home window at launch, the Login Item Added banner after 3 s",
+   "app": "/Applications/Automatic Closer (Mantra).app"
   },
   {
    "key": "monitor",
