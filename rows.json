@@ -165,11 +165,11 @@
   },
   {
    "key": "speechify",
-   "name": "Automatic Closer (closes Speechify's Home window and the Login Item Added banner)",
+   "name": "Opening and Closing (Chrome in the chosen profiles; closes Speechify's Home window and the Login Item Added banner)",
    "group": "Mac",
    "kind": "app",
-   "about": "Closes what comes up by itself: Speechify's Home window at launch, the Login Item Added banner after 3 s",
-   "app": "/Applications/Automatic Closer (Mantra).app"
+   "about": "Opening: Chrome starts in the ticked profiles. Closing: Speechify's Home window at launch, the Login Item Added banner after 3 s",
+   "app": "/Applications/Opening and Closing (Mantra).app"
   },
   {
    "key": "monitor",
