@@ -16,7 +16,7 @@
 
 import AppKit
 
-let VERSION = 5
+let VERSION = 6
 let HOME = NSHomeDirectory()
 let CONF = HOME + "/.config"
 let ROWS_FILE = CONF + "/star-rows.json"
@@ -445,6 +445,9 @@ final class Controller: NSObject, NSMenuDelegate {
             for g in order {
                 let members = numbered.filter { star.group($0.1) == g }
                 if members.isEmpty { continue }
+                // v6 (22.10.2026, Marko: "there is no need for category. If any category has only one entry ... there
+                // should be direct access. If there is more than one, then we go to sub-menus"): a folder of one is its app
+                if members.count == 1 { m.addItem(rowItem(members[0].1, members[0].0)); continue }
                 let on = members.filter { star.isOn($0.1) }.count
                 let sub = NSMenu(); sub.autoenablesItems = false
                 for (n, r) in members { sub.addItem(rowItem(r, n)) }

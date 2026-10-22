@@ -69,4 +69,4 @@ Marko, 21.10.2026: *"Add it to the start menu under Mac"* (Freedom (Mantra), FRE
 
 > Please fix my app Devon the Da Vinci Resolve Actions. There is a bug. Alt tick doesn't work to change my pages. Sometimes works, sometimes doesn't. So I'm confused what is that? You need to debug this application so it works. And eat category in the star menu, please change to Da Vinci Resolve Actions. But there is no need for category. If any category has only one entry. Actually, there should be direct access. If there is more than one, then we go to sub-menus. Fix everything.
 
-1. A folder holding one app shows that app directly in the star (Resolve → DaVinci Resolve Actions); two or more stay a submenu. — **Status:** building.
+1. A folder holding one app shows that app directly in the star (Resolve → DaVinci Resolve Actions); two or more stay a submenu. — **Status:** v6 built 22.10.2026; the menu read back: DaVinci Resolve Actions, Elevate Media Monitor, Spectral Analyzer, Yshai Afterman directly; Claude, Ableton Live, DJing, Keyboard and mouse, Mac as submenus. Restarted 680 → 27864.
