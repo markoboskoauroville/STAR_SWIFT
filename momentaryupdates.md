@@ -64,3 +64,9 @@ Marko, through the Elevate Media V3 cloud session: "add a NEW ENTRY in his start
 ## 21.10.2026: Freedom under Mac
 
 Marko, 21.10.2026: *"Add it to the start menu under Mac"* (Freedom (Mantra), FREE_MAC).
+
+## 22.10.2026: a folder with one app is the app itself
+
+> Please fix my app Devon the Da Vinci Resolve Actions. There is a bug. Alt tick doesn't work to change my pages. Sometimes works, sometimes doesn't. So I'm confused what is that? You need to debug this application so it works. And eat category in the star menu, please change to Da Vinci Resolve Actions. But there is no need for category. If any category has only one entry. Actually, there should be direct access. If there is more than one, then we go to sub-menus. Fix everything.
+
+1. A folder holding one app shows that app directly in the star (Resolve → DaVinci Resolve Actions); two or more stay a submenu. — **Status:** building.
