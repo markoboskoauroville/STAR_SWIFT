@@ -81,4 +81,4 @@ Marko, 21.10.2026: *"Add it to the start menu under Mac"* (Freedom (Mantra), FRE
 
 > in the star menu, please make a folder called "Audio Production" and put inside: - CQ Tutorial - Audio Monitor They belong to the same category, please
 
-**Status:** folders "Audio Mixing" and "Audio Tools" become one, "Audio Production" (where Audio Mixing was, after Ableton Live): CQ MixPad Tutorial and Spectral Analyzer (Mantra), taken as the "Audio Monitor" (no app has that name; it is the one that shows the sound with meters). rows.json copied to ~/.config/star-rows.json.
+**Status:** folders "Audio Mixing" and "Audio Tools" become one, "Audio Production" (where Audio Mixing was, after Ableton Live): CQ MixPad Tutorial and Spectral Analyzer (Mantra), the "Audio Monitor", confirmed by Marko the same day ("audio monitor is a spectral analyzer"). rows.json copied to ~/.config/star-rows.json.
