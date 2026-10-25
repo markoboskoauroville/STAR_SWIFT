@@ -76,3 +76,9 @@ Marko, 21.10.2026: *"Add it to the start menu under Mac"* (Freedom (Mantra), FRE
 > make a new entry in the Swift Stars menu called Audio Mixing. Then we can make actions for CQ Mix Pad. There will be two applications there: CQ Mixpad Tutorial and CQ Mixpad Actions.
 
 **Status:** folder "Audio Mixing" (after Ableton Live) with CQ MixPad Tutorial (key cqtutorial); rows.json copied to ~/.config/star-rows.json (read at every menu open). CQ MixPad Actions comes when it exists.
+
+## 25.10.2026: the Audio Production folder
+
+> in the star menu, please make a folder called "Audio Production" and put inside: - CQ Tutorial - Audio Monitor They belong to the same category, please
+
+**Status:** folders "Audio Mixing" and "Audio Tools" become one, "Audio Production" (where Audio Mixing was, after Ableton Live): CQ MixPad Tutorial and Spectral Analyzer (Mantra), taken as the "Audio Monitor" (no app has that name; it is the one that shows the sound with meters). rows.json copied to ~/.config/star-rows.json.

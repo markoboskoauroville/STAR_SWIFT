@@ -5,8 +5,7 @@
   "Resolve",
   "Elevate Media",
   "Ableton Live",
-  "Audio Mixing",
-  "Audio Tools",
+  "Audio Production",
   "DJing",
   "Percussions",
   "Keyboard and mouse",
@@ -207,7 +206,7 @@
   {
    "key": "spectral",
    "name": "Spectral Analyzer (Mantra) (the sound seen: FLUX's meters, clicks found)",
-   "group": "Audio Tools",
+   "group": "Audio Production",
    "kind": "app",
    "app": "/Applications/Spectral Analyzer (Mantra).app",
    "about": "Any sound passed through and measured like FLUX:: Analyzer; the voice's clips checked for clicks"
@@ -297,7 +296,7 @@
   {
    "key": "cqtutorial",
    "name": "CQ MixPad Tutorial",
-   "group": "Audio Mixing",
+   "group": "Audio Production",
    "kind": "app",
    "app": "/Applications/CQ MixPad Tutorial (Mantra).app",
    "about": "The CQ-12T taught by voice, diagrams and the hand with a ring in CQ MixPad and Live; the Santoshi concert as the case study; offline"
