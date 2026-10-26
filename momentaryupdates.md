@@ -82,3 +82,7 @@ Marko, 21.10.2026: *"Add it to the start menu under Mac"* (Freedom (Mantra), FRE
 > in the star menu, please make a folder called "Audio Production" and put inside: - CQ Tutorial - Audio Monitor They belong to the same category, please
 
 **Status:** folders "Audio Mixing" and "Audio Tools" become one, "Audio Production" (where Audio Mixing was, after Ableton Live): CQ MixPad Tutorial and Spectral Analyzer (Mantra), the "Audio Monitor", confirmed by Marko the same day ("audio monitor is a spectral analyzer"). rows.json copied to ~/.config/star-rows.json.
+
+## 26.10.2026: the OXI app in the star
+
+> come on, make my Oxi application part of the Start Menu and put it in the Application folder. When I type "Oxi" to search, beside the original app, this one must come up
