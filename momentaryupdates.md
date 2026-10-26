@@ -86,3 +86,5 @@ Marko, 21.10.2026: *"Add it to the start menu under Mac"* (Freedom (Mantra), FRE
 ## 26.10.2026: the OXI app in the star
 
 > come on, make my Oxi application part of the Start Menu and put it in the Application folder. When I type "Oxi" to search, beside the original app, this one must come up
+
+**Status:** done, 26.10.2026. rows.json has the row "oxi" in Ableton Live, after Ableton Live Actions; it is installed in ~/.config/star-rows.json, which the star reads each time its menu opens.
