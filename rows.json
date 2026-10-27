@@ -311,11 +311,19 @@
   },
   {
    "key": "mantravirtualcam",
-   "name": "Mantra Virtual Cam (the phone as the Mac's webcam and remote, over the USB cable)",
-   "group": "Mac",
+   "name": "Mantra Virtual Cam (the phone is your webcam: open it, then choose \"OBS Virtual Camera\" in Zoom)",
+   "group": "Camera",
    "kind": "app",
    "app": "/Applications/Mantra Virtual Cam.app",
-   "about": "Mantra Manual Camera on the USB cable: its picture is the webcam (OBS Virtual Camera), its whole interface here with mouse and keyboard"
+   "about": "Connects to the phone on the USB cable; its picture is the Mac webcam; its whole camera screen is in the window, mouse and keyboard"
+  },
+  {
+   "key": "obs",
+   "name": "OBS Studio (only for mixing scenes; add the window \"Mantra Virtual Cam — clean\" as a Window Capture)",
+   "group": "Camera",
+   "kind": "app",
+   "app": "/Applications/OBS.app",
+   "about": "Open it only when you want to mix. While it runs, OBS Virtual Camera sends the OBS mix; when it closes, Mantra Virtual Cam is the webcam again"
   }
  ]
 }
