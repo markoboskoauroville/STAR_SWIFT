@@ -308,6 +308,14 @@
    "kind": "app",
    "app": "/Applications/CQ MixPad Tutorial (Mantra).app",
    "about": "The CQ-12T taught by voice, diagrams and the hand with a ring in CQ MixPad and Live; the Santoshi concert as the case study; offline"
+  },
+  {
+   "key": "mantracamera",
+   "name": "Mantra Camera (the phone as the Mac's webcam and remote, over the USB cable)",
+   "group": "Ableton Live",
+   "kind": "app",
+   "app": "/Applications/Mantra Camera.app",
+   "about": "Mantra Manual Camera on the USB cable: its picture is the webcam (OBS Virtual Camera), its whole interface here with mouse and keyboard"
   }
  ]
 }
