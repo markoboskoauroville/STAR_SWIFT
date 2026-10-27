@@ -312,7 +312,7 @@
   {
    "key": "mantracamera",
    "name": "Mantra Camera (the phone as the Mac's webcam and remote, over the USB cable)",
-   "group": "Ableton Live",
+   "group": "Mac",
    "kind": "app",
    "app": "/Applications/Mantra Camera.app",
    "about": "Mantra Manual Camera on the USB cable: its picture is the webcam (OBS Virtual Camera), its whole interface here with mouse and keyboard"
