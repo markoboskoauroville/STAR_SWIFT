@@ -88,3 +88,11 @@ Marko, 21.10.2026: *"Add it to the start menu under Mac"* (Freedom (Mantra), FRE
 > come on, make my Oxi application part of the Start Menu and put it in the Application folder. When I type "Oxi" to search, beside the original app, this one must come up
 
 **Status:** done, 26.10.2026. rows.json has the row "oxi" in Ableton Live, after Ableton Live Actions; it is installed in ~/.config/star-rows.json, which the star reads each time its menu opens.
+
+## 28.10.2026: Network Aggregate Connection Keeper in the star
+
+> why don't I see Network Aggregate Application in my Star Menu Matrix, and rename it to Connection Aggregate Keeper so I can easily find it? Also, add Network in the name, so add everything so I can easily find it: Network Aggregate Connection Keeper
+
+**Status:** done, 28.10.2026. rows.json has the row "netaggregate" in Mac, after Download Monitor, opening
+/Applications/Network Aggregate Connection Keeper (Mantra).app (connection-keeper v20, renamed); installed in
+~/.config/star-rows.json, which the star and Swift Matrix read.
