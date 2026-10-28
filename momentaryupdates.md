@@ -96,3 +96,7 @@ Marko, 21.10.2026: *"Add it to the start menu under Mac"* (Freedom (Mantra), FRE
 **Status:** done, 28.10.2026. rows.json has the row "netaggregate" in Mac, after Download Monitor, opening
 /Applications/Network Aggregate Connection Keeper (Mantra).app (connection-keeper v20, renamed); installed in
 ~/.config/star-rows.json, which the star and Swift Matrix read.
+
+## 28.10.2026: a DaVinci Resolve folder with the actions and the tutorial
+
+> Please in the start menu make a category "DaVinci Resolve," add its DaVinci actions, and also add this tutorial.
