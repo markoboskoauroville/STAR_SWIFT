@@ -100,3 +100,7 @@ Marko, 21.10.2026: *"Add it to the start menu under Mac"* (Freedom (Mantra), FRE
 ## 28.10.2026: a DaVinci Resolve folder with the actions and the tutorial
 
 > Please in the start menu make a category "DaVinci Resolve," add its DaVinci actions, and also add this tutorial.
+
+**Status:** done, 28.10.2026. The folder Resolve is now "DaVinci Resolve" and holds two rows: DaVinci Resolve Actions
+and DaVinci Grading Tutorial (/Applications/DaVinci Grading Tutorial (Mantra).app). Installed in ~/.config/star-rows.json,
+which the star reads at every opening of its menu.

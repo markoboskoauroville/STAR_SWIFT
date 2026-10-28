@@ -2,7 +2,7 @@
   "note": "The rows of Star (Mantra), in the default order. kind \"app\": a Swift .app, opened and quit directly by the star. kind \"lua\": still a Hammerspoon app, toggled through hs (STAR.toggleKey). Converting an app to Swift changes only its row here: kind \"app\" and \"app\" = its path in /Applications. build.sh installs this file as ~/.config/star-rows.json.",
   "folders": [
     "Claude",
-    "Resolve",
+    "DaVinci Resolve",
     "Elevate Media",
     "Ableton Live",
     "Audio Production",
@@ -78,10 +78,18 @@
     {
       "key": "resolveactions",
       "name": "DaVinci Resolve Actions",
-      "group": "Resolve",
+      "group": "DaVinci Resolve",
       "kind": "app",
       "about": "Everything for Resolve in one app: pages on ⌥`, HD/UHD, the import button, one-button actions",
       "app": "/Applications/DaVinci Resolve Actions (Mantra).app"
+    },
+    {
+      "key": "gradingtutorial",
+      "name": "DaVinci Grading Tutorial (balance, grade and export, taught by voice)",
+      "group": "DaVinci Resolve",
+      "kind": "app",
+      "app": "/Applications/DaVinci Grading Tutorial (Mantra).app",
+      "about": "The one-button grading workflow taught by voice, diagrams and pictures: balance, curves, Film Look Creator, export for Svemir; offline"
     },
     {
       "key": "cloning",
