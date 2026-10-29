@@ -1,345 +1,353 @@
 {
-  "note": "The rows of Star (Mantra), in the default order. kind \"app\": a Swift .app, opened and quit directly by the star. kind \"lua\": still a Hammerspoon app, toggled through hs (STAR.toggleKey). Converting an app to Swift changes only its row here: kind \"app\" and \"app\" = its path in /Applications. build.sh installs this file as ~/.config/star-rows.json.",
-  "folders": [
-    "Claude",
-    "DaVinci Resolve",
-    "Elevate Media",
-    "Ableton Live",
-    "Audio Production",
-    "DJing",
-    "Percussions",
-    "Keyboard and mouse",
-    "Mac"
-  ],
-  "rows": [
-    {
-      "key": "matrix",
-      "name": "Swift Matrix (Mantra) (what runs now and what starts with the Mac: quit it, or switch its auto-start)",
-      "group": "Mac",
-      "kind": "app",
-      "app": "/Applications/Swift Matrix (Mantra).app",
-      "about": "A simple task manager: every app running and everything that starts at login, each with QUIT and AUTO-START"
-    },
-    {
-      "key": "mouse",
-      "name": "Automated Mouse Actions",
-      "group": "Keyboard and mouse",
-      "kind": "app",
-      "about": "When a pop-up appears, puts the pointer on its default button",
-      "app": "/Applications/Automated Mouse Actions (Mantra).app"
-    },
-    {
-      "key": "enter",
-      "name": "Enter sends in Claude",
-      "group": "Claude",
-      "kind": "app",
-      "about": "A plain Return sends the message in a claude.ai tab; Shift+Return makes a new line",
-      "app": "/Applications/Claude Enter (Mantra).app"
-    },
-    {
-      "key": "buckets",
-      "name": "Buckets",
-      "group": "Keyboard and mouse",
-      "kind": "lua",
-      "about": "The Hammerspoon keyboard: clipboard dispenser, F keys, hand and deck"
-    },
-    {
-      "key": "sister",
-      "name": "Sister App (Mantra) (MANTRA CHAT on and off, and its page)",
-      "group": "Claude",
-      "kind": "app",
-      "url": "http://127.0.0.1:8825",
-      "about": "MANTRA CHAT: the page that mirrors this session and reads it aloud",
-      "app": "/Applications/Sister App (Mantra).app"
-    },
-    {
-      "key": "macro",
-      "name": "Macro Recorder",
-      "group": "Keyboard and mouse",
-      "kind": "lua",
-      "about": "Records what you do and plays it back; the star reddens while it records"
-    },
-    {
-      "key": "download",
-      "name": "Download Monitor",
-      "group": "Mac",
-      "kind": "app",
-      "about": "Every download on this Mac, each with its own bar",
-      "app": "/Applications/Download Monitor (Mantra).app"
-    },
-    {
-      "key": "netaggregate",
-      "name": "Network Aggregate Connection Keeper (two lines at once: Wi-Fi + phone; Connection Keeper, aggregate)",
-      "group": "Mac",
-      "kind": "app",
-      "about": "Joins the Wi-Fi and the phone on USB into one internet (mantra_networkaggregate); ONE CONNECTION switches it off",
-      "app": "/Applications/Network Aggregate Connection Keeper (Mantra).app"
-    },
-    {
-      "key": "resolveactions",
-      "name": "DaVinci Resolve Actions",
-      "group": "DaVinci Resolve",
-      "kind": "app",
-      "about": "Everything for Resolve in one app: pages on ⌥`, HD/UHD, the import button, one-button actions",
-      "app": "/Applications/DaVinci Resolve Actions (Mantra).app"
-    },
-    {
-      "key": "gradingtutorial",
-      "name": "DaVinci Grading Tutorial (balance, grade and export, taught by voice)",
-      "group": "DaVinci Resolve",
-      "kind": "app",
-      "app": "/Applications/DaVinci Grading Tutorial (Mantra).app",
-      "about": "The one-button grading workflow taught by voice, diagrams and pictures: balance, curves, Film Look Creator, export for Svemir; offline"
-    },
-    {
-      "key": "cloning",
-      "name": "Voice cloning (clone, choose, test every voice)",
-      "group": "Claude",
-      "kind": "app",
-      "about": "Clone a voice, choose which one talks, and test every voice you have",
-      "app": "/Applications/Voice Cloning (Mantra).app"
-    },
-    {
-      "key": "find",
-      "name": "Find a file (the terminal's find as a page)",
-      "group": "Mac",
-      "kind": "app",
-      "about": "The terminal's find as a page: a folder, a name, the hits in four views",
-      "app": "/Applications/Find a File (Mantra).app"
-    },
-    {
-      "key": "spotlight",
-      "name": "Spotlight (an index for one folder)",
-      "group": "Mac",
-      "kind": "app",
-      "about": "Builds a Spotlight index for one folder alone, and searches inside it",
-      "app": "/Applications/Spotlight Folder (Mantra).app"
-    },
-    {
-      "key": "dock",
-      "name": "Dock Switcher (⌃` over everything on the Dock, running or not)",
-      "group": "Keyboard and mouse",
-      "kind": "app",
-      "about": "Control-backtick switches between everything on the Dock, running or not",
-      "app": "/Applications/Dock Switcher (Mantra).app"
-    },
-    {
-      "key": "appstore",
-      "name": "App Store",
-      "group": "Mac",
-      "kind": "app",
-      "about": "Search for an app, fetch the developer's own .dmg, install it",
-      "app": "/Applications/App Store (Mantra).app"
-    },
-    {
-      "key": "appledoor",
-      "name": "Apple Door",
-      "group": "Mac",
-      "kind": "app",
-      "about": "Opens Apple's update servers for thirty minutes, then shuts them again",
-      "app": "/Applications/Apple Door (Mantra).app"
-    },
-    {
-      "key": "freedom",
-      "name": "Freedom",
-      "group": "Mac",
-      "kind": "app",
-      "about": "Every Apple service and server, step by step: check, free, undo",
-      "app": "/Applications/Freedom (Mantra).app"
-    },
-    {
-      "key": "liveactions",
-      "name": "Ableton Live Actions",
-      "group": "Ableton Live",
-      "kind": "app",
-      "about": "Everything for Live in one app: A1, MIDI to MK Control, MIDI to Key Stroke",
-      "app": "/Applications/Ableton Live Actions (Mantra).app"
-    },
-    {
-      "key": "oxi",
-      "name": "DJ Mantra Ableton Remote for OXI E16 (Mantra) (the E16 as Live's remote: fixed numbers, pages, profiles)",
-      "group": "Ableton Live",
-      "kind": "app",
-      "about": "The OXI E16 in Remote Mode drives Live: knob n sends CC n and note n over 112 pages, its own screen, Shift twice picks a page, profiles placed on pages, a Claude chat per knob",
-      "app": "/Applications/DJ Mantra Ableton Remote for OXI E16 (Mantra).app"
-    },
-    {
-      "key": "a1",
-      "name": "Ableton Assistant A1 (Space continues; 1 and 2 zoom; h splits; 7, 8 and 9 are the markers (back, set or delete, on); the arrows walk the transients and ⌘ with them walks the tracks; I and O jump to the next transient and mark the loop's in and out on its waveform's zero, L turns the loop on; the markers on the page, two ticked are the loop; the last set opens where you stopped; the time blob is the clock of the insert point; every override has its tick on the page)",
-      "group": "Ableton Live",
-      "kind": "lua",
-      "url": "http://127.0.0.1:8849",
-      "about": "Ableton fitted to your hands: the keys, the markers, the loop and the clock blob"
-    },
-    {
-      "key": "keys",
-      "name": "KeyringTester (open any file of keys, or every file in ~/Downloads/API; Google keys API by API)",
-      "group": "Mac",
-      "kind": "app",
-      "about": "Opens any file of keys and tests each with the cheapest read call; Google keys API by API",
-      "app": "/Applications/KeyringTester (Mantra).app"
-    },
-    {
-      "key": "installer",
-      "name": "Installation Logger",
-      "group": "Mac",
-      "kind": "app",
-      "about": "Records every file an installer writes, so it can all be taken out again",
-      "app": "/Applications/Installation Logger (Mantra).app"
-    },
-    {
-      "key": "speechify",
-      "name": "Opening and Closing (Chrome in the chosen profiles; closes Speechify's Home window and the Login Item Added banner)",
-      "group": "Mac",
-      "kind": "app",
-      "about": "Opening: Chrome starts in the ticked profiles. Closing: Speechify's Home window at launch, the Login Item Added banner after 3 s",
-      "app": "/Applications/Opening and Closing (Mantra).app"
-    },
-    {
-      "key": "monitor",
-      "name": "Star Monitor (every app: start, stop, reorder, what comes back, time run)",
-      "group": "Mac",
-      "kind": "app",
-      "about": "The page that runs the star: start, stop, reorder, and how long each app has run",
-      "app": "/Applications/Star Monitor (Mantra).app"
-    },
-    {
-      "key": "claudevoice",
-      "name": "Claude to Marko voice (Mantra) (the subtitle while the voice speaks)",
-      "group": "Claude",
-      "kind": "app",
-      "app": "/Applications/Claude to Marko Voice (Mantra).app",
-      "about": "How the spoken words are written on the screens: size, colour, band, where"
-    },
-    {
-      "key": "voiceofclaude",
-      "name": "Voice of Claude (Mantra) (the voice engine on and off)",
-      "group": "Claude",
-      "kind": "app",
-      "app": "/Applications/Voice of Claude (Mantra).app",
-      "about": "One switch: the voice engine on or off, and its three parts"
-    },
-    {
-      "key": "transcribe",
-      "name": "Marko Transcribe (Mantra) (talk, and it types: Speechify, Whisper, Groq, Haiku)",
-      "group": "Claude",
-      "kind": "app",
-      "about": "F2: talk, F2 again: what you said is cleaned in your style and typed where the cursor is; the engines on the stripe",
-      "app": "/Applications/Marko Transcribe (Mantra).app"
-    },
-    {
-      "key": "spectral",
-      "name": "Spectral Analyzer (Mantra) (the sound seen: FLUX's meters, clicks found)",
-      "group": "Audio Production",
-      "kind": "app",
-      "app": "/Applications/Spectral Analyzer (Mantra).app",
-      "about": "Any sound passed through and measured like FLUX:: Analyzer; the voice's clips checked for clicks"
-    },
-    {
-      "key": "mackie",
-      "name": "MIDI to MK Control (a knob becomes a Mackie Control command: the playback position under a knob, which Live's own MIDI mapping will not give)",
-      "group": "Ableton Live",
-      "kind": "lua",
-      "url": "http://127.0.0.1:8855",
-      "about": "A knob on a MIDI controller becomes a Mackie Control command in Live",
-      "window": "~/Developer/MANTRA_CONTROLS/apps/MIDI to MK Control.app"
-    },
-    {
-      "key": "midikeys",
-      "name": "MIDI to Key Stroke (a knob's CC or a key's note becomes a key, or the system volume)",
-      "group": "Ableton Live",
-      "kind": "lua",
-      "url": "http://127.0.0.1:8853",
-      "about": "A knob's CC or a key's note becomes a key stroke, or the Mac's own volume",
-      "window": "~/Developer/MANTRA_CONTROLS/apps/MIDI to Key Stroke.app"
-    },
-    {
-      "key": "g815",
-      "name": "G815 Lights (every key of the Logitech G815 its own still colour)",
-      "group": "Keyboard and mouse",
-      "kind": "app",
-      "app": "~/Developer/G815_LIGHTS/build/G815 Lights.app",
-      "about": "Every key of the G815 its own still colour and brightness, three banks M1 M2 M3, painted at every start"
-    },
-    {
-      "key": "launcher",
-      "name": "Star Menu (alt+space, search and open)",
-      "group": "Mac",
-      "kind": "app",
-      "app": "~/Developer/STAR_LAUNCHER/Star Menu.app",
-      "about": "This box: alt+space searches the Mac's applications and the rows of this menu"
-    },
-    {
-      "key": "djaysync",
-      "name": "djay Sync (Mantra) (djay Pro's playlists <-> DJ Mantra on the phone, over adb)",
-      "group": "DJing",
-      "kind": "app",
-      "about": "Both sides in one window, each playlist SAME / NEW / CHANGED; SYNC Mac -> phone, PULL phone -> djay; can sync by itself when the phone appears",
-      "app": "/Applications/djay Sync (Mantra).app"
-    },
-    {
-      "key": "djtransfer",
-      "name": "DJ Transfer Monitor (Mantra) (what is copying to the phone: from which Mac folder into which phone folder, how fast)",
-      "group": "DJing",
-      "kind": "app",
-      "about": "Live view of djay-sync / adb push: playlist, file, FROM -> TO, file and total bars, MB/s, ETA, files done and skipped",
-      "app": "/Applications/DJ Transfer Monitor (Mantra).app"
-    },
-    {
-      "key": "screenshot2tidal",
-      "name": "Screenshot to TIDAL (Mantra) (screenshots of a chart or tracklist -> a playlist on your TIDAL)",
-      "group": "DJing",
-      "kind": "app",
-      "about": "Reads the newest 3 Desktop screenshots on the Mac (Vision), artist / title rows, finds each on TIDAL with a confidence, CREATE PLAYLIST on his account",
-      "app": "/Applications/Screenshot to TIDAL (Mantra).app"
-    },
-    {
-      "key": "yshai",
-      "name": "Yshai Afterman Percussion School (Mantra) (which lessons are missing; DOWNLOAD MISSING into ~/Movies/Yhshai AfterMan)",
-      "group": "Percussions",
-      "kind": "app",
-      "about": "Checks every lesson of the course against LESSON<N>: Complete / Missing / partial, DOWNLOAD MISSING or per lesson, never the same file twice (videos by duration); videos through Video DownloadHelper's ffmpeg, Notation PDFs",
-      "app": "/Applications/Yshai Afterman Percussion School (Mantra).app"
-    },
-    {
-      "key": "timer",
-      "name": "Timer Stopwatch Clock (S stopwatch, T timer, R the time of day; enormous digits)",
-      "group": "Mac",
-      "kind": "app",
-      "app": "/Applications/Timer Stopwatch Clock (Mantra).app",
-      "about": "A stopwatch, a timer and a clock in one black window, read across a room"
-    },
-    {
-      "key": "emmonitor",
-      "name": "Elevate Media Monitor (Mantra) (every credit: Kie live, Higgsfield, imgtoimg.ai, Gemini; what it buys; statistics and CSV)",
-      "group": "Elevate Media",
-      "kind": "app",
-      "app": "/Applications/Elevate Media Monitor (Mantra).app",
-      "about": "The credits of every service Elevate Media uses, what they buy, green / amber / red against the work left, top-up alerts, statistics and CSV export"
-    },
-    {
-      "key": "cqtutorial",
-      "name": "CQ MixPad Tutorial",
-      "group": "Audio Production",
-      "kind": "app",
-      "app": "/Applications/CQ MixPad Tutorial (Mantra).app",
-      "about": "The CQ-12T taught by voice, diagrams and the hand with a ring in CQ MixPad and Live; the Santoshi concert as the case study; offline"
-    },
-    {
-      "key": "mantravirtualcam",
-      "name": "Mantra Virtual Cam (the phone is your webcam: open it, then choose \"OBS Virtual Camera\" in Zoom)",
-      "group": "Camera",
-      "kind": "app",
-      "app": "/Applications/Mantra Virtual Cam.app",
-      "about": "Connects to the phone on the USB cable; its picture is the Mac webcam; its whole camera screen is in the window, mouse and keyboard"
-    },
-    {
-      "key": "obs",
-      "name": "OBS Studio (only for mixing scenes; add the window \"Mantra Virtual Cam — clean\" as a Window Capture)",
-      "group": "Camera",
-      "kind": "app",
-      "app": "/Applications/OBS.app",
-      "about": "Open it only when you want to mix. While it runs, OBS Virtual Camera sends the OBS mix; when it closes, Mantra Virtual Cam is the webcam again"
-    }
-  ]
+ "note": "The rows of Star (Mantra), in the default order. kind \"app\": a Swift .app, opened and quit directly by the star. kind \"lua\": still a Hammerspoon app, toggled through hs (STAR.toggleKey). Converting an app to Swift changes only its row here: kind \"app\" and \"app\" = its path in /Applications. build.sh installs this file as ~/.config/star-rows.json.",
+ "folders": [
+  "Claude",
+  "DaVinci Resolve",
+  "Elevate Media",
+  "Ableton Live",
+  "Audio Production",
+  "DJing",
+  "Percussions",
+  "Keyboard and mouse",
+  "Mac"
+ ],
+ "rows": [
+  {
+   "key": "matrix",
+   "name": "Swift Matrix (Mantra) (what runs now and what starts with the Mac: quit it, or switch its auto-start)",
+   "group": "Mac",
+   "kind": "app",
+   "app": "/Applications/Swift Matrix (Mantra).app",
+   "about": "A simple task manager: every app running and everything that starts at login, each with QUIT and AUTO-START"
+  },
+  {
+   "key": "mouse",
+   "name": "Automated Mouse Actions",
+   "group": "Keyboard and mouse",
+   "kind": "app",
+   "about": "When a pop-up appears, puts the pointer on its default button",
+   "app": "/Applications/Automated Mouse Actions (Mantra).app"
+  },
+  {
+   "key": "enter",
+   "name": "Enter sends in Claude",
+   "group": "Claude",
+   "kind": "app",
+   "about": "A plain Return sends the message in a claude.ai tab; Shift+Return makes a new line",
+   "app": "/Applications/Claude Enter (Mantra).app"
+  },
+  {
+   "key": "buckets",
+   "name": "Buckets",
+   "group": "Keyboard and mouse",
+   "kind": "lua",
+   "about": "The Hammerspoon keyboard: clipboard dispenser, F keys, hand and deck"
+  },
+  {
+   "key": "sister",
+   "name": "Sister App (Mantra) (MANTRA CHAT on and off, and its page)",
+   "group": "Claude",
+   "kind": "app",
+   "url": "http://127.0.0.1:8825",
+   "about": "MANTRA CHAT: the page that mirrors this session and reads it aloud",
+   "app": "/Applications/Sister App (Mantra).app"
+  },
+  {
+   "key": "macro",
+   "name": "Macro Recorder",
+   "group": "Keyboard and mouse",
+   "kind": "lua",
+   "about": "Records what you do and plays it back; the star reddens while it records"
+  },
+  {
+   "key": "download",
+   "name": "Download Monitor",
+   "group": "Mac",
+   "kind": "app",
+   "about": "Every download on this Mac, each with its own bar",
+   "app": "/Applications/Download Monitor (Mantra).app"
+  },
+  {
+   "key": "netaggregate",
+   "name": "Network Aggregate Connection Keeper (two lines at once: Wi-Fi + phone; Connection Keeper, aggregate)",
+   "group": "Mac",
+   "kind": "app",
+   "about": "Joins the Wi-Fi and the phone on USB into one internet (mantra_networkaggregate); ONE CONNECTION switches it off",
+   "app": "/Applications/Network Aggregate Connection Keeper (Mantra).app"
+  },
+  {
+   "key": "resolveactions",
+   "name": "DaVinci Resolve Actions",
+   "group": "DaVinci Resolve",
+   "kind": "app",
+   "about": "Everything for Resolve in one app: pages on ⌥`, HD/UHD, the import button, one-button actions",
+   "app": "/Applications/DaVinci Resolve Actions (Mantra).app"
+  },
+  {
+   "key": "gradingtutorial",
+   "name": "DaVinci Grading Tutorial (balance, grade and export, taught by voice)",
+   "group": "DaVinci Resolve",
+   "kind": "app",
+   "app": "/Applications/DaVinci Grading Tutorial (Mantra).app",
+   "about": "The one-button grading workflow taught by voice, diagrams and pictures: balance, curves, Film Look Creator, export for Svemir; offline"
+  },
+  {
+   "key": "e16resolve",
+   "name": "E16 for DaVinci Resolve (the OXI E16 as Resolve's mixer: solo, mute, volume and pan of four audio tracks a page)",
+   "group": "DaVinci Resolve",
+   "kind": "app",
+   "app": "/Applications/E16 for DaVinci Resolve (Mantra).app",
+   "about": "Columns 1 to 4 of the E16: SOLO, MUTE, VOLUME, PAN; rows: four audio tracks, their names on the screen; Shift twice turns the pages (A5–A8 and on). Only one E16 app at a time."
+  },
+  {
+   "key": "cloning",
+   "name": "Voice cloning (clone, choose, test every voice)",
+   "group": "Claude",
+   "kind": "app",
+   "about": "Clone a voice, choose which one talks, and test every voice you have",
+   "app": "/Applications/Voice Cloning (Mantra).app"
+  },
+  {
+   "key": "find",
+   "name": "Find a file (the terminal's find as a page)",
+   "group": "Mac",
+   "kind": "app",
+   "about": "The terminal's find as a page: a folder, a name, the hits in four views",
+   "app": "/Applications/Find a File (Mantra).app"
+  },
+  {
+   "key": "spotlight",
+   "name": "Spotlight (an index for one folder)",
+   "group": "Mac",
+   "kind": "app",
+   "about": "Builds a Spotlight index for one folder alone, and searches inside it",
+   "app": "/Applications/Spotlight Folder (Mantra).app"
+  },
+  {
+   "key": "dock",
+   "name": "Dock Switcher (⌃` over everything on the Dock, running or not)",
+   "group": "Keyboard and mouse",
+   "kind": "app",
+   "about": "Control-backtick switches between everything on the Dock, running or not",
+   "app": "/Applications/Dock Switcher (Mantra).app"
+  },
+  {
+   "key": "appstore",
+   "name": "App Store",
+   "group": "Mac",
+   "kind": "app",
+   "about": "Search for an app, fetch the developer's own .dmg, install it",
+   "app": "/Applications/App Store (Mantra).app"
+  },
+  {
+   "key": "appledoor",
+   "name": "Apple Door",
+   "group": "Mac",
+   "kind": "app",
+   "about": "Opens Apple's update servers for thirty minutes, then shuts them again",
+   "app": "/Applications/Apple Door (Mantra).app"
+  },
+  {
+   "key": "freedom",
+   "name": "Freedom",
+   "group": "Mac",
+   "kind": "app",
+   "about": "Every Apple service and server, step by step: check, free, undo",
+   "app": "/Applications/Freedom (Mantra).app"
+  },
+  {
+   "key": "liveactions",
+   "name": "Ableton Live Actions",
+   "group": "Ableton Live",
+   "kind": "app",
+   "about": "Everything for Live in one app: A1, MIDI to MK Control, MIDI to Key Stroke",
+   "app": "/Applications/Ableton Live Actions (Mantra).app"
+  },
+  {
+   "key": "oxi",
+   "name": "DJ Mantra Ableton Remote for OXI E16 (Mantra) (the E16 as Live's remote: fixed numbers, pages, profiles)",
+   "group": "Ableton Live",
+   "kind": "app",
+   "about": "The OXI E16 in Remote Mode drives Live: knob n sends CC n and note n over 112 pages, its own screen, Shift twice picks a page, profiles placed on pages, a Claude chat per knob",
+   "app": "/Applications/DJ Mantra Ableton Remote for OXI E16 (Mantra).app"
+  },
+  {
+   "key": "a1",
+   "name": "Ableton Assistant A1 (Space continues; 1 and 2 zoom; h splits; 7, 8 and 9 are the markers (back, set or delete, on); the arrows walk the transients and ⌘ with them walks the tracks; I and O jump to the next transient and mark the loop's in and out on its waveform's zero, L turns the loop on; the markers on the page, two ticked are the loop; the last set opens where you stopped; the time blob is the clock of the insert point; every override has its tick on the page)",
+   "group": "Ableton Live",
+   "kind": "lua",
+   "url": "http://127.0.0.1:8849",
+   "about": "Ableton fitted to your hands: the keys, the markers, the loop and the clock blob"
+  },
+  {
+   "key": "keys",
+   "name": "KeyringTester (open any file of keys, or every file in ~/Downloads/API; Google keys API by API)",
+   "group": "Mac",
+   "kind": "app",
+   "about": "Opens any file of keys and tests each with the cheapest read call; Google keys API by API",
+   "app": "/Applications/KeyringTester (Mantra).app"
+  },
+  {
+   "key": "installer",
+   "name": "Installation Logger",
+   "group": "Mac",
+   "kind": "app",
+   "about": "Records every file an installer writes, so it can all be taken out again",
+   "app": "/Applications/Installation Logger (Mantra).app"
+  },
+  {
+   "key": "speechify",
+   "name": "Opening and Closing (Chrome in the chosen profiles; closes Speechify's Home window and the Login Item Added banner)",
+   "group": "Mac",
+   "kind": "app",
+   "about": "Opening: Chrome starts in the ticked profiles. Closing: Speechify's Home window at launch, the Login Item Added banner after 3 s",
+   "app": "/Applications/Opening and Closing (Mantra).app"
+  },
+  {
+   "key": "monitor",
+   "name": "Star Monitor (every app: start, stop, reorder, what comes back, time run)",
+   "group": "Mac",
+   "kind": "app",
+   "about": "The page that runs the star: start, stop, reorder, and how long each app has run",
+   "app": "/Applications/Star Monitor (Mantra).app"
+  },
+  {
+   "key": "claudevoice",
+   "name": "Claude to Marko voice (Mantra) (the subtitle while the voice speaks)",
+   "group": "Claude",
+   "kind": "app",
+   "app": "/Applications/Claude to Marko Voice (Mantra).app",
+   "about": "How the spoken words are written on the screens: size, colour, band, where"
+  },
+  {
+   "key": "voiceofclaude",
+   "name": "Voice of Claude (Mantra) (the voice engine on and off)",
+   "group": "Claude",
+   "kind": "app",
+   "app": "/Applications/Voice of Claude (Mantra).app",
+   "about": "One switch: the voice engine on or off, and its three parts"
+  },
+  {
+   "key": "transcribe",
+   "name": "Marko Transcribe (Mantra) (talk, and it types: Speechify, Whisper, Groq, Haiku)",
+   "group": "Claude",
+   "kind": "app",
+   "about": "F2: talk, F2 again: what you said is cleaned in your style and typed where the cursor is; the engines on the stripe",
+   "app": "/Applications/Marko Transcribe (Mantra).app"
+  },
+  {
+   "key": "spectral",
+   "name": "Spectral Analyzer (Mantra) (the sound seen: FLUX's meters, clicks found)",
+   "group": "Audio Production",
+   "kind": "app",
+   "app": "/Applications/Spectral Analyzer (Mantra).app",
+   "about": "Any sound passed through and measured like FLUX:: Analyzer; the voice's clips checked for clicks"
+  },
+  {
+   "key": "mackie",
+   "name": "MIDI to MK Control (a knob becomes a Mackie Control command: the playback position under a knob, which Live's own MIDI mapping will not give)",
+   "group": "Ableton Live",
+   "kind": "lua",
+   "url": "http://127.0.0.1:8855",
+   "about": "A knob on a MIDI controller becomes a Mackie Control command in Live",
+   "window": "~/Developer/MANTRA_CONTROLS/apps/MIDI to MK Control.app"
+  },
+  {
+   "key": "midikeys",
+   "name": "MIDI to Key Stroke (a knob's CC or a key's note becomes a key, or the system volume)",
+   "group": "Ableton Live",
+   "kind": "lua",
+   "url": "http://127.0.0.1:8853",
+   "about": "A knob's CC or a key's note becomes a key stroke, or the Mac's own volume",
+   "window": "~/Developer/MANTRA_CONTROLS/apps/MIDI to Key Stroke.app"
+  },
+  {
+   "key": "g815",
+   "name": "G815 Lights (every key of the Logitech G815 its own still colour)",
+   "group": "Keyboard and mouse",
+   "kind": "app",
+   "app": "~/Developer/G815_LIGHTS/build/G815 Lights.app",
+   "about": "Every key of the G815 its own still colour and brightness, three banks M1 M2 M3, painted at every start"
+  },
+  {
+   "key": "launcher",
+   "name": "Star Menu (alt+space, search and open)",
+   "group": "Mac",
+   "kind": "app",
+   "app": "~/Developer/STAR_LAUNCHER/Star Menu.app",
+   "about": "This box: alt+space searches the Mac's applications and the rows of this menu"
+  },
+  {
+   "key": "djaysync",
+   "name": "djay Sync (Mantra) (djay Pro's playlists <-> DJ Mantra on the phone, over adb)",
+   "group": "DJing",
+   "kind": "app",
+   "about": "Both sides in one window, each playlist SAME / NEW / CHANGED; SYNC Mac -> phone, PULL phone -> djay; can sync by itself when the phone appears",
+   "app": "/Applications/djay Sync (Mantra).app"
+  },
+  {
+   "key": "djtransfer",
+   "name": "DJ Transfer Monitor (Mantra) (what is copying to the phone: from which Mac folder into which phone folder, how fast)",
+   "group": "DJing",
+   "kind": "app",
+   "about": "Live view of djay-sync / adb push: playlist, file, FROM -> TO, file and total bars, MB/s, ETA, files done and skipped",
+   "app": "/Applications/DJ Transfer Monitor (Mantra).app"
+  },
+  {
+   "key": "screenshot2tidal",
+   "name": "Screenshot to TIDAL (Mantra) (screenshots of a chart or tracklist -> a playlist on your TIDAL)",
+   "group": "DJing",
+   "kind": "app",
+   "about": "Reads the newest 3 Desktop screenshots on the Mac (Vision), artist / title rows, finds each on TIDAL with a confidence, CREATE PLAYLIST on his account",
+   "app": "/Applications/Screenshot to TIDAL (Mantra).app"
+  },
+  {
+   "key": "yshai",
+   "name": "Yshai Afterman Percussion School (Mantra) (which lessons are missing; DOWNLOAD MISSING into ~/Movies/Yhshai AfterMan)",
+   "group": "Percussions",
+   "kind": "app",
+   "about": "Checks every lesson of the course against LESSON<N>: Complete / Missing / partial, DOWNLOAD MISSING or per lesson, never the same file twice (videos by duration); videos through Video DownloadHelper's ffmpeg, Notation PDFs",
+   "app": "/Applications/Yshai Afterman Percussion School (Mantra).app"
+  },
+  {
+   "key": "timer",
+   "name": "Timer Stopwatch Clock (S stopwatch, T timer, R the time of day; enormous digits)",
+   "group": "Mac",
+   "kind": "app",
+   "app": "/Applications/Timer Stopwatch Clock (Mantra).app",
+   "about": "A stopwatch, a timer and a clock in one black window, read across a room"
+  },
+  {
+   "key": "emmonitor",
+   "name": "Elevate Media Monitor (Mantra) (every credit: Kie live, Higgsfield, imgtoimg.ai, Gemini; what it buys; statistics and CSV)",
+   "group": "Elevate Media",
+   "kind": "app",
+   "app": "/Applications/Elevate Media Monitor (Mantra).app",
+   "about": "The credits of every service Elevate Media uses, what they buy, green / amber / red against the work left, top-up alerts, statistics and CSV export"
+  },
+  {
+   "key": "cqtutorial",
+   "name": "CQ MixPad Tutorial",
+   "group": "Audio Production",
+   "kind": "app",
+   "app": "/Applications/CQ MixPad Tutorial (Mantra).app",
+   "about": "The CQ-12T taught by voice, diagrams and the hand with a ring in CQ MixPad and Live; the Santoshi concert as the case study; offline"
+  },
+  {
+   "key": "mantravirtualcam",
+   "name": "Mantra Virtual Cam (the phone is your webcam: open it, then choose \"OBS Virtual Camera\" in Zoom)",
+   "group": "Camera",
+   "kind": "app",
+   "app": "/Applications/Mantra Virtual Cam.app",
+   "about": "Connects to the phone on the USB cable; its picture is the Mac webcam; its whole camera screen is in the window, mouse and keyboard"
+  },
+  {
+   "key": "obs",
+   "name": "OBS Studio (only for mixing scenes; add the window \"Mantra Virtual Cam — clean\" as a Window Capture)",
+   "group": "Camera",
+   "kind": "app",
+   "app": "/Applications/OBS.app",
+   "about": "Open it only when you want to mix. While it runs, OBS Virtual Camera sends the OBS mix; when it closes, Mantra Virtual Cam is the webcam again"
+  }
+ ]
 }
