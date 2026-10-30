@@ -16,7 +16,7 @@
 
 import AppKit
 
-let VERSION = 6
+let VERSION = 7
 let HOME = NSHomeDirectory()
 let CONF = HOME + "/.config"
 let ROWS_FILE = CONF + "/star-rows.json"
@@ -390,6 +390,9 @@ final class Controller: NSObject, NSMenuDelegate {
                 self.menu.popUp(positioning: nil, at: NSPoint(x: 0, y: b.bounds.height + 5), in: b)
             }
         }
+        dnc.addObserver(forName: .init("community.auroville.star.tint"), object: nil, queue: .main) { n in
+            self.item.button?.image = Controller.starImage(n.object as? String ?? "")
+        }
         dnc.addObserver(forName: .init("community.auroville.star.close"), object: nil, queue: .main) { _ in
             self.menu.cancelTracking()
         }
@@ -404,14 +407,19 @@ final class Controller: NSObject, NSMenuDelegate {
     // THE SIGN (Marko, 13.10.2026): "the logo is David Star or Yogic Star Shiva Shakti Balance Sri Aurobindo Ananda
     // Marko Yoga". Two equal triangles, one pointing up and one down, interlaced: the six-pointed star, never a
     // five-pointed one.
-    static func starImage() -> NSImage {
+    // v7 (30.10.2026, Marko: "Let it be red"): the star is red while a macro records and green while one plays, as the
+    // Lua star was; Macro Recorder (Mantra) posts community.auroville.star.tint with "red", "green" or "" (back to white)
+    static func starImage(_ tint: String = "") -> NSImage {
+        let ink = tint == "red" ? NSColor(srgbRed: 1, green: 0.23, blue: 0.19, alpha: 1)
+                : tint == "green" ? NSColor(srgbRed: 0x33/255.0, green: 0xD1/255.0, blue: 0x7A/255.0, alpha: 1)
+                : NSColor(white: 1, alpha: 0.6)
         let s: CGFloat = 18
         let img = NSImage(size: NSSize(width: s, height: s), flipped: false) { _ in
             let R = s / 2 - 1.5, cx = s / 2, cy = s / 2, c30: CGFloat = 0.8660254
             func tri(_ pts: [NSPoint]) {
                 let p = NSBezierPath(); p.move(to: pts[0]); p.line(to: pts[1]); p.line(to: pts[2]); p.close()
-                p.lineWidth = 1.05; p.lineJoinStyle = .round
-                NSColor(white: 1, alpha: 0.6).setStroke(); p.stroke()
+                p.lineWidth = tint.isEmpty ? 1.05 : 1.6; p.lineJoinStyle = .round
+                ink.setStroke(); p.stroke()
             }
             tri([NSPoint(x: cx, y: cy + R), NSPoint(x: cx - c30 * R, y: cy - R / 2), NSPoint(x: cx + c30 * R, y: cy - R / 2)])
             tri([NSPoint(x: cx, y: cy - R), NSPoint(x: cx + c30 * R, y: cy + R / 2), NSPoint(x: cx - c30 * R, y: cy + R / 2)])
