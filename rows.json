@@ -349,6 +349,14 @@
    "kind": "app",
    "app": "/Applications/OBS.app",
    "about": "Open it only when you want to mix. While it runs, OBS Virtual Camera sends the OBS mix; when it closes, Mantra Virtual Cam is the webcam again"
+  },
+  {
+   "key": "darken",
+   "name": "Darken the Screens (Mantra) (⌃⌥⌘F1: every screen black, again: light)",
+   "group": "Mac",
+   "kind": "app",
+   "about": "⌃⌥⌘F1 darkens every screen to complete darkness; ⌃⌥⌘F1 again brings full light",
+   "app": "/Applications/Darken the Screens (Mantra).app"
   }
  ]
 }
