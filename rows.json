@@ -229,11 +229,11 @@
   },
   {
    "key": "transcribe",
-   "name": "Marko Transcribe (Mantra) (talk, and it types: Speechify, Whisper, Groq, Haiku)",
+   "name": "Marko Transcribe Voice to Text (Mantra) (talk, and it types: Speechify, Whisper, Groq, Haiku)",
    "group": "Claude",
    "kind": "app",
    "about": "F2: talk, F2 again: what you said is cleaned in your style and typed where the cursor is; the engines on the stripe",
-   "app": "/Applications/Marko Transcribe (Mantra).app"
+   "app": "/Applications/Marko Transcribe Voice to Text (Mantra).app"
   },
   {
    "key": "spectral",
