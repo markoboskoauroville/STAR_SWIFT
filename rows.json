@@ -56,8 +56,9 @@
    "key": "macro",
    "name": "Macro Recorder",
    "group": "Keyboard and mouse",
-   "kind": "lua",
-   "about": "Records what you do and plays it back; the star reddens while it records"
+   "kind": "app",
+   "about": "Records what you do as a script and plays it back; ten slots on the digit keys, a script editor, and pictures it finds on the screen",
+   "app": "/Applications/Macro Recorder (Mantra).app"
   },
   {
    "key": "download",
