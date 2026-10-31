@@ -19,7 +19,7 @@ import AppKit
 // v11 (31.10.2026, Marko: "Each needs to have the same user interface elements. On, off and top. Please build it in
 // every application"): the star's one window, MENU BAR ORDER, gets the first row ON OFF … Star … TOP ✕ (TopRow.swift).
 // The star itself still only opens: OFF quits the star alone, the rows' clicks are unchanged.
-let VERSION = 11
+let VERSION = 12
 let HOME = NSHomeDirectory()
 let CONF = HOME + "/.config"
 let ROWS_FILE = CONF + "/star-rows.json"
@@ -44,7 +44,9 @@ struct Row: Codable {
     var about: String?
     var path: String? { app.map { NSString(string: $0).expandingTildeInPath } }
 }
-struct RowsFile: Codable { var folders: [String]?; var rows: [Row] }
+// v12 (Marko, 31.10.2026: "make an E16 category ... Inside it will be all the apps that use E16, and only one can be
+// selected at a time"): `exclusive` names groups whose apps never run together; opening one quits the others first
+struct RowsFile: Codable { var folders: [String]?; var rows: [Row]; var exclusive: [String]? }
 
 func readJSON(_ path: String) -> Any? {
     guard let d = FileManager.default.contents(atPath: path) else { return nil }
@@ -93,6 +95,7 @@ func hsStates() -> [String: Bool]? {
 
 final class Star {
     var rows: [Row] = []
+    var exclusiveGroups = Set<String>()        // v12: groups whose apps never run together (the E16)
     var folders: [String] = []
     var luaOn: [String: Bool] = [:]
     var hsUp = false
@@ -101,7 +104,7 @@ final class Star {
         let path = FileManager.default.fileExists(atPath: ROWS_FILE) ? ROWS_FILE
             : (Bundle.main.path(forResource: "rows", ofType: "json") ?? ROWS_FILE)
         if let d = FileManager.default.contents(atPath: path), let f = try? JSONDecoder().decode(RowsFile.self, from: d) {
-            rows = f.rows; folders = f.folders ?? []
+            rows = f.rows; folders = f.folders ?? []; exclusiveGroups = Set(f.exclusive ?? [])
         }
         // HIS ORDER (star-order.json, the Lua star's file): the keys he placed first, the rest after, in the table's order
         if let o = readJSON(ORDER_FILE) as? [String: Any], let keys = o["order"] as? [String] {
@@ -155,6 +158,10 @@ final class Star {
 
     func start(_ r: Row) {
         guard let p = r.path else { return }
+        // v12: an exclusive group (the E16): every other app of the group that runs is quit first
+        if let g = r.group, exclusiveGroups.contains(g) {
+            for o in rows where o.group == g && o.key != r.key && o.kind == "app" && isOn(o) { stop(o) }
+        }
         let c = NSWorkspace.OpenConfiguration(); c.activates = true
         NSWorkspace.shared.openApplication(at: URL(fileURLWithPath: p), configuration: c) { _, err in
             if let err = err { NSLog("star: %@ did not open: %@", r.key, err.localizedDescription) }

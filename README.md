@@ -60,3 +60,5 @@ the same code as a click. The menu opens on the display whose menu bar holds the
 
 The plan for the last Lua rows and for retiring Hammerspoon: [HAMMERSPOON_TO_SWIFT.md](HAMMERSPOON_TO_SWIFT.md)
 (20.10.2026). Each step starts only at Marko's word.
+
+**v12 (31.10.2026): an exclusive E16 group.** Marko: *"make an E16 category in the Start menu. Inside it will be all the apps that use E16, and only one can be selected at a time."* rows.json: E16 for DaVinci Resolve and DJ Mantra Ableton Remote for OXI E16 in group "E16"; `"exclusive": ["E16"]`: opening an app of an exclusive group from the star first quits every other running app of that group (Star.start).

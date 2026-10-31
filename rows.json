@@ -9,7 +9,8 @@
   "DJing",
   "Percussions",
   "Keyboard and mouse",
-  "Mac"
+  "Mac",
+  "E16"
  ],
  "rows": [
   {
@@ -95,7 +96,7 @@
   {
    "key": "e16resolve",
    "name": "E16 for DaVinci Resolve (the OXI E16 as Resolve's mixer: solo, mute, volume and pan of four audio tracks a page)",
-   "group": "DaVinci Resolve",
+   "group": "E16",
    "kind": "app",
    "app": "/Applications/E16 for DaVinci Resolve (Mantra).app",
    "about": "Columns 1 to 4 of the E16: SOLO, MUTE, VOLUME, PAN; rows: four audio tracks, their names on the screen; Shift twice turns the pages (A5–A8 and on). Only one E16 app at a time."
@@ -166,8 +167,8 @@
   },
   {
    "key": "oxi",
-   "name": "DJ Mantra Ableton Remote for OXI E16 (Mantra) (the E16 as Live's remote: fixed numbers, pages, profiles)",
-   "group": "Ableton Live",
+   "name": "DJ Mantra Ableton Remote for OXI E16 (the E16 as Live's remote: fixed numbers, pages, profiles)",
+   "group": "E16",
    "kind": "app",
    "about": "The OXI E16 in Remote Mode drives Live: knob n sends CC n and note n over 112 pages, its own screen, Shift twice picks a page, profiles placed on pages, a Claude chat per knob",
    "app": "/Applications/DJ Mantra Ableton Remote for OXI E16 (Mantra).app"
@@ -374,5 +375,8 @@
    "about": "Watches the Nothing phone's SMS and notifications over USB; a new verification code goes into the focused text box, else the clipboard",
    "app": "/Applications/Mantra Code Filler (Mantra).app"
   }
+ ],
+ "exclusive": [
+  "E16"
  ]
 }

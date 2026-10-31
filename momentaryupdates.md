@@ -140,3 +140,10 @@ opening of its menu (menuNeedsUpdate → star.load()).
 > Please go to all the interface of my applications. Each needs to have the same user interface elements. On, off and top. Please build it in every application.
 
 (MANTRA_MANIFEST modules/swift-apps.md, "The first row of every app: ON OFF … TOP ✕"; reference MANTRA_SOUND_RECORDER `TopRow`.) **Status:** done 31.10.2026, v11: the star has one window of its own, MENU BAR ORDER (app/MenuBar.swift); it gets the first row ON OFF … Star · menu bar order … TOP ✕ in its title bar beside the traffic lights (new app/TopRow.swift, AppKit, as MANTRA_SOUND_RECORDER; the window gets .fullSizeContentView and a hidden title). Every word a real NSButton: OFF `off` quits the star alone (the apps it opened stay), TOP `top` floats that window (UserDefaults `onTop`, applied when it opens), ✕ `close` closes it only. No new window; the menu and its rows are unchanged, so the star still only opens. "Quit everything" stays in the menu: it is not a QUIT twin of OFF (it stops every app and Hammerspoon too). Checked: `--menubar-shot <png> --min` at 420 × 320 (the row whole, nothing overlapping; ids off top permissions close, PERMISSIONS hidden), `--print-menu` reads back. Relaunched: old pid 81409 quit through its own Apple Event quit, new pid 8877 (open -g); every remembered app was already running, so the restore opened nothing. Then the star opened Freedom through its toggle (pid 9977) and closed it again.
+
+## 31.10.2026
+
+> Let's sort out the E16 setup, with different applications driving it. Please make an E16 category in the Start menu.
+> Inside it will be all the apps that use E16, and only one can be selected at a time.
+
+- An E16 group: E16 for DaVinci Resolve + DJ Mantra Ableton Remote for OXI E16; exclusive (opening one quits the other). **Status:** done v12 (rows.json group E16, "exclusive": ["E16"]); Ableton Live Actions stays in Ableton Live (its MIDI to key stroke volume rule is the only E16 clash)
