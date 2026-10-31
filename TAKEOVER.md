@@ -1,5 +1,13 @@
 # TAKEOVER: Star (Mantra)
 
+**State, 31.10.2026: v10.** Fixed places in the menu bar (app/MenuBar.swift). Relaunched: old pid 81209, new pid 81409
+(v10's first relaunch: 45468 → 80076). Measured: Clock, Control Centre, the star, SoundSource, on both screens.
+**Marko to try:** Menu bar order… in the star; drag, SAVE ORDER, REORDER. **Can be ordered:** Hot, Tailscale,
+BetterDisplay, AutoRaise, Speechify, Network Aggregate Connection Keeper, iStat Menus, DaVinci Resolve Actions, Claude,
+Mantra Code Filler (relaunched when out of place); SoundSource, Hammerspoon, Little Snitch (value written, counts from
+their next start). **Cannot:** Clock, Control Centre, Battery (macOS). Without Screen Recording the star cannot read the
+icons' names; it uses the app's one stored key, a known name (SoundSource, Hammerspoon, iStat), or assumes Item-0.
+
 **State, 31.10.2026: v9.** The menu never waits on Hammerspoon: the Lua rows' state is a cache refreshed off the main
 thread at launch and every 12 s (written to $TMPDIR/star-swift-lua-states.json, which `--print-menu` reads too);
 menuNeedsUpdate calls no `hs`. All off's `STAR.remember()` moved off the main thread. `--print-menu`: 0.08-0.11 s.

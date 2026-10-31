@@ -16,7 +16,7 @@
 
 import AppKit
 
-let VERSION = 9
+let VERSION = 10
 let HOME = NSHomeDirectory()
 let CONF = HOME + "/.config"
 let ROWS_FILE = CONF + "/star-rows.json"
@@ -408,7 +408,15 @@ final class RowView: NSView {
 final class Controller: NSObject, NSMenuDelegate {
     let star = Star()
     // lazy: `--print-menu` builds the menu without a second star in the menu bar
-    lazy var item = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
+    lazy var item: NSStatusItem = {
+        // v10 (31.10.2026, Marko: "I have date and time. I have something to connect to my Wi-Fi and Bluetooth. Then
+        // there is Star, and after Star I have sound source. This is the fixed positioning on my menu bar."): the star's
+        // place is asserted at every launch, before the item exists, so a drag or a new app never moves it for good
+        MenuBarOrder.placeStar()
+        let it = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
+        it.autosaveName = MenuBarOrder.STAR_NAME
+        return it
+    }()
     let menu = NSMenu()
 
     func setup() {
@@ -539,6 +547,7 @@ final class Controller: NSObject, NSMenuDelegate {
         let anyOn = star.rows.contains { star.isOn($0) }
         add(m, "All off") { self.star.allOff {} }.isEnabled = anyOn
         add(m, star.foldersOn ? "Show the apps as one list" : "Show the apps in folders") { self.star.setFolders(!self.star.foldersOn) }
+        add(m, "Menu bar order…  (your icons in a fixed order)") { MenuBarWindow.show() }
         add(m, "Go to the folder (STAR_SWIFT, the rows)") { self.openPath(HOME + "/Developer/STAR_SWIFT") }
         if !star.hsUp {
             let it = add(m, "Hammerspoon is off: the Lua apps wait for it") { self.openPath("/Applications/Hammerspoon.app") }
@@ -607,6 +616,17 @@ let controller = Controller()
 if let i = CommandLine.arguments.firstIndex(of: "--picked"), i + 1 < CommandLine.arguments.count {
     controller.star.load()
     if let r = controller.star.rows.first(where: { $0.key == CommandLine.arguments[i + 1] }) { controller.star.picked(r) }
+}
+if CommandLine.arguments.contains("--print-menubar") { MenuBarOrder.printBar(); exit(0) }
+// `--menubar-shot <png>`: the MENU BAR ORDER window drawn off screen into a picture, never shown
+if let i = CommandLine.arguments.firstIndex(of: "--menubar-shot"), i + 1 < CommandLine.arguments.count {
+    let w = MenuBarWindow(); w.window.appearance = NSAppearance(named: .aqua); w.reload()
+    let v = w.window.contentView!; v.layoutSubtreeIfNeeded(); w.table.layoutSubtreeIfNeeded()
+    if let rep = v.bitmapImageRepForCachingDisplay(in: v.bounds) {
+        v.cacheDisplay(in: v.bounds, to: rep)
+        try? rep.representation(using: .png, properties: [:])?.write(to: URL(fileURLWithPath: CommandLine.arguments[i + 1]))
+    }
+    exit(0)
 }
 if CommandLine.arguments.contains("--print-menu") { controller.printMenu(); exit(0) }
 controller.setup()

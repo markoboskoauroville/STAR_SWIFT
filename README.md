@@ -18,6 +18,13 @@ Control); then the rest of the menu as before. Test without opening it: `"/Appli
 (`[R]` marks a RUNNING row; `--picked <key>` records a pick first, nothing opens).
 **v9:** the menu never waits on Hammerspoon; the Lua rows show their state from a cache refreshed every 12 s in the background.
 
+**v10 (31.10.2026): fixed places in the menu bar.** Right to left: Clock, Control Centre, the star, SoundSource. The star
+writes its own "NSStatusItem Preferred Position star" (10, the lowest) at every launch, before its icon exists. The row
+**Menu bar order…** opens a window with every icon in the bar: drag into your order, SAVE ORDER, then REORDER writes
+each app's value and quits and reopens only the ones out of place (never SoundSource, Little Snitch or Hammerspoon,
+whose place counts from their next start). New icons go to the left end. `Star --print-menubar` prints the bar;
+`Star --menubar-shot <png>` draws the window off screen. Code: `app/MenuBar.swift`.
+
 ## How it works
 
 - **The rows are a table, not code:** `rows.json` (installed by `build.sh` as `~/.config/star-rows.json`). Each row

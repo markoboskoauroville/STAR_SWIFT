@@ -34,3 +34,10 @@
 - (31.10.2026) **The menu reads, it never asks.** v8 still asked Hammerspoon in menuNeedsUpdate and an opening could
   take 10 s; v9 keeps the Lua states in a cache refreshed in the background every 12 s. Nothing slow belongs on the
   menu's own thread.
+- (31.10.2026) **The menu-bar place is a sort key, not pixels.** "NSStatusItem Preferred Position <autosaveName>" in the
+  app's own defaults: lower = further right, after the pinned Clock and Control Centre (SoundSource 20 sat right of
+  Battery 97 and Hot 261). An icon with no value is born at the left end; the value is read when the icon is created.
+  Writing 10 for the star before creating its icon put it right after Control Centre at once.
+- (31.10.2026) **The notch hides the menu bar's left part.** On the MacBook's screen the star had been invisible (only
+  the BenQ showed it); read the bar on the screen that shows the most icons. CGWindowList gives the icons' names
+  (Item-0, SSMainAppMenuIcon) only with Screen Recording, and cuts owner names at 31 characters.
