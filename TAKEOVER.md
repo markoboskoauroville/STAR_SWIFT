@@ -43,3 +43,6 @@ everything, the restore with Hammerspoon gone.
    Each comes when its app is Swift: a Swift app shows its own settings.
 4. When the last row is `"app"`: login item for this app, Hammerspoon quits for good.
 - v11 (31.10.2026): app/TopRow.swift, ON OFF … TOP ✕ in AppKit in MENU BAR ORDER's title bar; ids `off` (quits the star only), `top` (UserDefaults `onTop`), `close`; `Star --menubar-shot <png> --min` draws it at 420 × 320 and prints the identifiers.
+
+## 31.10.2026, v12
+rows.json `"exclusive": ["E16"]`: Star.start quits every other running app of an exclusive group first. Group E16: e16resolve (E16 for DaVinci Resolve), oxi (E16 Ableton Remote, app renamed from DJ Mantra Ableton Remote for OXI E16), liveactions (E16 Ableton Live Actions). Row names: "Mantra" only inside parentheses. Relaunch: the star has no OFF the relaunch tool can press: NSRunningApplication.terminate, then open.
