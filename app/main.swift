@@ -16,7 +16,7 @@
 
 import AppKit
 
-let VERSION = 7
+let VERSION = 8
 let HOME = NSHomeDirectory()
 let CONF = HOME + "/.config"
 let ROWS_FILE = CONF + "/star-rows.json"
@@ -69,6 +69,9 @@ func hs(_ lua: String, timeout: Double = 8) -> String? {
     p.arguments = ["-t", String(Int(timeout)), "-c", lua]
     let out = Pipe(); p.standardOutput = out; p.standardError = Pipe()
     do { try p.run() } catch { return nil }
+    // v8 (31.10.2026): `hs -t` does not always keep its word (STAR.list() hung past 2 minutes with -t 8, measured
+    // 31.10.2026): a hard deadline ends it, so the menu never freezes on Hammerspoon
+    DispatchQueue.global().asyncAfter(deadline: .now() + timeout + 2) { if p.isRunning { p.terminate() } }
     let data = out.fileHandleForReading.readDataToEndOfFile()
     p.waitUntilExit()
     return String(data: data, encoding: .utf8)?.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -143,6 +146,7 @@ final class Star {
     // it. This is gone." A click on a Swift row opens the app, or, running, brings its window (the reopen); it never
     // quits it. OFF is the switch at the top of the app's own window. The tick only shows what runs.
     func open(_ r: Row) {
+        picked(r)
         start(r)
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) { self.recorded() }
     }
@@ -153,12 +157,33 @@ final class Star {
             isOn(r) ? stop(r) : start(r)
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) { self.recorded(); done() }
         } else {
+            picked(r)
             DispatchQueue.global().async {
                 _ = hs("return STAR.toggleKey('\(r.key)')", timeout: 20)
                 let s = hsStates()
                 DispatchQueue.main.async { if let s = s { self.luaOn = s }; done() }
             }
         }
+    }
+    // v8 (31.10.2026, Marko: "the same logic like in my stream deck ... select any of the applications to see ... their
+    // user interface of running applications, it automatically jumps to the top"): RUNNING is ordered by the last pick
+    // from the star, newest first. UserDefaults `pickedOrder`: the app paths (a Lua row: "lua:<key>"), newest first, as
+    // Stream Deck Control keeps `pressedOrder`. Apps never picked come after, in the star's own order.
+    static let PICKED = "pickedOrder"
+    func pickID(_ r: Row) -> String { r.path ?? "lua:" + r.key }
+    func picked(_ r: Row) {
+        var o = UserDefaults.standard.stringArray(forKey: Star.PICKED) ?? []
+        o.removeAll { $0 == pickID(r) }
+        o.insert(pickID(r), at: 0)
+        UserDefaults.standard.set(Array(o.prefix(60)), forKey: Star.PICKED)
+    }
+    func byPick(_ rs: [Row]) -> [Row] {
+        let o = UserDefaults.standard.stringArray(forKey: Star.PICKED) ?? []
+        var rank: [String: Int] = [:]
+        for (i, id) in o.enumerated() where rank[id] == nil { rank[id] = i }
+        return rs.enumerated().sorted { a, b in
+            (rank[pickID(a.1)] ?? 1000 + a.0) < (rank[pickID(b.1)] ?? 1000 + b.0)
+        }.map { $0.1 }
     }
     func recorded() {
         // v2 (13.10.2026, the Swift star is the only star): its own apps are always its to write; the Lua star merges
@@ -344,7 +369,7 @@ final class RowView: NSView {
         let at: [NSAttributedString.Key: Any] = [.font: font, .foregroundColor: ink]
         let tick = busy ? "…" : (star.isOn(row) ? "✓" : "")
         (tick as NSString).draw(at: NSPoint(x: 12, y: 3), withAttributes: at)
-        let num = String(format: "%2d", number)
+        let num = number > 0 ? String(format: "%2d", number) : ""
         (num as NSString).draw(at: NSPoint(x: 30, y: 3), withAttributes: [.font: NSFont.monospacedDigitSystemFont(ofSize: font.pointSize, weight: .regular), .foregroundColor: ink.withAlphaComponent(0.6)])
         var title = row.name
         if row.kind == "lua" { title += star.hsUp ? "" : "   (Hammerspoon is off)" }
@@ -359,7 +384,8 @@ final class RowView: NSView {
 
 final class Controller: NSObject, NSMenuDelegate {
     let star = Star()
-    let item = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
+    // lazy: `--print-menu` builds the menu without a second star in the menu bar
+    lazy var item = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
     let menu = NSMenu()
 
     func setup() {
@@ -436,10 +462,26 @@ final class Controller: NSObject, NSMenuDelegate {
         // v4: the first row, Swift Matrix (Marko, 14.10.2026: "one more Swift in the star menu, which will be the first one")
         add(m, "▦   Swift Matrix  (what runs, what starts with the Mac)") { self.openPath(MATRIX_APP) }
             .isEnabled = FileManager.default.fileExists(atPath: MATRIX_APP)
+        // v8 (31.10.2026, Marko: "All running application must be in category running under Swift matrix. Swift matrix
+        // must be always at the top and then there is a line running and then everything running is listed there."):
+        // under Swift Matrix a line RUNNING, then every one of the star's rows (folders included) that runs now, one row
+        // each with its own number and the same click as its normal row. Built afresh at every opening.
+        m.addItem(.separator())
+        let all = star.rows.filter { $0.key != "monitor" && $0.key != "matrix" }
+        var numberOf: [String: Int] = [:]
+        for (i, r) in all.enumerated() { numberOf[r.key] = i + 1 }
+        let runningNow = star.byPick(star.rows.filter { $0.key != "matrix" && star.isOn($0) })
+        m.addItem(heading(runningNow.isEmpty ? "RUNNING   none running" : "RUNNING   \(runningNow.count)"))
+        for r in runningNow {
+            let it = rowItem(r, numberOf[r.key] ?? 0)
+            it.representedObject = "running"
+            m.addItem(it)
+        }
+        m.addItem(.separator())
         add(m, "⌕   Launcher  (search · favourites · ⌥Space)") { self.openPath(HOME + "/Developer/STAR_LAUNCHER/Star Menu.app") }
         if let mon = star.rows.first(where: { $0.key == "monitor" }) {
             // v3: Star Monitor is a Swift app (13.10.2026), opened like any app row
-            let it = add(m, "✡   Star Monitor") { self.openPath(mon.app ?? "/Applications/Star Monitor (Mantra).app") }
+            let it = add(m, "✡   Star Monitor") { self.star.picked(mon); self.openPath(mon.app ?? "/Applications/Star Monitor (Mantra).app") }
             it.isEnabled = star.usable(mon)
         }
         m.addItem(.separator())
@@ -482,6 +524,37 @@ final class Controller: NSObject, NSMenuDelegate {
         add(m, star.hsUp ? "Quit everything (the apps, Hammerspoon, this star)" : "Quit everything (the apps, then this star)") { self.star.quitEverything() }
     }
 
+    // a heading: grey, small capitals, not clickable
+    func heading(_ t: String) -> NSMenuItem {
+        let it = NSMenuItem(title: t, action: nil, keyEquivalent: "")
+        it.isEnabled = false
+        it.attributedTitle = NSAttributedString(string: t, attributes: [.foregroundColor: NSColor.secondaryLabelColor,
+            .font: NSFont.systemFont(ofSize: 11, weight: .semibold), .kern: 0.8])
+        return it
+    }
+
+    // `Star --print-menu`: the menu's titles in order, as menuNeedsUpdate builds them, without opening it on his screen.
+    // "[R]" marks a row under RUNNING, "✓" a row whose app runs, "  >" an item inside a folder.
+    func printMenu() {
+        let m = NSMenu(); m.autoenablesItems = false
+        star.load()
+        menuNeedsUpdate(m)
+        func walk(_ m: NSMenu, _ depth: Int) {
+            for it in m.items {
+                let ind = String(repeating: "  > ", count: depth)
+                if it.isSeparatorItem { print(ind + "----"); continue }
+                var line = it.title
+                if let v = it.view as? RowView {
+                    line = (star.isOn(v.row) ? "✓ " : "  ") + (v.number > 0 ? String(format: "%2d ", v.number) : "   ") + v.row.name
+                }
+                if (it.representedObject as? String) == "running" { line = "[R] " + line }
+                print(ind + line)
+                if let sub = it.submenu { walk(sub, depth + 1) }
+            }
+        }
+        walk(m, 0)
+    }
+
     func rowItem(_ r: Row, _ n: Int) -> NSMenuItem {
         let it = NSMenuItem(title: r.name, action: nil, keyEquivalent: "")
         it.view = RowView(row: r, number: n, star: star)
@@ -504,5 +577,11 @@ final class Controller: NSObject, NSMenuDelegate {
 let app = NSApplication.shared
 app.setActivationPolicy(.accessory)
 let controller = Controller()
+// `--picked <key>`: a test pick, recorded as a click would record it, without opening anything
+if let i = CommandLine.arguments.firstIndex(of: "--picked"), i + 1 < CommandLine.arguments.count {
+    controller.star.load()
+    if let r = controller.star.rows.first(where: { $0.key == CommandLine.arguments[i + 1] }) { controller.star.picked(r) }
+}
+if CommandLine.arguments.contains("--print-menu") { controller.printMenu(); exit(0) }
 controller.setup()
 app.run()

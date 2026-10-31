@@ -11,6 +11,12 @@ star drew it). Under it, every app of the Mac's star, one row each, numbered in 
 click brings its window back. ON / OFF is the first row of every app's own window (OFF quits it); the tick only shows
 what runs. The Lua rows (Hammerspoon) still toggle on a click.
 
+**v8 (31.10.2026): RUNNING under Swift Matrix.** Swift Matrix is the first row; under it a line RUNNING (with the count,
+or "none running") and every one of the star's rows that runs now, folders included, with its own number and the same
+click. The app last opened from the star comes first (UserDefaults `pickedOrder`, newest first, like Stream Deck
+Control); then the rest of the menu as before. Test without opening it: `"/Applications/Star (Mantra).app/Contents/MacOS/Star" --print-menu`
+(`[R]` marks a RUNNING row; `--picked <key>` records a pick first, nothing opens).
+
 ## How it works
 
 - **The rows are a table, not code:** `rows.json` (installed by `build.sh` as `~/.config/star-rows.json`). Each row

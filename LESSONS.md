@@ -28,3 +28,6 @@
   CHAT (chatd.py, :8825) by itself. Hammerspoon is out of the login items; the Lua rows (Buckets, Sister, Macro,
   Voices, A1, MIDI to MK Control, MIDI to Key Stroke) stay grey "(Hammerspoon is off)" and the star's row
   "Hammerspoon is off: the Lua apps wait for it" wakes it when one is wanted.
+- (31.10.2026) **`hs -t 8` is not a deadline.** `STAR.list()` hung over two minutes with `-t 8` while `hs -c 'return 1'`
+  answered at once; the menu build (menuNeedsUpdate → refresh → hsStates) waited with it. v8 terminates `hs` after
+  timeout + 2 s. A menu test needs a printing mode (`--print-menu`), never the menu opened on his screen.

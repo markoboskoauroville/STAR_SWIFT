@@ -117,8 +117,8 @@ opening of its menu (menuNeedsUpdate → star.load()).
 
 > Then please enhance my star menu. All running application must be in category running under Swift matrix. Swift matrix must be always at the top and then there is a line running and then everything running is listed there.
 
-- Swift Matrix always the first row of the star menu; under it a separator line titled RUNNING; under that every app running now (one row each, a click brings it to the front as usual); then the rest of the menu as it is. **Status:** building
+- Swift Matrix always the first row of the star menu; under it a separator line titled RUNNING; under that every app running now (one row each, a click brings it to the front as usual); then the rest of the menu as it is. **Status:** done, 31.10.2026, Star (Mantra) v8: Swift Matrix first, RUNNING with the count (or "none running"), the star's running rows (folders included) with their numbers, rebuilt at every opening; checked with `Star --print-menu` against the running bundle ids (11 of 11). Opening the menu by hand is Marko's.
 
 > And we have the same logic like in my stream deck. If I open that menu, select any of the applications to see them, their user interface of running applications, it automatically jumps to the top.
 
-- RUNNING ordered like the Stream Deck: the app last opened from the menu jumps to the top of RUNNING (most recent first). **Status:** building
+- RUNNING ordered like the Stream Deck: the app last opened from the menu jumps to the top of RUNNING (most recent first). **Status:** done, 31.10.2026, v8: UserDefaults `pickedOrder` (app paths, newest first, as Stream Deck Control's `pressedOrder`); never-picked apps after, in the star's order. Checked with `Star --picked g815 --print-menu`, then darken, then g815 again: each jumped to the top; the test picks deleted afterwards.
