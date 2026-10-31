@@ -104,3 +104,9 @@ Marko, 21.10.2026: *"Add it to the start menu under Mac"* (Freedom (Mantra), FRE
 **Status:** done, 28.10.2026. The folder Resolve is now "DaVinci Resolve" and holds two rows: DaVinci Resolve Actions
 and DaVinci Grading Tutorial (/Applications/DaVinci Grading Tutorial (Mantra).app). Installed in ~/.config/star-rows.json,
 which the star reads at every opening of its menu.
+
+## 31.10.2026: Mantra Sound Recorder in Audio Production
+
+> Please put this up under star menu in the category called audio production. Please, so I can run it from there.
+
+**Status:** in progress.
