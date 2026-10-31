@@ -16,6 +16,7 @@ or "none running") and every one of the star's rows that runs now, folders inclu
 click. The app last opened from the star comes first (UserDefaults `pickedOrder`, newest first, like Stream Deck
 Control); then the rest of the menu as before. Test without opening it: `"/Applications/Star (Mantra).app/Contents/MacOS/Star" --print-menu`
 (`[R]` marks a RUNNING row; `--picked <key>` records a pick first, nothing opens).
+**v9:** the menu never waits on Hammerspoon; the Lua rows show their state from a cache refreshed every 12 s in the background.
 
 ## How it works
 

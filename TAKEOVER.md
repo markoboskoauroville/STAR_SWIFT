@@ -1,11 +1,15 @@
 # TAKEOVER: Star (Mantra)
 
+**State, 31.10.2026: v9.** The menu never waits on Hammerspoon: the Lua rows' state is a cache refreshed off the main
+thread at launch and every 12 s (written to $TMPDIR/star-swift-lua-states.json, which `--print-menu` reads too);
+menuNeedsUpdate calls no `hs`. All off's `STAR.remember()` moved off the main thread. `--print-menu`: 0.08-0.11 s.
+Relaunched: old pid 43816, new pid 45468. STAR.list()'s hang of 07:45 did not come back (0 s alone and four at once,
+3.6 KB); cause not found, MANTRA_STAR not touched.
+
 **State, 31.10.2026: v8.** RUNNING under Swift Matrix, last picked first (`pickedOrder`); `--print-menu` / `--picked`;
 `hs()` has a hard deadline. Relaunched 31.10.2026: old pid 631, new pid 43816. Tested with --print-menu only (11 running
 rows = the 11 running bundle ids). **Marko to check:** open the star, RUNNING is under Swift Matrix; open an app from
-it, reopen the menu, that app is first. **Known:** Hammerspoon's `STAR.list()` hangs today, so each opening waits up
-to 10 s for it (it froze for good before v8) and the Lua rows show off; worth a look in MANTRA_STAR.
-
+it, reopen the menu, that app is first. 
 **State, 14.10.2026: v4.** Silent login (apps brought back hidden, `--login`), the memory no longer loses apps (unknown
 keys kept, pending restores kept, frozen at power-off), `~/.config/star-autostart.json` from Swift Matrix (ALWAYS /
 NEVER), and Swift Matrix (Mantra) as the first row. Restarted 14.10.2026: old pid 715, new pid 23351; Ableton Live

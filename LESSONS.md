@@ -31,3 +31,6 @@
 - (31.10.2026) **`hs -t 8` is not a deadline.** `STAR.list()` hung over two minutes with `-t 8` while `hs -c 'return 1'`
   answered at once; the menu build (menuNeedsUpdate → refresh → hsStates) waited with it. v8 terminates `hs` after
   timeout + 2 s. A menu test needs a printing mode (`--print-menu`), never the menu opened on his screen.
+- (31.10.2026) **The menu reads, it never asks.** v8 still asked Hammerspoon in menuNeedsUpdate and an opening could
+  take 10 s; v9 keeps the Lua states in a cache refreshed in the background every 12 s. Nothing slow belongs on the
+  menu's own thread.

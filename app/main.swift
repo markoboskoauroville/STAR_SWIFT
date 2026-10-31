@@ -16,7 +16,7 @@
 
 import AppKit
 
-let VERSION = 8
+let VERSION = 9
 let HOME = NSHomeDirectory()
 let CONF = HOME + "/.config"
 let ROWS_FILE = CONF + "/star-rows.json"
@@ -108,9 +108,32 @@ final class Star {
             rows.sort { (rank[$0.key] ?? 10000 + base[$0.key]!) < (rank[$1.key] ?? 10000 + base[$1.key]!) }
         }
     }
+    // v9 (31.10.2026): the menu never waits on Hammerspoon. The Lua rows' state is a cache, refreshed off the main
+    // thread at launch and every 12 s (hs with its hard deadline), and written to LUA_CACHE so `--print-menu` reads the
+    // same; refresh(), called by menuNeedsUpdate, only reads it. A Lua row never known shows off.
+    static let LUA_CACHE = NSTemporaryDirectory() + "star-swift-lua-states.json"
+    private var luaBusy = false
     func refresh() {
         hsUp = hsAlive()
-        luaOn = hsUp ? (hsStates() ?? luaOn) : [:]
+        if !hsUp { luaOn = [:] }
+    }
+    func loadLuaCache() {
+        if let c = readJSON(Star.LUA_CACHE) as? [String: Bool] { luaOn = c }
+    }
+    func refreshLuaInBackground() {
+        guard !luaBusy else { return }
+        guard hsAlive() else { luaOn = [:]; return }
+        luaBusy = true
+        DispatchQueue.global(qos: .utility).async {
+            let s = hsStates()
+            DispatchQueue.main.async {
+                self.luaBusy = false
+                if let s = s {
+                    self.luaOn = s
+                    if let d = try? JSONSerialization.data(withJSONObject: s) { try? d.write(to: URL(fileURLWithPath: Star.LUA_CACHE), options: .atomic) }
+                }
+            }
+        }
     }
     func bundleID(_ r: Row) -> String? {
         guard let p = r.path else { return nil }
@@ -295,10 +318,10 @@ final class Star {
                 else { hs("STAR.command('\(r.key)','stop')", timeout: 20) }
             }
             Thread.sleep(forTimeInterval: 1.5)
+            if hsAlive() { hs("STAR.remember()") }
             DispatchQueue.main.async {
                 self.remember(); self.clock()
-                if hsAlive() { hs("STAR.remember()") }
-                self.refresh(); done()
+                self.refresh(); self.refreshLuaInBackground(); done()
             }
         }
     }
@@ -390,6 +413,9 @@ final class Controller: NSObject, NSMenuDelegate {
 
     func setup() {
         star.load()
+        star.loadLuaCache(); star.refreshLuaInBackground()
+        let lt = Timer(timeInterval: 12, repeats: true) { _ in self.star.refreshLuaInBackground() }
+        RunLoop.main.add(lt, forMode: .common)
         item.button?.image = Controller.starImage()
         item.button?.toolTip = "Star (Mantra) v\(VERSION): every app, a click opens its window; ON / OFF is at the top of the window"
         menu.delegate = self
@@ -537,7 +563,7 @@ final class Controller: NSObject, NSMenuDelegate {
     // "[R]" marks a row under RUNNING, "✓" a row whose app runs, "  >" an item inside a folder.
     func printMenu() {
         let m = NSMenu(); m.autoenablesItems = false
-        star.load()
+        star.load(); star.loadLuaCache()
         menuNeedsUpdate(m)
         func walk(_ m: NSMenu, _ depth: Int) {
             for it in m.items {
