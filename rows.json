@@ -245,6 +245,14 @@
    "about": "Any sound passed through and measured like FLUX:: Analyzer; the voice's clips checked for clicks"
   },
   {
+   "key": "soundrecorder",
+   "name": "Mantra Sound Recorder (Mantra) (record, play, see the waveform; the take is gone when it quits)",
+   "group": "Audio Production",
+   "kind": "app",
+   "app": "/Applications/Mantra Sound Recorder (Mantra).app",
+   "about": "Input and output with their volume and VU meters in SoundSource's look; record, play, the waveform; nothing kept after QUIT"
+  },
+  {
    "key": "mackie",
    "name": "MIDI to MK Control (a knob becomes a Mackie Control command: the playback position under a knob, which Live's own MIDI mapping will not give)",
    "group": "Ableton Live",

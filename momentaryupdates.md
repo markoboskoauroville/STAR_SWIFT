@@ -109,4 +109,6 @@ which the star reads at every opening of its menu.
 
 > Please put this up under star menu in the category called audio production. Please, so I can run it from there.
 
-**Status:** in progress.
+**Status:** done, 31.10.2026. rows.json has the row "soundrecorder" in Audio Production, after Spectral Analyzer, opening
+/Applications/Mantra Sound Recorder (Mantra).app; installed in ~/.config/star-rows.json, which the star reads at every
+opening of its menu (menuNeedsUpdate → star.load()).
