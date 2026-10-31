@@ -112,3 +112,9 @@ which the star reads at every opening of its menu.
 **Status:** done, 31.10.2026. rows.json has the row "soundrecorder" in Audio Production, after Spectral Analyzer, opening
 /Applications/Mantra Sound Recorder (Mantra).app; installed in ~/.config/star-rows.json, which the star reads at every
 opening of its menu (menuNeedsUpdate → star.load()).
+
+## 31.10.2026: RUNNING under Swift Matrix
+
+> Then please enhance my star menu. All running application must be in category running under Swift matrix. Swift matrix must be always at the top and then there is a line running and then everything running is listed there.
+
+- Swift Matrix always the first row of the star menu; under it a separator line titled RUNNING; under that every app running now (one row each, a click brings it to the front as usual); then the rest of the menu as it is. **Status:** building
