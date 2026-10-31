@@ -365,6 +365,14 @@
    "kind": "app",
    "about": "⌃⌥⌘F1 darkens every screen to complete darkness; ⌃⌥⌘F1 again brings full light",
    "app": "/Applications/Darken the Screens (Mantra).app"
+  },
+  {
+   "key": "codefiller",
+   "name": "Mantra Code Filler (the security code from the Nothing phone's SMS, filled where the cursor is)",
+   "group": "Mac",
+   "kind": "app",
+   "about": "Watches the Nothing phone's SMS and notifications over USB; a new verification code goes into the focused text box, else the clipboard",
+   "app": "/Applications/Mantra Code Filler (Mantra).app"
   }
  ]
 }
