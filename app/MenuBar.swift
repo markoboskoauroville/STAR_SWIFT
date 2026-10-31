@@ -193,9 +193,12 @@ final class MenuBarWindow: NSObject, NSTableViewDataSource, NSTableViewDelegate 
     var rows: [BarItem] = []
     let drag = NSPasteboard.PasteboardType("community.auroville.star.baritem")
 
+    var row: TopRow!
+
     static func show() {
         if shared == nil { shared = MenuBarWindow() }
         shared!.reload()
+        TopRow.float(shared!.row.onTop, shared!.window.title)     // v11: TOP applied when the window opens
         shared!.window.makeKeyAndOrderFront(nil)
         NSApp.activate(ignoringOtherApps: true)
     }
@@ -203,8 +206,10 @@ final class MenuBarWindow: NSObject, NSTableViewDataSource, NSTableViewDelegate 
     override init() {
         super.init()
         window = NSWindow(contentRect: NSRect(x: 0, y: 0, width: 720, height: 560),
-                          styleMask: [.titled, .closable, .resizable, .miniaturizable], backing: .buffered, defer: false)
+                          styleMask: [.titled, .closable, .resizable, .miniaturizable, .fullSizeContentView], backing: .buffered, defer: false)
         window.title = "Menu bar order (Star)"
+        // v11: the first row ON OFF … Star … TOP ✕ sits in the title bar beside the traffic lights (TopRow.swift)
+        window.titleVisibility = .hidden; window.titlebarAppearsTransparent = true
         window.isReleasedWhenClosed = false
         window.minSize = NSSize(width: 420, height: 320)
         window.center()
@@ -233,14 +238,20 @@ final class MenuBarWindow: NSObject, NSTableViewDataSource, NSTableViewDelegate 
         status.font = .systemFont(ofSize: 11); status.textColor = .secondaryLabelColor
         let buttons = NSStackView(views: [again, NSView(), save, apply]); buttons.orientation = .horizontal
 
-        let stack = NSStackView(views: [head, scroll, buttons, status])
+        let row = TopRow(bold: "Star", rest: " · menu bar order", windowTitle: window.title,
+                         offHelp: "Quits the star only; the apps it opened stay as they are")
+        self.row = row
+        let stack = NSStackView(views: [row, head, scroll, buttons, status])
         stack.orientation = .vertical; stack.alignment = .leading; stack.spacing = 10
-        stack.edgeInsets = NSEdgeInsets(top: 14, left: 16, bottom: 14, right: 16)
+        stack.edgeInsets = NSEdgeInsets(top: 0, left: 16, bottom: 14, right: 16)
+        stack.setCustomSpacing(6, after: row)
         stack.translatesAutoresizingMaskIntoConstraints = false
         v.addSubview(stack)
         NSLayoutConstraint.activate([
             stack.leadingAnchor.constraint(equalTo: v.leadingAnchor), stack.trailingAnchor.constraint(equalTo: v.trailingAnchor),
             stack.topAnchor.constraint(equalTo: v.topAnchor), stack.bottomAnchor.constraint(equalTo: v.bottomAnchor),
+            row.leadingAnchor.constraint(equalTo: stack.leadingAnchor, constant: 10),
+            row.trailingAnchor.constraint(equalTo: stack.trailingAnchor, constant: -10),
             scroll.leadingAnchor.constraint(equalTo: stack.leadingAnchor, constant: 16),
             scroll.trailingAnchor.constraint(equalTo: stack.trailingAnchor, constant: -16),
             head.leadingAnchor.constraint(equalTo: stack.leadingAnchor, constant: 16),

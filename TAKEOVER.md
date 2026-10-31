@@ -42,3 +42,4 @@ everything, the restore with Hammerspoon gone.
    records, green while it plays: `STAR.tint`), Reorder (the Star Monitor page reorders), Reload Hammerspoon.
    Each comes when its app is Swift: a Swift app shows its own settings.
 4. When the last row is `"app"`: login item for this app, Hammerspoon quits for good.
+- v11 (31.10.2026): app/TopRow.swift, ON OFF … TOP ✕ in AppKit in MENU BAR ORDER's title bar; ids `off` (quits the star only), `top` (UserDefaults `onTop`), `close`; `Star --menubar-shot <png> --min` draws it at 420 × 320 and prints the identifiers.

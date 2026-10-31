@@ -16,7 +16,10 @@
 
 import AppKit
 
-let VERSION = 10
+// v11 (31.10.2026, Marko: "Each needs to have the same user interface elements. On, off and top. Please build it in
+// every application"): the star's one window, MENU BAR ORDER, gets the first row ON OFF … Star … TOP ✕ (TopRow.swift).
+// The star itself still only opens: OFF quits the star alone, the rows' clicks are unchanged.
+let VERSION = 11
 let HOME = NSHomeDirectory()
 let CONF = HOME + "/.config"
 let ROWS_FILE = CONF + "/star-rows.json"
@@ -621,7 +624,11 @@ if CommandLine.arguments.contains("--print-menubar") { MenuBarOrder.printBar(); 
 // `--menubar-shot <png>`: the MENU BAR ORDER window drawn off screen into a picture, never shown
 if let i = CommandLine.arguments.firstIndex(of: "--menubar-shot"), i + 1 < CommandLine.arguments.count {
     let w = MenuBarWindow(); w.window.appearance = NSAppearance(named: .aqua); w.reload()
+    // v11: `--menubar-shot <png> --min` draws it at its minimum width
+    if CommandLine.arguments.contains("--min") { w.window.setContentSize(w.window.minSize) }
     let v = w.window.contentView!; v.layoutSubtreeIfNeeded(); w.table.layoutSubtreeIfNeeded()
+    func ids(_ x: NSView) -> [String] { [x.accessibilityIdentifier()].filter { !$0.isEmpty } + x.subviews.flatMap(ids) }
+    print("menubar-shot \(Int(v.bounds.width))x\(Int(v.bounds.height)) ids:", ids(v).joined(separator: " "))
     if let rep = v.bitmapImageRepForCachingDisplay(in: v.bounds) {
         v.cacheDisplay(in: v.bounds, to: rep)
         try? rep.representation(using: .png, properties: [:])?.write(to: URL(fileURLWithPath: CommandLine.arguments[i + 1]))
