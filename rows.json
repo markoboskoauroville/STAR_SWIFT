@@ -95,7 +95,7 @@
   },
   {
    "key": "e16resolve",
-   "name": "E16 for DaVinci Resolve (the OXI E16 as Resolve's mixer: solo, mute, volume and pan of four audio tracks a page)",
+   "name": "E16 for DaVinci Resolve (Resolve hotkeys from your keyboard profile, mixer, playhead)",
    "group": "E16",
    "kind": "app",
    "app": "/Applications/E16 for DaVinci Resolve (Mantra).app",
@@ -159,7 +159,7 @@
   },
   {
    "key": "liveactions",
-   "name": "Ableton Live Actions",
+   "name": "E16 Ableton Live Actions (A1, MIDI to MK Control, MIDI to Key Stroke)",
    "group": "E16",
    "kind": "app",
    "about": "Everything for Live in one app: A1, MIDI to MK Control, MIDI to Key Stroke (reads MIDI: in the E16 group, one MIDI app at a time)",
@@ -167,11 +167,11 @@
   },
   {
    "key": "oxi",
-   "name": "DJ Mantra Ableton Remote for OXI E16 (the E16 as Live's remote: fixed numbers, pages, profiles)",
+   "name": "E16 Ableton Remote (the E16 as Live's remote: fixed numbers, pages, profiles)",
    "group": "E16",
    "kind": "app",
    "about": "The OXI E16 in Remote Mode drives Live: knob n sends CC n and note n over 112 pages, its own screen, Shift twice picks a page, profiles placed on pages, a Claude chat per knob",
-   "app": "/Applications/DJ Mantra Ableton Remote for OXI E16 (Mantra).app"
+   "app": "/Applications/E16 Ableton Remote (Mantra).app"
   },
   {
    "key": "a1",
@@ -247,7 +247,7 @@
   },
   {
    "key": "soundrecorder",
-   "name": "Mantra Sound Recorder (Mantra) (record, play, see the waveform; the take is gone when it quits)",
+   "name": "Sound Recorder (Mantra) (record, play, see the waveform; the take is gone when it quits)",
    "group": "Audio Production",
    "kind": "app",
    "app": "/Applications/Mantra Sound Recorder (Mantra).app",
@@ -345,7 +345,7 @@
   },
   {
    "key": "mantravirtualcam",
-   "name": "Mantra Virtual Cam (the phone is your webcam: open it, then choose \"OBS Virtual Camera\" in Zoom)",
+   "name": "Virtual Cam (the phone is your webcam: open it, then choose \"OBS Virtual Camera\" in Zoom)",
    "group": "Camera",
    "kind": "app",
    "app": "/Applications/Mantra Virtual Cam.app",
@@ -369,7 +369,7 @@
   },
   {
    "key": "codefiller",
-   "name": "Mantra Code Filler (the security code from the Nothing phone's SMS, filled where the cursor is)",
+   "name": "Code Filler (the security code from the Nothing phone's SMS, filled where the cursor is)",
    "group": "Mac",
    "kind": "app",
    "about": "Watches the Nothing phone's SMS and notifications over USB; a new verification code goes into the focused text box, else the clipboard",

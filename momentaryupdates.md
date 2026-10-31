@@ -153,3 +153,8 @@ opening of its menu (menuNeedsUpdate → star.load()).
 > You need to stop all MIDI applications and just use this one.
 
 - Every app that reads MIDI goes into the exclusive E16 group (Ableton Live Actions too); the others stopped now, only E16 for DaVinci Resolve runs. **Status:** done: Live Actions quit and moved to E16 (rows.json); press did not play because E16 for DaVinci Resolve has no Accessibility (log: "accessibility OFF"): Marko switches it on
+
+> It is done. Now please rename all my applications in the Start menu that use E16, so that E16 becomes the first word. And please remove Mantra and DJ Mantra everywhere it is not parenthesis
+
+- E16 apps renamed with E16 first; "Mantra" / "DJ Mantra" only inside the parentheses. **Status:** doing
+- Star rows renamed: E16 Ableton Remote, E16 Ableton Live Actions, E16 for DaVinci Resolve; Sound Recorder, Virtual Cam, Code Filler (Mantra only in parentheses). **Status:** done
