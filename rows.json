@@ -160,9 +160,9 @@
   {
    "key": "liveactions",
    "name": "Ableton Live Actions",
-   "group": "Ableton Live",
+   "group": "E16",
    "kind": "app",
-   "about": "Everything for Live in one app: A1, MIDI to MK Control, MIDI to Key Stroke",
+   "about": "Everything for Live in one app: A1, MIDI to MK Control, MIDI to Key Stroke (reads MIDI: in the E16 group, one MIDI app at a time)",
    "app": "/Applications/Ableton Live Actions (Mantra).app"
   },
   {

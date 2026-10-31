@@ -147,3 +147,9 @@ opening of its menu (menuNeedsUpdate → star.load()).
 > Inside it will be all the apps that use E16, and only one can be selected at a time.
 
 - An E16 group: E16 for DaVinci Resolve + DJ Mantra Ableton Remote for OXI E16; exclusive (opening one quits the other). **Status:** done v12 (rows.json group E16, "exclusive": ["E16"]); Ableton Live Actions stays in Ableton Live (its MIDI to key stroke volume rule is the only E16 clash)
+
+> I think all the MIDI applications need to be put in E16. There are only 2, or maybe more, and still my volume is occupied for the first knob.
+> Pressing doesn't send space, because I guess another application is using this pressing. It's not working.
+> You need to stop all MIDI applications and just use this one.
+
+- Every app that reads MIDI goes into the exclusive E16 group (Ableton Live Actions too); the others stopped now, only E16 for DaVinci Resolve runs. **Status:** done: Live Actions quit and moved to E16 (rows.json); press did not play because E16 for DaVinci Resolve has no Accessibility (log: "accessibility OFF"): Marko switches it on
