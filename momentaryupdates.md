@@ -122,3 +122,15 @@ opening of its menu (menuNeedsUpdate → star.load()).
 > And we have the same logic like in my stream deck. If I open that menu, select any of the applications to see them, their user interface of running applications, it automatically jumps to the top.
 
 - RUNNING ordered like the Stream Deck: the app last opened from the menu jumps to the top of RUNNING (most recent first). **Status:** done, 31.10.2026, v8: UserDefaults `pickedOrder` (app paths, newest first, as Stream Deck Control's `pressedOrder`); never-picked apps after, in the star's order. Checked with `Star --picked g815 --print-menu`, then darken, then g815 again: each jumped to the top; the test picks deleted afterwards.
+
+## 31.10.2026: every Swift app in the star; fixed places in the menu bar
+
+> Please write in the manifest that any Swift application we are writing is actually going to start. Every Swift application starts, and it comes to the Star menu automatically. That's the thing.
+>
+> Second thing: when you start, always make sure the Star menu is at the same position in my menu bar. I have date and time. I have something to connect to my Wi-Fi and Bluetooth. Then there is Star, and after Star I have sound source. This is the fixed positioning on my menu bar.
+>
+> Please add this Star in the Swift application so that I can have all the icons opening on my bar and arrange them in some fixed orientation, and then the menu bar follows that. Now, when new buttons are added, they're going all over the place. I want to get used to my positioning of every software opening in my menu bar being at the same position always.
+
+- Manifest rule: every Swift app we write is started when built and gets its row in the star automatically. **Status:** building
+- The star's own icon always in the same place: (right to left) date/time, Control Centre (Wi-Fi/Bluetooth), the star, then SoundSource. **Status:** building
+- In the star: a fixed order for all menu-bar icons he arranges once; new icons follow it. **Status:** building
