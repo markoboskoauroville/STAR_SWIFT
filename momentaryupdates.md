@@ -118,3 +118,7 @@ opening of its menu (menuNeedsUpdate → star.load()).
 > Then please enhance my star menu. All running application must be in category running under Swift matrix. Swift matrix must be always at the top and then there is a line running and then everything running is listed there.
 
 - Swift Matrix always the first row of the star menu; under it a separator line titled RUNNING; under that every app running now (one row each, a click brings it to the front as usual); then the rest of the menu as it is. **Status:** building
+
+> And we have the same logic like in my stream deck. If I open that menu, select any of the applications to see them, their user interface of running applications, it automatically jumps to the top.
+
+- RUNNING ordered like the Stream Deck: the app last opened from the menu jumps to the top of RUNNING (most recent first). **Status:** building
