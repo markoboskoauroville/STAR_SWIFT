@@ -281,11 +281,11 @@
   },
   {
    "key": "webcamviewer",
-   "name": "Web Cam Viewer (Mantra) (the picture of any camera the Mac sees)",
+   "name": "Webcam Recorder (Mantra) (any camera and sound input, recorded H.265 with time code)",
    "group": "Mac",
    "kind": "app",
-   "app": "/Applications/Web Cam Viewer (Mantra).app",
-   "about": "The picture of any webcam the Mac sees; the camera menu in the top middle over the picture, ✕ closes"
+   "app": "/Applications/Webcam Recorder (Mantra).app",
+   "about": "Any camera and sound input; the VU on the left edge; ● records ~/Movies/mb_….mov H.265 1080p with the real-time time code; ⌘F full screen, Escape back"
   },
   {
    "key": "launcher",
