@@ -454,6 +454,14 @@
    "kind": "app",
    "about": "Shows an NDI video source on the Mac",
    "app": "/Applications/NDI Mantra Monitor.app"
+  },
+  {
+   "key": "mkvconverter",
+   "name": "MKV Converter (MPA) (classroom recordings → MOV for DaVinci Resolve)",
+   "group": "DaVinci Resolve",
+   "kind": "app",
+   "app": "/Applications/MKV Converter (MPA).app",
+   "about": "Watches a folder (Downloads) for MPA recordings and converts them to MOV with time code for Resolve"
   }
  ],
  "exclusive": [
