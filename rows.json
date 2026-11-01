@@ -111,11 +111,11 @@
   },
   {
    "key": "spotlight",
-   "name": "Spotlight (an index for one folder)",
+   "name": "Find a File Spotlight (an index for one folder)",
    "group": "Mac",
    "kind": "app",
    "about": "Builds a Spotlight index for one folder alone, and searches inside it",
-   "app": "/Applications/Spotlight Folder (Mantra).app"
+   "app": "/Applications/Find a File Spotlight (Mantra).app"
   },
   {
    "key": "dock",
