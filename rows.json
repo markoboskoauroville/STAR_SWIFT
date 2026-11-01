@@ -199,19 +199,11 @@
   },
   {
    "key": "claudevoice",
-   "name": "Claude to Marko voice (Mantra) (the subtitle while the voice speaks)",
+   "name": "Voice Engine (Mantra) (the voice of the Mac: on and off, which voice, subtitles)",
    "group": "Claude",
    "kind": "app",
-   "app": "/Applications/Claude to Marko Voice (Mantra).app",
-   "about": "How the spoken words are written on the screens: size, colour, band, where"
-  },
-  {
-   "key": "voiceofclaude",
-   "name": "Voice of Claude (Mantra) (the voice engine on and off)",
-   "group": "Claude",
-   "kind": "app",
-   "app": "/Applications/Voice of Claude (Mantra).app",
-   "about": "One switch: the voice engine on or off, and its three parts"
+   "app": "/Applications/Voice Engine (Mantra).app",
+   "about": "One app since 1.11.2026 (Claude to Marko Voice + Voice of Claude): the engine on or off with its three parts, which voice speaks, how the subtitles look"
   },
   {
    "key": "transcribe",
