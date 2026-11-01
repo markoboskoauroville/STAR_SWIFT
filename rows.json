@@ -223,11 +223,11 @@
   },
   {
    "key": "transcribe",
-   "name": "Transcribe Voice to Text RT (Mantra) (talk, and it types: Speechify, Whisper, Groq, Haiku)",
+   "name": "Voice to Text (Mantra) (talk, and it types: Whisper Turbo, Claude; your own and the public one, v3)",
    "group": "Claude",
    "kind": "app",
-   "about": "F2: talk, F2 again: what you said is cleaned in your style and typed where the cursor is; the engines on the stripe",
-   "app": "/Applications/Transcribe Voice to Text RT (Mantra).app"
+   "about": "F1: talk, F1 again: what you said is cleaned in your style and typed where the cursor is; the speakers go to 6 % while it listens",
+   "app": "/Applications/Voice to Text (Mantra).app"
   },
   {
    "key": "spectral",
