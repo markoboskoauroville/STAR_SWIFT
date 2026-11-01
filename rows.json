@@ -280,6 +280,14 @@
    "about": "One big glass blob like the volume blob, centred low on the screen: the key just pressed until the next one; ✕ quits"
   },
   {
+   "key": "webcamviewer",
+   "name": "Web Cam Viewer (Mantra) (the picture of any camera the Mac sees)",
+   "group": "Mac",
+   "kind": "app",
+   "app": "/Applications/Web Cam Viewer (Mantra).app",
+   "about": "The picture of any webcam the Mac sees; the camera menu in the top middle over the picture, ✕ closes"
+  },
+  {
    "key": "launcher",
    "name": "Star Menu (alt+space, search and open)",
    "group": "Mac",
