@@ -337,10 +337,10 @@
   },
   {
    "key": "emmonitor",
-   "name": "Elevate Media Monitor (Mantra) (every credit: Kie live, Higgsfield, imgtoimg.ai, Gemini; what it buys; statistics and CSV)",
+   "name": "Elevate Media Project Monitor (Mantra) (every project's stage from Drive, ▶ FINISH after the client's approval; Kie and Higgsfield credits; uploads)",
    "group": "Elevate Media",
    "kind": "app",
-   "app": "/Applications/Elevate Media Monitor (Mantra).app",
+   "app": "/Applications/Elevate Media Project Monitor (Mantra).app",
    "about": "The credits of every service Elevate Media uses, what they buy, green / amber / red against the work left, top-up alerts, statistics and CSV export"
   },
   {
