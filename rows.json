@@ -242,7 +242,7 @@
    "name": "Sound Recorder (Mantra) (record, play, see the waveform; the take is gone when it quits)",
    "group": "Audio Production",
    "kind": "app",
-   "app": "/Applications/Mantra Sound Recorder (Mantra).app",
+   "app": "/Applications/Sound Recorder (Mantra).app",
    "about": "Input and output with their volume and VU meters in SoundSource's look; record, play, the waveform; nothing kept after QUIT"
   },
   {
@@ -340,16 +340,16 @@
    "name": "Virtual Cam (the phone is your webcam: open it, then choose \"OBS Virtual Camera\" in Zoom)",
    "group": "Camera",
    "kind": "app",
-   "app": "/Applications/Mantra Virtual Cam.app",
+   "app": "/Applications/Virtual Cam (Mantra).app",
    "about": "Connects to the phone on the USB cable; its picture is the Mac webcam; its whole camera screen is in the window, mouse and keyboard"
   },
   {
    "key": "obs",
-   "name": "OBS Studio (only for mixing scenes; add the window \"Mantra Virtual Cam — clean\" as a Window Capture)",
+   "name": "OBS Studio (only for mixing scenes; add the window \"Virtual Cam (Mantra) — clean\" as a Window Capture)",
    "group": "Camera",
    "kind": "app",
    "app": "/Applications/OBS.app",
-   "about": "Open it only when you want to mix. While it runs, OBS Virtual Camera sends the OBS mix; when it closes, Mantra Virtual Cam is the webcam again"
+   "about": "Open it only when you want to mix. While it runs, OBS Virtual Camera sends the OBS mix; when it closes, Virtual Cam (Mantra) is the webcam again"
   },
   {
    "key": "darken",
@@ -365,7 +365,7 @@
    "group": "Mac",
    "kind": "app",
    "about": "Watches the Nothing phone's SMS and notifications over USB; a new verification code goes into the focused text box, else the clipboard",
-   "app": "/Applications/Mantra Code Filler (Mantra).app"
+   "app": "/Applications/Code Filler (Mantra).app"
   }
  ],
  "exclusive": [
