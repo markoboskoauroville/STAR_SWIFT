@@ -273,11 +273,11 @@
   },
   {
    "key": "keyboardmonitor",
-   "name": "Keyboard Monitor (Mantra) (every key you press on a blob like the volume blob)",
+   "name": "Keyboard Monitor (Mantra) (every key you press on one big blob like the volume blob)",
    "group": "Keyboard and mouse",
    "kind": "app",
    "app": "/Applications/Keyboard Monitor (Mantra).app",
-   "about": "Every key, modifier and media key you press, shown one at a time on a glass blob at the top right until the next press, and echoed in its window"
+   "about": "One big glass blob like the volume blob, centred low on the screen: the key just pressed until the next one; ✕ quits"
   },
   {
    "key": "launcher",
