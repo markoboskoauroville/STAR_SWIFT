@@ -103,19 +103,11 @@
   },
   {
    "key": "find",
-   "name": "Find a file (the terminal's find as a page)",
+   "name": "Find a File (terminal or Spotlight)",
    "group": "Mac",
    "kind": "app",
-   "about": "The terminal's find as a page: a folder, a name, the hits in four views",
+   "about": "One folder, a name or words: the terminal find or the Spotlight index, live; settings show what Spotlight knows",
    "app": "/Applications/Find a File (Mantra).app"
-  },
-  {
-   "key": "spotlight",
-   "name": "Find a File Spotlight (an index for one folder)",
-   "group": "Mac",
-   "kind": "app",
-   "about": "Builds a Spotlight index for one folder alone, and searches inside it",
-   "app": "/Applications/Find a File Spotlight (Mantra).app"
   },
   {
    "key": "dock",
