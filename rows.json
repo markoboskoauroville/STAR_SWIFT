@@ -382,6 +382,94 @@
    "kind": "app",
    "about": "Watches the Nothing phone's SMS and notifications over USB; a new verification code goes into the focused text box, else the clipboard",
    "app": "/Applications/Code Filler (Mantra).app"
+  },
+  {
+   "key": "answerclaude",
+   "name": "Answer Claude (Mantra) (answer Claude's questions with one click)",
+   "group": "Claude",
+   "kind": "app",
+   "about": "Claude's questions and permission prompts answered from one small window",
+   "app": "/Applications/Answer Claude (Mantra).app"
+  },
+  {
+   "key": "controllermapper",
+   "name": "Controller Mapper (Mantra) (his controllers mapped to keys and actions)",
+   "group": "Keyboard and mouse",
+   "kind": "app",
+   "about": "Buttons and knobs of his MIDI and game controllers mapped to keys and actions",
+   "app": "/Applications/Controller Mapper (Mantra).app"
+  },
+  {
+   "key": "freevoiceconvert",
+   "name": "Free Voice Convert Equalizer (Mantra) (a voice into another voice, studio profile)",
+   "group": "Audio Production",
+   "kind": "app",
+   "about": "Seed-VC voice conversion, same length frame by frame, studio-profile EQ, -16 LUFS",
+   "app": "/Applications/Free Voice Convert Equalizer (Mantra).app"
+  },
+  {
+   "key": "importbutton",
+   "name": "Import Button (Mantra) (one button to import into the app in front)",
+   "group": "Mac",
+   "kind": "app",
+   "about": "One floating button that imports files into the app in front",
+   "app": "/Applications/Import Button (Mantra).app"
+  },
+  {
+   "key": "miditools",
+   "name": "MIDI Tools (Mantra) (MIDI to MK Control, MIDI to Key Stroke)",
+   "group": "Ableton Live",
+   "kind": "app",
+   "about": "MIDI notes and CCs turned into MK Control actions and key strokes",
+   "app": "/Applications/MIDI Tools (Mantra).app"
+  },
+  {
+   "key": "macrorecorder",
+   "name": "Macro Recorder (Mantra) (record clicks and keys, play them back relative to the window)",
+   "group": "Keyboard and mouse",
+   "kind": "app",
+   "about": "Records mouse and keyboard, plays back relative to the window; RECALIBRATE",
+   "app": "/Applications/Macro Recorder (Mantra).app"
+  },
+  {
+   "key": "resolvepages",
+   "name": "Resolve Pages (Mantra) (DaVinci Resolve's pages by one click)",
+   "group": "DaVinci Resolve",
+   "kind": "app",
+   "about": "Switches DaVinci Resolve's pages from a small window",
+   "app": "/Applications/Resolve Pages (Mantra).app"
+  },
+  {
+   "key": "stemseparation",
+   "name": "Stem Separation (Mantra) (a song into vocals, drums, bass and other)",
+   "group": "Audio Production",
+   "kind": "app",
+   "about": "Splits a song into stems on this Mac",
+   "app": "/Applications/Stem Separation (Mantra).app"
+  },
+  {
+   "key": "streamdeckcontrol",
+   "name": "Stream Deck Control (Mantra) (the apps on the Stream Deck's keys)",
+   "group": "Keyboard and mouse",
+   "kind": "app",
+   "about": "Puts the running apps on the Stream Deck's keys; a pressed app moves to the first key",
+   "app": "/Applications/Stream Deck Control (Mantra).app"
+  },
+  {
+   "key": "uhdhddisplay",
+   "name": "UHD HD Display (Mantra) (the screen between UHD and HD)",
+   "group": "Mac",
+   "kind": "app",
+   "about": "Switches a display between UHD and HD resolution",
+   "app": "/Applications/UHD HD Display (Mantra).app"
+  },
+  {
+   "key": "ndimonitor",
+   "name": "NDI Mantra Monitor (an NDI video feed watched on the Mac)",
+   "group": "Camera",
+   "kind": "app",
+   "about": "Shows an NDI video source on the Mac",
+   "app": "/Applications/NDI Mantra Monitor.app"
   }
  ],
  "exclusive": [
