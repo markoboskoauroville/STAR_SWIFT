@@ -465,6 +465,14 @@
    "about": "The Chrome computer in Oracle Cloud: its screen in a window, clipboard shared both ways, files dropped on it go to the VM"
   },
   {
+   "key": "vmrouter",
+   "name": "VM Router (Mantra)",
+   "group": "Mac",
+   "kind": "app",
+   "app": "/Applications/VM Router (Mantra).app",
+   "about": "One door to the Chrome VM for many sessions at once: each session its own tab, account and folder, clipboard and keys one at a time, Gemini paced per account"
+  },
+  {
    "key": "ndimonitor",
    "name": "NDI Mantra Monitor (an NDI video feed watched on the Mac)",
    "group": "Camera",
