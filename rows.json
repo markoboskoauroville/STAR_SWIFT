@@ -457,6 +457,14 @@
    "app": "/Applications/UHD HD Display (Mantra).app"
   },
   {
+   "key": "chromiumvm",
+   "name": "Chromium Virtual Machine (Mantra)",
+   "group": "Mac",
+   "kind": "app",
+   "app": "/Applications/Chromium Virtual Machine (Mantra).app",
+   "about": "The Chrome computer in Oracle Cloud: its screen in a window, clipboard shared both ways, files dropped on it go to the VM"
+  },
+  {
    "key": "ndimonitor",
    "name": "NDI Mantra Monitor (an NDI video feed watched on the Mac)",
    "group": "Camera",
