@@ -71,6 +71,14 @@
    "app": "/Applications/Network Aggregate Connection Keeper (Mantra).app"
   },
   {
+   "key": "starapi",
+   "name": "Star API (one API for every Star app: open, read, press, quit; port 8863)",
+   "group": "Mac",
+   "kind": "app",
+   "about": "Keeps the common Star API running for the phone and cloud sessions (STAR_API); ON / OFF in its window",
+   "app": "/Applications/Star API (Mantra).app"
+  },
+  {
    "key": "resolveactions",
    "name": "DaVinci Resolve Actions",
    "group": "DaVinci Resolve",
