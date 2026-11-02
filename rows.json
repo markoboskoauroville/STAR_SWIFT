@@ -8,6 +8,7 @@
   "Audio Production",
   "DJing",
   "Percussions",
+  "Mantras",
   "Keyboard and mouse",
   "Mac",
   "E16"
@@ -462,6 +463,14 @@
    "kind": "app",
    "app": "/Applications/MKV Converter (MPA).app",
    "about": "Watches a folder (Downloads) for MPA recordings and converts them to MOV with time code for Resolve"
+  },
+  {
+   "key": "indianmantras",
+   "name": "Indian Mantras (Gayatri and Asato Ma, word by word, by a warm Indian voice)",
+   "group": "Mantras",
+   "kind": "app",
+   "app": "/Applications/Indian Mantras (Mantra).app",
+   "about": "The Gayatri Mantra and Asato Ma taught word by word: Devanagari, transliteration and meaning, the MA Reader Web highlight, SPEED down to 0.5, a VOICE switcher (Hume, Google Gemini, Speechify); offline"
   }
  ],
  "exclusive": [

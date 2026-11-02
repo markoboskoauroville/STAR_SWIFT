@@ -158,3 +158,9 @@ opening of its menu (menuNeedsUpdate → star.load()).
 
 - E16 apps renamed with E16 first; "Mantra" / "DJ Mantra" only inside the parentheses. **Status:** doing
 - Star rows renamed: E16 Ableton Remote, E16 Ableton Live Actions, E16 for DaVinci Resolve; Sound Recorder, Virtual Cam, Code Filler (Mantra only in parentheses). **Status:** done
+
+## 2.11.2026: Indian Mantras in the star
+
+> Put it in the star.
+
+**Status:** done, 2.11.2026. A new folder "Mantras" (after Percussions) with the row "indianmantras", opening /Applications/Indian Mantras (Mantra).app (repo INDIAN_MANTRAS). Installed in ~/.config/star-rows.json.
