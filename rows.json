@@ -39,13 +39,6 @@
    "app": "/Applications/Claude Enter (Mantra).app"
   },
   {
-   "key": "buckets",
-   "name": "Buckets",
-   "group": "Keyboard and mouse",
-   "kind": "lua",
-   "about": "The Hammerspoon keyboard: clipboard dispenser, F keys, hand and deck"
-  },
-  {
    "key": "sister",
    "name": "Sister App (Mantra) (MANTRA CHAT on and off, and its page)",
    "group": "Claude",

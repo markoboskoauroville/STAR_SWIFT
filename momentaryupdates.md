@@ -190,4 +190,5 @@ rows.json `launcher` points at /Applications/Launcher (Mantra).app; icons6 has `
 
 (Context: the list of 4.11.2026: 1 clean-up of the voice bubble / MANTRA CHAT calls, 2 the HD/UHD word, 3 Ableton Command Guide, 4 Buckets, 5 MIDI to Key Stroke / MIDI to MK Control / A1, 6 the Lua paths and Hammerspoon at login.)
 
-**Status:** saved first.
+**Status:** done 4.11.2026 ~07:40 CT. Buckets deleted (row out of rows.json and ~/.config/star-rows.json, Star relaunched 41822 → 20673, `--print-menu` has no Buckets; MANTRA_STAR apps/buckets.lua and its load gone; the keyboard code MANTRA_MANIFEST tools/keyboard removed; repo BRAIN_BRAKE_KEYBOARD archived on GitHub). Hammerspoon stopped: quit, out of the login items, hs.autoLaunch(false) in ~/.hammerspoon/init.lua. /opt/homebrew/bin/hs is now a guard (real hs while Hammerspoon runs, else a quiet exit 69 in 0.02 s; the real hs hung forever). Voice Engine v27 + MANTRA_VOICE: the dead VOICEBUBBLE hs calls removed. Still waiting for Swift (off until converted): the HD/UHD word of Toggle HD UHD, Ableton Command Guide, A1, MIDI to Key Stroke, MIDI to MK Control.
+
