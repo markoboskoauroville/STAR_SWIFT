@@ -47,3 +47,7 @@ everything, the restore with Hammerspoon gone.
 ## 31.10.2026, v12
 rows.json `"exclusive": ["E16"]`: Star.start quits every other running app of an exclusive group first. Group E16: e16resolve (E16 for DaVinci Resolve), oxi (E16 Ableton Remote, app renamed from DJ Mantra Ableton Remote for OXI E16), liveactions (E16 Ableton Live Actions). Row names: "Mantra" only inside parentheses. Relaunch: the star has no OFF the relaunch tool can press: NSRunningApplication.terminate, then open.
 - 31.10.2026: the Macro Recorder row ("macro") removed from rows.json and ~/.config/star-rows.json: Marko, "It is not part of the Start menu anymore. It is now released as an independent release" (mantramacrorecorder.pages.dev, its own menu-bar icon from v7).
+
+## 4.11.2026
+
+icons6/: every star app icon is six letters over one background, coloured by category. Change icons.json, run `swift six_icon.swift icons.json out` and `python3 install_icons.py`, then commit each repo. Rule: MANTRA_MANIFEST six-letter-icon.md.
