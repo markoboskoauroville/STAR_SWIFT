@@ -164,3 +164,9 @@ opening of its menu (menuNeedsUpdate → star.load()).
 > Put it in the star.
 
 **Status:** done, 2.11.2026. A new folder "Mantras" (after Percussions) with the row "indianmantras", opening /Applications/Indian Mantras (Mantra).app (repo INDIAN_MANTRAS). Installed in ~/.config/star-rows.json.
+
+## 4.11.2026: six-letter icons for every star app
+
+> good morning, Claude. Please Change the icons of every item in my star menu to 4 letters. You need to give a title. Find the mnemonic which is easy to understand. What is it? Actually, 6 letters: 3 letters at the top, 3 letters at the bottom. The background is one picture which can represent this application. Never create any more complicated icons with many elements and small parts. Forget that. I want 6 letters in this icon and one symbolic background, and that's all.
+
+**Status:** doing
