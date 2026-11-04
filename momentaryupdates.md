@@ -169,4 +169,4 @@ opening of its menu (menuNeedsUpdate → star.load()).
 
 > good morning, Claude. Please Change the icons of every item in my star menu to 4 letters. You need to give a title. Find the mnemonic which is easy to understand. What is it? Actually, 6 letters: 3 letters at the top, 3 letters at the bottom. The background is one picture which can represent this application. Never create any more complicated icons with many elements and small parts. Forget that. I want 6 letters in this icon and one symbolic background, and that's all.
 
-**Status:** doing
+**Status:** done, 4.11.2026: 54 star apps carry six letters over one symbol (icons6/icons.json, six_icon.swift, sheet in icons6/out/sheet.png), installed in /Applications and re-signed, each repo keeps icon/six_1024.png; the star and the Star Menu launcher stay as they were. Rule: MANTRA_MANIFEST modules/six-letter-icon.md.
