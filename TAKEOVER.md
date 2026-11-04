@@ -51,3 +51,8 @@ rows.json `"exclusive": ["E16"]`: Star.start quits every other running app of an
 ## 4.11.2026
 
 icons6/: every star app icon is six letters over one background, coloured by category. Change icons.json, run `swift six_icon.swift icons.json out` and `python3 install_icons.py`, then commit each repo. Rule: MANTRA_MANIFEST six-letter-icon.md.
+
+## 4.11.2026 (v14)
+- Buckets row deleted. Companion rows: `with: <bundle id>` opens the app silently when that application opens and stops it
+  when it quits; at the star's start a host already running gets its companions. Used by DaVinci Resolve Actions.
+- Hammerspoon: stopped and restarted the same morning; it stays at login (Marko). The Lua rows (A1, MIDI ×2) keep working.
