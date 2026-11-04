@@ -183,3 +183,11 @@ rows.json `launcher` points at /Applications/Launcher (Mantra).app; icons6 has `
 > Mnemonics are good. Backgrounds are not good. Please: If there is, for example, something to modify in DaVinci Resolve, put the DaVinci Resolve icon behind it. If there is something related to a tutorial, find some kind of simple image, one symbol for all the tutorials in my star menu. If it's film-related, like Elevate Media, then it must be a film strip behind it. If it's the launcher of the star menu, then put the David star behind it. Please improve the backgrounds of my icons.
 
 **Status:** done, 4.11.2026: backgrounds = the application each app works on (Resolve, Ableton, Claude, djay, TIDAL, Stream Deck, App Store, Finder) tinted in the category colour; one graduation cap for every tutorial; a film strip for film and video; the David star for the star's apps (Launcher LAU/NCH too); a plain keyboard for G815; ten categories with their own colour (icons.json categories). Installed in 55 apps and their repos (install_icons.py).
+
+## Request (4.11.2026, ~07:20 CT, Mac session in MPA): Hammerspoon out
+
+> Please start conversion. Delete buckets completely. We don't convert them, and we don't need them. Then stop Hammerspoon from running.
+
+(Context: the list of 4.11.2026: 1 clean-up of the voice bubble / MANTRA CHAT calls, 2 the HD/UHD word, 3 Ableton Command Guide, 4 Buckets, 5 MIDI to Key Stroke / MIDI to MK Control / A1, 6 the Lua paths and Hammerspoon at login.)
+
+**Status:** saved first.
