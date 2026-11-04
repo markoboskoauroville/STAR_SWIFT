@@ -179,3 +179,7 @@ opening of its menu (menuNeedsUpdate → star.load()).
 /Applications/Launcher (Mantra).app (STAR_LAUNCHER v4), above Swift Matrix; the old Launcher row lower down is gone.
 rows.json `launcher` points at /Applications/Launcher (Mantra).app; icons6 has `launcher` LAU / NCH. Relaunched 661 → 41822;
 `Star --print-menu` shows the Launcher first.
+
+> Mnemonics are good. Backgrounds are not good. Please: If there is, for example, something to modify in DaVinci Resolve, put the DaVinci Resolve icon behind it. If there is something related to a tutorial, find some kind of simple image, one symbol for all the tutorials in my star menu. If it's film-related, like Elevate Media, then it must be a film strip behind it. If it's the launcher of the star menu, then put the David star behind it. Please improve the backgrounds of my icons.
+
+**Status:** done, 4.11.2026: backgrounds = the application each app works on (Resolve, Ableton, Claude, djay, TIDAL, Stream Deck, App Store, Finder) tinted in the category colour; one graduation cap for every tutorial; a film strip for film and video; the David star for the star's apps (Launcher LAU/NCH too); a plain keyboard for G815; ten categories with their own colour (icons.json categories). Installed in 55 apps and their repos (install_icons.py).
