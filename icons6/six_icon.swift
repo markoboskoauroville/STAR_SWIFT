@@ -5,7 +5,9 @@ import AppKit
 let a = CommandLine.arguments
 let table = try! JSONSerialization.jsonObject(with: Data(contentsOf: URL(fileURLWithPath: a[1]))) as! [String: Any]
 let out = a[2], only = a.count > 3 ? a[3] : nil
-let groups = table["groups"] as! [String: String]
+let cats = table["categories"] as! [String: [String: Any]]
+var colourOf: [String: String] = [:]
+for (_, c) in cats { for k in c["apps"] as! [String] { colourOf[k] = c["colour"] as? String } }
 let rows = try! JSONSerialization.jsonObject(with: Data(contentsOf: URL(fileURLWithPath: NSString(string: "~/.config/star-rows.json").expandingTildeInPath))) as! [String: Any]
 var groupOf: [String: String] = [:]
 for r in rows["rows"] as! [[String: Any]] { groupOf[r["key"] as! String] = r["group"] as? String ?? "Mac" }
@@ -29,20 +31,43 @@ func draw(_ px: Int, top: String, bottom: String, symbol: String, color: NSColor
     let tile = NSBezierPath(roundedRect: box, xRadius: s * 185 / 1024, yRadius: s * 185 / 1024)
     NSGradient(starting: color.blended(withFraction: 0.18, of: .white)!, ending: color.blended(withFraction: 0.35, of: .black)!)!
         .draw(in: tile, angle: -90)
-    // the one picture: the symbol, large, behind the letters
+    // the one picture behind the letters (Marko 4.11.2026): app:<path> that application's own icon (darkened so the
+    // letters read), star the David star, text:<glyph>, sf:<symbol> a symbol, all large and clipped by the tile
     tile.addClip()
-    let cfg = NSImage.SymbolConfiguration(pointSize: s * 0.62, weight: .bold)
-    if let img = NSImage(systemSymbolName: symbol, accessibilityDescription: nil)?.withSymbolConfiguration(cfg) {
-        let tinted = NSImage(size: img.size, flipped: false) { r in
-            img.draw(in: r); NSColor(white: 1, alpha: 0.30).set(); r.fill(using: .sourceAtop); return true }
-        let k = min(box.width * 0.86 / img.size.width, box.height * 0.86 / img.size.height)
+    let white = NSColor(white: 1, alpha: 0.46)
+    func centred(_ img: NSImage, _ frac: CGFloat) {
+        let k = min(box.width * frac / img.size.width, box.height * frac / img.size.height)
         let w = img.size.width * k, h = img.size.height * k
-        tinted.draw(in: NSRect(x: (s - w) / 2, y: (s - h) / 2, width: w, height: h))
-    } else { FileHandle.standardError.write("no symbol \(symbol)\n".data(using: .utf8)!) }
+        img.draw(in: NSRect(x: (s - w) / 2, y: (s - h) / 2, width: w, height: h))
+    }
+    if symbol.hasPrefix("app:") {
+        let icon = NSWorkspace.shared.icon(forFile: String(symbol.dropFirst(4)))
+        icon.size = NSSize(width: 1024, height: 1024)
+        let k = s * 1.12, r = NSRect(x: (s - k) / 2, y: (s - k) / 2, width: k, height: k)
+        icon.draw(in: r)
+        color.blended(withFraction: 0.25, of: .black)!.withAlphaComponent(0.78).setFill(); box.fill()  // the category colour over it
+    } else if symbol == "star" {
+        let R = box.width * 0.47, cx = s / 2, cy = s / 2, c: CGFloat = 0.8660254
+        for d: CGFloat in [1, -1] {
+            let b = NSBezierPath(); b.move(to: NSPoint(x: cx, y: cy + d * R))
+            b.line(to: NSPoint(x: cx - c * R, y: cy - d * R / 2)); b.line(to: NSPoint(x: cx + c * R, y: cy - d * R / 2)); b.close()
+            b.lineWidth = s * 0.045; b.lineJoinStyle = .round; NSColor(white: 1, alpha: 0.38).setStroke(); b.stroke()
+        }
+    } else if symbol.hasPrefix("text:") {
+        let g = String(symbol.dropFirst(5)) as NSString
+        let at: [NSAttributedString.Key: Any] = [.font: NSFont.systemFont(ofSize: s * 0.75, weight: .bold), .foregroundColor: white]
+        let sz = g.size(withAttributes: at); g.draw(at: NSPoint(x: (s - sz.width) / 2, y: (s - sz.height) / 2), withAttributes: at)
+    } else {
+        let name = symbol.hasPrefix("sf:") ? String(symbol.dropFirst(3)) : symbol
+        let cfg = NSImage.SymbolConfiguration(pointSize: s * 0.62, weight: .bold)
+        if let img = NSImage(systemSymbolName: name, accessibilityDescription: nil)?.withSymbolConfiguration(cfg) {
+            centred(NSImage(size: img.size, flipped: false) { r in img.draw(in: r); white.set(); r.fill(using: .sourceAtop); return true }, 0.98)
+        } else { FileHandle.standardError.write("no symbol \(name)\n".data(using: .utf8)!) }
+    }
     // the six letters: one size for both rows, the wider row fills 76 % of the tile
     var fs = s * 0.40
-    let shadow = NSShadow(); shadow.shadowColor = NSColor(white: 0, alpha: 0.45)
-    shadow.shadowOffset = NSSize(width: 0, height: -s * 0.008); shadow.shadowBlurRadius = s * 0.015
+    let shadow = NSShadow(); shadow.shadowColor = NSColor(white: 0, alpha: 0.75)
+    shadow.shadowOffset = NSSize(width: 0, height: -s * 0.008); shadow.shadowBlurRadius = s * 0.025
     func attrs(_ f: CGFloat) -> [NSAttributedString.Key: Any] {
         [.font: font(f), .foregroundColor: NSColor.white, .shadow: shadow, .kern: f * 0.02] }
     let wmax = max((top as NSString).size(withAttributes: attrs(fs)).width, (bottom as NSString).size(withAttributes: attrs(fs)).width)
@@ -59,9 +84,11 @@ func draw(_ px: Int, top: String, bottom: String, symbol: String, color: NSColor
 }
 func png(_ r: NSBitmapImageRep) -> Data { r.representation(using: .png, properties: [:])! }
 var made: [(String, NSBitmapImageRep)] = []
-for e in table["icons"] as! [[String]] {
+let order = cats.keys.sorted().flatMap { cats[$0]!["apps"] as! [String] }
+let byKey = Dictionary(uniqueKeysWithValues: (table["icons"] as! [[String]]).map { ($0[0], $0) })
+for e in order.compactMap({ byKey[$0] }) {
     let key = e[0]; if let o = only, o != key { continue }
-    let col = hex(groups[groupOf[key] ?? "Mac"] ?? "#2C323E")
+    let col = hex(colourOf[key] ?? "#3A4150")
     let dir = "\(out)/\(key)", set = "\(dir)/AppIcon.iconset"
     try? FileManager.default.removeItem(atPath: set)
     try! FileManager.default.createDirectory(atPath: set, withIntermediateDirectories: true)

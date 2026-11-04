@@ -1,349 +1,442 @@
 {
- "note": "Marko 4.11.2026: every star app's icon is six letters, three on top and three below, over one symbolic picture; nothing else. key = the star row key; top/bottom = the mnemonic; symbol = the SF Symbol drawn large behind; group colour from groups.",
- "groups": {
-  "Claude": "#B4502F",
-  "DaVinci Resolve": "#4B3A8C",
-  "Elevate Media": "#0F6E6A",
-  "Ableton Live": "#5E6B12",
-  "E16": "#7A4A0E",
-  "Audio Production": "#1E4E8C",
-  "DJing": "#8C1E6A",
-  "Percussions": "#7A3B1A",
-  "Mantras": "#B5651D",
-  "Keyboard and mouse": "#2F5D3A",
-  "Mac": "#2C323E",
-  "Camera": "#8C1E2A"
- },
+ "note": "Marko 4.11.2026: every star app's icon is six letters, three on top and three below, over one symbolic picture; nothing else. key = the star row key; top/bottom = the mnemonic; symbol = the SF Symbol drawn large behind; colour from its category (Marko 4.11.2026: \"divide all my applications into categories, and each category gets its own color\"). Background (4.11.2026, Marko): app:<path> = that application's own icon behind it (Resolve, Ableton, Claude, djay, TIDAL...), sf:graduationcap.fill for every tutorial, sf:film for everything film or video, star = the David star for the star's own apps, text:<glyph>, else sf:<symbol>.",
  "icons": [
   [
    "launcher",
    "LAU",
    "NCH",
-   "arrow.up.forward.app.fill"
+   "star"
   ],
   [
    "matrix",
    "MAT",
    "RIX",
-   "square.grid.3x3.fill"
+   "star"
   ],
   [
    "mouse",
    "MOU",
    "ACT",
-   "cursorarrow.click.2"
+   "sf:cursorarrow.click.2"
   ],
   [
    "enter",
    "CLA",
    "ENT",
-   "return"
+   "app:/Applications/Claude.app"
   ],
   [
    "sister",
    "SIS",
    "TER",
-   "person.2.fill"
+   "app:/Applications/Claude.app"
   ],
   [
    "download",
    "DOW",
    "MON",
-   "arrow.down.circle.fill"
+   "sf:arrow.down.circle.fill"
   ],
   [
    "netaggregate",
    "NET",
    "AGG",
-   "network"
+   "sf:network"
   ],
   [
    "starapi",
    "STA",
    "API",
-   "star.fill"
+   "star"
   ],
   [
    "resolveactions",
    "DVR",
    "ACT",
-   "film.fill"
+   "app:/Applications/DaVinci Resolve/DaVinci Resolve.app"
   ],
   [
    "gradingtutorial",
    "GRA",
    "TUT",
-   "circle.lefthalf.filled"
+   "sf:graduationcap.fill"
   ],
   [
    "e16resolve",
    "E16",
    "DVR",
-   "dial.high.fill"
+   "app:/Applications/DaVinci Resolve/DaVinci Resolve.app"
   ],
   [
    "cloning",
    "VOI",
    "CLO",
-   "person.wave.2.fill"
+   "sf:person.wave.2.fill"
   ],
   [
    "find",
    "FIN",
    "FIL",
-   "magnifyingglass"
+   "app:/System/Library/CoreServices/Finder.app"
   ],
   [
    "dock",
    "DOC",
    "SWI",
-   "dock.rectangle"
+   "sf:dock.rectangle"
   ],
   [
    "appstore",
    "APP",
    "STO",
-   "bag.fill"
+   "app:/System/Applications/App Store.app"
   ],
   [
    "appledoor",
    "APL",
    "DOR",
-   "door.left.hand.open"
+   "sf:apple.logo"
   ],
   [
    "freedom",
    "FRE",
    "DOM",
-   "bird.fill"
+   "sf:bird.fill"
   ],
   [
    "liveactions",
    "LIV",
    "ACT",
-   "music.note"
+   "app:/Applications/Ableton Live 12 Suite.app"
   ],
   [
    "oxi",
    "E16",
    "REM",
-   "slider.vertical.3"
+   "app:/Applications/Ableton Live 12 Suite.app"
   ],
   [
    "keys",
    "KEY",
    "TST",
-   "key.fill"
+   "sf:key.fill"
   ],
   [
    "installer",
    "INS",
    "LOG",
-   "shippingbox.fill"
+   "sf:shippingbox.fill"
   ],
   [
    "speechify",
    "OPN",
    "CLS",
-   "power"
+   "sf:power"
   ],
   [
    "monitor",
    "STA",
    "MON",
-   "chart.bar.fill"
+   "star"
   ],
   [
    "claudevoice",
    "VOI",
    "ENG",
-   "speaker.wave.3.fill"
+   "sf:speaker.wave.3.fill"
   ],
   [
    "transcribe",
    "VOI",
    "TXT",
-   "mic.fill"
+   "sf:mic.fill"
   ],
   [
    "spectral",
    "SPE",
    "CTR",
-   "waveform"
+   "sf:waveform"
   ],
   [
    "soundrecorder",
    "SND",
    "REC",
-   "record.circle"
+   "sf:record.circle"
   ],
   [
    "g815",
    "LIG",
    "HTS",
-   "keyboard.fill"
+   "sf:keyboard.fill"
   ],
   [
    "keyboardmonitor",
    "KEY",
    "MON",
-   "keyboard"
+   "sf:keyboard"
   ],
   [
    "webcamviewer",
    "CAM",
    "REC",
-   "web.camera.fill"
+   "sf:film"
   ],
   [
    "djaysync",
    "DJY",
    "SYN",
-   "arrow.triangle.2.circlepath"
+   "app:/Applications/djay Pro.app"
   ],
   [
    "djtransfer",
    "DJT",
    "MON",
-   "arrow.right.arrow.left"
+   "app:/Applications/djay Pro.app"
   ],
   [
    "screenshot2tidal",
    "SCR",
    "TID",
-   "water.waves"
+   "app:/Applications/TIDAL.app"
   ],
   [
    "yshai",
    "PER",
    "CUS",
-   "hand.raised.fill"
+   "sf:graduationcap.fill"
   ],
   [
    "timer",
    "TIM",
    "CLK",
-   "timer"
+   "sf:timer"
   ],
   [
    "emmonitor",
    "ELE",
    "MED",
-   "film.stack.fill"
+   "sf:film"
   ],
   [
    "cqtutorial",
    "MIX",
    "PAD",
-   "slider.horizontal.3"
+   "sf:graduationcap.fill"
   ],
   [
    "mantravirtualcam",
    "VIR",
    "CAM",
-   "video.fill"
+   "sf:film"
   ],
   [
    "darken",
    "DAR",
    "KEN",
-   "moon.fill"
+   "sf:moon.fill"
   ],
   [
    "codefiller",
    "COD",
    "FIL",
-   "number"
+   "sf:number"
   ],
   [
    "answerclaude",
    "ANS",
    "CLA",
-   "bubble.left.fill"
+   "app:/Applications/Claude.app"
   ],
   [
    "controllermapper",
    "CON",
    "MAP",
-   "gamecontroller.fill"
+   "sf:gamecontroller.fill"
   ],
   [
    "freevoiceconvert",
    "VOI",
    "CON",
-   "arrow.triangle.swap"
+   "sf:arrow.triangle.swap"
   ],
   [
    "importbutton",
    "IMP",
    "ORT",
-   "square.and.arrow.down.fill"
+   "app:/Applications/DaVinci Resolve/DaVinci Resolve.app"
   ],
   [
    "miditools",
    "MID",
    "TLS",
-   "pianokeys"
+   "app:/Applications/Ableton Live 12 Suite.app"
   ],
   [
    "macrorecorder",
    "MAC",
    "REC",
-   "play.rectangle.fill"
+   "sf:play.rectangle.fill"
   ],
   [
    "resolvepages",
    "DVR",
    "PAG",
-   "rectangle.split.3x1.fill"
+   "app:/Applications/DaVinci Resolve/DaVinci Resolve.app"
   ],
   [
    "stemseparation",
    "STE",
    "SEP",
-   "square.3.layers.3d"
+   "sf:square.3.layers.3d"
   ],
   [
    "streamdeckcontrol",
    "STR",
    "DCK",
-   "square.grid.3x2.fill"
+   "app:/Applications/Elgato Stream Deck.app"
   ],
   [
    "uhdhddisplay",
    "UHD",
    "DIS",
-   "display"
+   "app:/Applications/DaVinci Resolve/DaVinci Resolve.app"
   ],
   [
    "chromiumvm",
    "CHR",
    "VMS",
-   "globe"
+   "sf:globe"
   ],
   [
    "vmrouter",
    "VMR",
    "OUT",
-   "point.3.connected.trianglepath.dotted"
+   "sf:point.3.connected.trianglepath.dotted"
   ],
   [
    "ndimonitor",
    "NDI",
    "MON",
-   "antenna.radiowaves.left.and.right"
+   "sf:film"
   ],
   [
    "mkvconverter",
    "MKV",
    "MOV",
-   "arrow.right.circle.fill"
+   "sf:film"
   ],
   [
    "indianmantras",
    "MAN",
    "TRA",
-   "sun.max.fill"
+   "text:ॐ"
   ]
- ]
+ ],
+ "categories": {
+  "Star": {
+   "colour": "#3A4150",
+   "apps": [
+    "launcher",
+    "matrix",
+    "starapi",
+    "monitor"
+   ]
+  },
+  "Claude and voice": {
+   "colour": "#B5501E",
+   "apps": [
+    "enter",
+    "sister",
+    "answerclaude",
+    "cloning",
+    "claudevoice",
+    "transcribe",
+    "freevoiceconvert"
+   ]
+  },
+  "DaVinci Resolve": {
+   "colour": "#2E3A9E",
+   "apps": [
+    "resolveactions",
+    "resolvepages",
+    "e16resolve",
+    "importbutton",
+    "uhdhddisplay",
+    "mkvconverter"
+   ]
+  },
+  "Film and camera": {
+   "colour": "#A3202E",
+   "apps": [
+    "emmonitor",
+    "webcamviewer",
+    "mantravirtualcam",
+    "ndimonitor"
+   ]
+  },
+  "Ableton and MIDI": {
+   "colour": "#6B7A00",
+   "apps": [
+    "liveactions",
+    "oxi",
+    "miditools"
+   ]
+  },
+  "Audio": {
+   "colour": "#0B7A8C",
+   "apps": [
+    "spectral",
+    "soundrecorder",
+    "stemseparation"
+   ]
+  },
+  "DJ and music": {
+   "colour": "#A01E78",
+   "apps": [
+    "djaysync",
+    "djtransfer",
+    "screenshot2tidal"
+   ]
+  },
+  "Learning": {
+   "colour": "#7A2FA8",
+   "apps": [
+    "gradingtutorial",
+    "cqtutorial",
+    "yshai",
+    "indianmantras"
+   ]
+  },
+  "Keyboard and mouse": {
+   "colour": "#1F7A3E",
+   "apps": [
+    "mouse",
+    "dock",
+    "g815",
+    "keyboardmonitor",
+    "controllermapper",
+    "macrorecorder",
+    "streamdeckcontrol"
+   ]
+  },
+  "Mac tools": {
+   "colour": "#9A6400",
+   "apps": [
+    "download",
+    "find",
+    "installer",
+    "appstore",
+    "appledoor",
+    "freedom",
+    "keys",
+    "speechify",
+    "darken",
+    "timer",
+    "codefiller",
+    "netaggregate",
+    "chromiumvm",
+    "vmrouter"
+   ]
+  }
+ }
 }

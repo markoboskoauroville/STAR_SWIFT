@@ -52,5 +52,6 @@
  "vmrouter": "vm-chromium/router/build.sh",
  "ndimonitor": "MANTRA_NDI_MONITOR/build.sh",
  "mkvconverter": "MKV_CONVERTER/build.sh",
- "indianmantras": "INDIAN_MANTRAS/build.sh"
+ "indianmantras": "INDIAN_MANTRAS/build.sh",
+ "launcher": "STAR_LAUNCHER/build.sh"
 }
