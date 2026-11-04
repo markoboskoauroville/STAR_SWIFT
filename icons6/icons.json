@@ -16,6 +16,12 @@
  },
  "icons": [
   [
+   "launcher",
+   "LAU",
+   "NCH",
+   "arrow.up.forward.app.fill"
+  ],
+  [
    "matrix",
    "MAT",
    "RIX",

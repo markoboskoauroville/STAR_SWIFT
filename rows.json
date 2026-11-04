@@ -282,11 +282,11 @@
   },
   {
    "key": "launcher",
-   "name": "Star Menu (alt+space, search and open)",
+   "name": "Launcher (Mantra) (Pause: search any app, your recent apps as icons)",
    "group": "Mac",
    "kind": "app",
-   "app": "~/Developer/STAR_LAUNCHER/Star Menu.app",
-   "about": "This box: alt+space searches the Mac's applications and the rows of this menu"
+   "app": "/Applications/Launcher (Mantra).app",
+   "about": "The search box: Pause (or the star’s first row) opens it in the middle of the screen; the apps you opened last come first as icons; type to filter; ⌘, settings"
   },
   {
    "key": "djaysync",

@@ -19,7 +19,8 @@ import AppKit
 // v11 (31.10.2026, Marko: "Each needs to have the same user interface elements. On, off and top. Please build it in
 // every application"): the star's one window, MENU BAR ORDER, gets the first row ON OFF … Star … TOP ✕ (TopRow.swift).
 // The star itself still only opens: OFF quits the star alone, the rows' clicks are unchanged.
-let VERSION = 12
+// v13 (4.11.2026): Launcher (Mantra) is the first row, above Swift Matrix
+let VERSION = 13
 let HOME = NSHomeDirectory()
 let CONF = HOME + "/.config"
 let ROWS_FILE = CONF + "/star-rows.json"
@@ -30,6 +31,7 @@ let GROUPS_FILE = CONF + "/star-groups.json"
 // v4 (14.10.2026): what Swift Matrix (Mantra) decides for the next login: ALWAYS starts whatever was open, NEVER stays away
 let AUTOSTART_FILE = CONF + "/star-autostart.json"
 let MATRIX_APP = "/Applications/Swift Matrix (Mantra).app"
+let LAUNCHER_APP = "/Applications/Launcher (Mantra).app"
 let HS = "/opt/homebrew/bin/hs"
 let HS_BUNDLE = "org.hammerspoon.Hammerspoon"
 let REPO_URL = "https://github.com/markoboskoauroville/STAR_SWIFT"
@@ -503,7 +505,11 @@ final class Controller: NSObject, NSMenuDelegate {
         star.load()
         star.refresh()
         m.removeAllItems()
-        // v4: the first row, Swift Matrix (Marko, 14.10.2026: "one more Swift in the star menu, which will be the first one")
+        // v13 (Marko, 4.11.2026: "When I open Star, there will be a launcher as the first option"): the very first row is
+        // Launcher (Mantra) (STAR_LAUNCHER v4): the search box with his recent apps as icons, the same box as Pause
+        add(m, "⌕   Launcher  (search any app · Pause)") { self.openPath(LAUNCHER_APP) }
+            .isEnabled = FileManager.default.fileExists(atPath: LAUNCHER_APP)
+        // v4: then Swift Matrix (Marko, 14.10.2026: "one more Swift in the star menu, which will be the first one")
         add(m, "▦   Swift Matrix  (what runs, what starts with the Mac)") { self.openPath(MATRIX_APP) }
             .isEnabled = FileManager.default.fileExists(atPath: MATRIX_APP)
         // v8 (31.10.2026, Marko: "All running application must be in category running under Swift matrix. Swift matrix
@@ -522,7 +528,6 @@ final class Controller: NSObject, NSMenuDelegate {
             m.addItem(it)
         }
         m.addItem(.separator())
-        add(m, "⌕   Launcher  (search · favourites · ⌥Space)") { self.openPath(HOME + "/Developer/STAR_LAUNCHER/Star Menu.app") }
         if let mon = star.rows.first(where: { $0.key == "monitor" }) {
             // v3: Star Monitor is a Swift app (13.10.2026), opened like any app row
             let it = add(m, "✡   Star Monitor") { self.star.picked(mon); self.openPath(mon.app ?? "/Applications/Star Monitor (Mantra).app") }

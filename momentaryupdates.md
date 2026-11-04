@@ -170,3 +170,12 @@ opening of its menu (menuNeedsUpdate → star.load()).
 > good morning, Claude. Please Change the icons of every item in my star menu to 4 letters. You need to give a title. Find the mnemonic which is easy to understand. What is it? Actually, 6 letters: 3 letters at the top, 3 letters at the bottom. The background is one picture which can represent this application. Never create any more complicated icons with many elements and small parts. Forget that. I want 6 letters in this icon and one symbolic background, and that's all.
 
 **Status:** done, 4.11.2026: 54 star apps carry six letters over one symbol (icons6/icons.json, six_icon.swift, sheet in icons6/out/sheet.png), installed in /Applications and re-signed, each repo keeps icon/six_1024.png; the star and the Star Menu launcher stay as they were. Rule: MANTRA_MANIFEST modules/six-letter-icon.md.
+
+## 4.11.2026: the launcher as the star's first row
+
+> Please build a launcher for Star application. When I open Star, there will be a launcher as the first option, but I want to have a shortcut to trigger the launcher.
+
+**Status:** done, 4.11.2026: Star (Mantra) **v13**: the first row is *⌕ Launcher (search any app · Pause)*, opening
+/Applications/Launcher (Mantra).app (STAR_LAUNCHER v4), above Swift Matrix; the old Launcher row lower down is gone.
+rows.json `launcher` points at /Applications/Launcher (Mantra).app; icons6 has `launcher` LAU / NCH. Relaunched 661 → 41822;
+`Star --print-menu` shows the Launcher first.
