@@ -20,7 +20,7 @@ import AppKit
 // every application"): the star's one window, MENU BAR ORDER, gets the first row ON OFF … Star … TOP ✕ (TopRow.swift).
 // The star itself still only opens: OFF quits the star alone, the rows' clicks are unchanged.
 // v13 (4.11.2026): Launcher (Mantra) is the first row, above Swift Matrix
-let VERSION = 13
+let VERSION = 14
 let HOME = NSHomeDirectory()
 let CONF = HOME + "/.config"
 let ROWS_FILE = CONF + "/star-rows.json"
@@ -44,6 +44,9 @@ struct Row: Codable {
     var app: String?          // the .app's path, for kind "app"
     var url: String?
     var about: String?
+    // v14 (Marko, 4.11.2026: "Make sure this app starts with DaVinci Resolve and also closes with DaVinci Resolve"):
+    // the bundle id of the application this one lives with: it opens (silently) when that one opens, quits when it quits
+    var with: String?
     var path: String? { app.map { NSString(string: $0).expandingTildeInPath } }
 }
 // v12 (Marko, 31.10.2026: "make an E16 category ... Inside it will be all the apps that use E16, and only one can be
@@ -292,7 +295,7 @@ final class Star {
     func restore() {
         load()
         let want = wanted()
-        let queue = rows.filter { $0.kind == "app" && want.contains($0.key) && !isOn($0) && usable($0) }
+        let queue = rows.filter { $0.kind == "app" && want.contains($0.key) && !isOn($0) && usable($0) && companionHostUp($0) }
         pending = Set(queue.map { $0.key })
         for (i, r) in queue.enumerated() {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5 * Double(i)) { self.startSilently(r) }
@@ -311,6 +314,28 @@ final class Star {
                     else if always.contains(r.key) && !on { hs("STAR.command('\(r.key)','start')", timeout: 20) }
                 }
             }
+        }
+    }
+    // v14 COMPANIONS: a row with `with` follows its host application, opening and quitting with it
+    func companionHostUp(_ r: Row) -> Bool {
+        guard let b = r.with else { return true }
+        return !NSRunningApplication.runningApplications(withBundleIdentifier: b).isEmpty
+    }
+    func watchCompanions() {
+        let nc = NSWorkspace.shared.notificationCenter
+        let bundle = { (n: Notification) in (n.userInfo?[NSWorkspace.applicationUserInfoKey] as? NSRunningApplication)?.bundleIdentifier }
+        nc.addObserver(forName: NSWorkspace.didLaunchApplicationNotification, object: nil, queue: .main) { [weak self] n in
+            guard let self = self, let b = bundle(n) else { return }
+            for r in self.rows where r.with == b && r.kind == "app" && !self.isOn(r) && self.usable(r) { self.startSilently(r) }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) { self.recorded() }
+        }
+        nc.addObserver(forName: NSWorkspace.didTerminateApplicationNotification, object: nil, queue: .main) { [weak self] n in
+            guard let self = self, let b = bundle(n) else { return }
+            for r in self.rows where r.with == b && r.kind == "app" && self.isOn(r) { self.stop(r) }
+        }
+        // at the star's own start: a host already running gets its companions; a companion without its host goes
+        for r in rows where r.with != nil && r.kind == "app" {
+            if companionHostUp(r) { if !isOn(r) && usable(r) { startSilently(r) } } else if isOn(r) { stop(r) }
         }
     }
     func startSilently(_ r: Row) {
@@ -441,7 +466,7 @@ final class Controller: NSObject, NSMenuDelegate {
         menu.delegate = self
         menu.autoenablesItems = false
         item.menu = menu
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) { self.star.restore() }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) { self.star.restore(); self.star.watchCompanions() }
         // v4: from the moment the Mac logs out, restarts or shuts down, nothing is written (macOS quits the apps first)
         NSWorkspace.shared.notificationCenter.addObserver(forName: NSWorkspace.willPowerOffNotification, object: nil, queue: .main) { _ in
             self.star.poweringOff = true

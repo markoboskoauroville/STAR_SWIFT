@@ -76,7 +76,8 @@
    "name": "DaVinci Resolve Actions",
    "group": "DaVinci Resolve",
    "kind": "app",
-   "about": "Everything for Resolve in one app: pages on ⌥`, HD/UHD, the import button, one-button actions",
+   "about": "Everything for Resolve in one app: pages on ⌥`, HD/UHD, the import button, one-button actions; opens and quits with DaVinci Resolve",
+   "with": "com.blackmagic-design.DaVinciResolve",
    "app": "/Applications/DaVinci Resolve Actions (Mantra).app"
   },
   {
