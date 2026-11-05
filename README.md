@@ -25,6 +25,19 @@ each app's value and quits and reopens only the ones out of place (never SoundSo
 whose place counts from their next start). New icons go to the left end. `Star --print-menubar` prints the bar;
 `Star --menubar-shot <png>` draws the window off screen. Code: `app/MenuBar.swift`.
 
+## Linux (linux/, from 5.11.2026): the star in the VM's status bar
+
+Marko, 5.11.2026: *"make a Star Menu. We're going to slowly transfer Star Menu applications here. The first one is Macro
+Recorder."* and *"Star control apps should be one more addition to our status monitor at the bottom ... It starts with
+this: David Star through triangles ... I click, and it opens up from the bottom up."*
+
+- The David star is the **first item of the VM status bar** (vm-chromium, `statusbar/chromium-vm-statusbar.py`). A click
+  pops up `build_menu()` from `linux/star.py`, upwards: RUNNING, then the folders, then Quit for what runs.
+- Rows: `linux/rows.linux.json` (installed by `linux/install.sh` as `~/.config/star-rows.linux.json`); kind `"service"` = a
+  systemd user unit the star starts and stops, `"show"` brings its window. **Moving an app from the Mac star = one row
+  here** plus its Linux build. First row: Macro Recorder (MANTRA_MACRO/linux).
+- `python3 linux/star.py --print-menu` prints the menu without a screen.
+
 ## How it works
 
 - **The rows are a table, not code:** `rows.json` (installed by `build.sh` as `~/.config/star-rows.json`). Each row

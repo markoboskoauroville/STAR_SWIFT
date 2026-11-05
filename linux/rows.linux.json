@@ -1,0 +1,15 @@
+{
+ "note": "The rows of the Linux star (the VM), the same shape as ../rows.json. kind \"service\": a systemd user unit the star starts and stops; \"show\" is the command that brings its window. Apps move here from the Mac star one at a time (Marko, 5.11.2026: the first one is Macro Recorder).",
+ "folders": ["Keyboard and mouse"],
+ "rows": [
+  {
+   "key": "macro",
+   "name": "Macro Recorder (Mantra)",
+   "group": "Keyboard and mouse",
+   "kind": "service",
+   "unit": "mantra-macro.service",
+   "show": ["sh", "-c", "$HOME/.local/bin/macro show"],
+   "about": "Records the keyboard and mouse as a script, plays it, and takes scripts from Claude through its inbox"
+  }
+ ]
+}
