@@ -53,6 +53,15 @@ func draw(_ px: Int, top: String, bottom: String, symbol: String, color: NSColor
             b.line(to: NSPoint(x: cx - c * R, y: cy - d * R / 2)); b.line(to: NSPoint(x: cx + c * R, y: cy - d * R / 2)); b.close()
             b.lineWidth = s * 0.045; b.lineJoinStyle = .round; NSColor(white: 1, alpha: 0.38).setStroke(); b.stroke()
         }
+    } else if symbol.hasPrefix("wordmark:") {
+        // wordmark:<WORD>:<#hex> = a company's logotype behind the letters (Marko 5.11.2026: "The text background is
+        // Oracle Logotype"): the word in its own colour, wide and heavy, across the middle of the tile
+        let parts = symbol.split(separator: ":").map(String.init)
+        let word = parts[1] as NSString, c = parts.count > 2 ? hex(parts[2]) : white
+        var f = s * 0.30
+        var at: [NSAttributedString.Key: Any] = [.font: NSFont.systemFont(ofSize: f, weight: .black), .foregroundColor: c, .kern: s * 0.004]
+        while word.size(withAttributes: at).width > box.width * 0.94 { f *= 0.96; at[.font] = NSFont.systemFont(ofSize: f, weight: .black) }
+        let sz = word.size(withAttributes: at); word.draw(at: NSPoint(x: (s - sz.width) / 2, y: (s - sz.height) / 2), withAttributes: at)
     } else if symbol.hasPrefix("text:") {
         let g = String(symbol.dropFirst(5)) as NSString
         let at: [NSAttributedString.Key: Any] = [.font: NSFont.systemFont(ofSize: s * 0.75, weight: .bold), .foregroundColor: white]
