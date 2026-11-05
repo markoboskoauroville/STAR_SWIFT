@@ -123,24 +123,31 @@ func draw(_ px: Int, top: String, bottom: String, symbol: String, color: NSColor
     let wmax = max((top as NSString).size(withAttributes: attrs(fs)).width, (bottom as NSString).size(withAttributes: attrs(fs)).width)
     fs *= box.width * 0.68 / wmax
     fs = min(fs, s * 0.34)
+    // Marko 5.11.2026 ("rename the icon of the launcher into only LAUNCH ... bigger text ... all cursors should be thin
+    // cursors, too thick ... taking too much space"): one word fills 84 % of the tile; every cursor a thin bar
+    if lead {
+        let w1 = (top as NSString).size(withAttributes: attrs(fs)).width
+        fs = min(fs * box.width * 0.84 / (w1 + font(fs).capHeight * 0.30), s * 0.42)
+    }
     let f = font(fs), cap = f.capHeight, gap = cap * 0.42
     let y0 = s / 2 - (2 * cap + gap) / 2           // baseline of the bottom row
-    let cw = isTerm ? cap * 0.62 : 0          // room for the cursor after the bottom row
+    let cw = isTerm ? cap * 0.13 : 0          // the thin cursor bar (was a block, 0.62)
+    let cgap = cap * 0.17                     // the space between the bar and the word
     if lead {
         // one row, in the middle, the cursor first
         let w = (top as NSString).size(withAttributes: attrs(fs)).width
-        let x = (s - w - cw * 1.25) / 2, base = s / 2 - cap / 2
-        terminalGreen.setFill(); NSRect(x: x, y: base, width: cw, height: cap).fill()
-        (top as NSString).draw(at: NSPoint(x: x + cw * 1.25, y: base + f.descender), withAttributes: attrs(fs))
+        let x = (s - w - cw - cgap) / 2, base = s / 2 - cap / 2
+        terminalGreen.setFill(); NSRect(x: x, y: base - cap * 0.08, width: cw, height: cap * 1.16).fill()
+        (top as NSString).draw(at: NSPoint(x: x + cw + cgap, y: base + f.descender), withAttributes: attrs(fs))
         NSGraphicsContext.restoreGraphicsState()
         return rep
     }
     for (str, base) in [(bottom, y0), (top, y0 + cap + gap)] {
         let w = (str as NSString).size(withAttributes: attrs(fs)).width
-        let x = (s - w - (str == bottom ? cw * 1.25 : 0)) / 2 + fs * 0.01
+        let x = (s - w - (str == bottom && cw > 0 ? cw + cgap : 0)) / 2 + fs * 0.01
         (str as NSString).draw(at: NSPoint(x: x, y: base + f.descender), withAttributes: attrs(fs))
         if str == bottom && cw > 0 {
-            terminalGreen.setFill(); NSRect(x: x + w + cw * 0.25, y: base, width: cw, height: cap).fill()
+            terminalGreen.setFill(); NSRect(x: x + w + cgap, y: base - cap * 0.08, width: cw, height: cap * 1.16).fill()
         }
     }
     NSGraphicsContext.restoreGraphicsState()

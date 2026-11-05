@@ -3,9 +3,9 @@
  "icons": [
   [
    "launcher",
-   "LAUNCHER",
+   "LAUNCH",
    "",
-   "terminal-lead"
+   "terminal-lead:#FF3B30"
   ],
   [
    "matrix",
