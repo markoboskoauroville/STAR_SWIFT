@@ -33,8 +33,11 @@ func draw(_ px: Int, top: String, bottom: String, symbol: String, color: NSColor
         .draw(in: tile, angle: -90)
     // terminal (Marko 5.11.2026: "a black background with the green terminal entry point ... like the background in the
     // clear terminal"): the tile is an empty terminal, black, and a green block cursor stands after the bottom row
-    let terminalGreen = NSColor(srgbRed: 0.20, green: 0.95, blue: 0.35, alpha: 1)
-    if symbol == "terminal" || symbol == "sunmoon" { NSColor(white: 0.04, alpha: 1).setFill(); tile.fill() }
+    // terminal:<#hex> (Marko 5.11.2026, Download Monitor: "look exactly the same as VM remote ... an orange ... square"):
+    // the same black terminal, the cursor in that colour
+    let isTerm = symbol == "terminal" || symbol.hasPrefix("terminal:")
+    let terminalGreen = symbol.hasPrefix("terminal:") ? hex(String(symbol.dropFirst(9))) : NSColor(srgbRed: 0.20, green: 0.95, blue: 0.35, alpha: 1)
+    if isTerm || symbol == "sunmoon" { NSColor(white: 0.04, alpha: 1).setFill(); tile.fill() }
     // the one picture behind the letters (Marko 4.11.2026): app:<path> that application's own icon (darkened so the
     // letters read), star the David star, text:<glyph>, sf:<symbol> a symbol, all large and clipped by the tile
     tile.addClip()
@@ -57,7 +60,7 @@ func draw(_ px: Int, top: String, bottom: String, symbol: String, color: NSColor
             b.line(to: NSPoint(x: cx - c * R, y: cy - d * R / 2)); b.line(to: NSPoint(x: cx + c * R, y: cy - d * R / 2)); b.close()
             b.lineWidth = s * 0.045; b.lineJoinStyle = .round; NSColor(white: 1, alpha: 0.38).setStroke(); b.stroke()
         }
-    } else if symbol == "terminal" {
+    } else if isTerm {
         // nothing behind the letters: the cursor is drawn after them
     } else if symbol == "sunmoon" {
         // sunmoon (Marko 5.11.2026, Screen Brightness Automatic: "black background, and the symbol is half sun, half moon,
@@ -117,7 +120,7 @@ func draw(_ px: Int, top: String, bottom: String, symbol: String, color: NSColor
     fs = min(fs, s * 0.34)
     let f = font(fs), cap = f.capHeight, gap = cap * 0.42
     let y0 = s / 2 - (2 * cap + gap) / 2           // baseline of the bottom row
-    let cw = symbol == "terminal" ? cap * 0.62 : 0          // room for the cursor after the bottom row
+    let cw = isTerm ? cap * 0.62 : 0          // room for the cursor after the bottom row
     for (str, base) in [(bottom, y0), (top, y0 + cap + gap)] {
         let w = (str as NSString).size(withAttributes: attrs(fs)).width
         let x = (s - w - (str == bottom ? cw * 1.25 : 0)) / 2 + fs * 0.01
