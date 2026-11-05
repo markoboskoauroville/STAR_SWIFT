@@ -34,7 +34,7 @@ func draw(_ px: Int, top: String, bottom: String, symbol: String, color: NSColor
     // terminal (Marko 5.11.2026: "a black background with the green terminal entry point ... like the background in the
     // clear terminal"): the tile is an empty terminal, black, and a green block cursor stands after the bottom row
     let terminalGreen = NSColor(srgbRed: 0.20, green: 0.95, blue: 0.35, alpha: 1)
-    if symbol == "terminal" { NSColor(white: 0.04, alpha: 1).setFill(); tile.fill() }
+    if symbol == "terminal" || symbol == "sunmoon" { NSColor(white: 0.04, alpha: 1).setFill(); tile.fill() }
     // the one picture behind the letters (Marko 4.11.2026): app:<path> that application's own icon (darkened so the
     // letters read), star the David star, text:<glyph>, sf:<symbol> a symbol, all large and clipped by the tile
     tile.addClip()
@@ -59,6 +59,33 @@ func draw(_ px: Int, top: String, bottom: String, symbol: String, color: NSColor
         }
     } else if symbol == "terminal" {
         // nothing behind the letters: the cursor is drawn after them
+    } else if symbol == "sunmoon" {
+        // sunmoon (Marko 5.11.2026, Screen Brightness Automatic: "black background, and the symbol is half sun, half moon,
+        // sharing one circle"): one circle split down the middle, the left half a warm sun with rays, the right half a pale
+        // moon with a crescent cut; dimmed so the six letters read over it
+        let cx = s / 2, cy = s / 2, R = box.width * 0.30
+        let sun = NSColor(srgbRed: 1.0, green: 0.74, blue: 0.16, alpha: 0.62), moon = NSColor(white: 0.86, alpha: 0.50)
+        let ray = NSBezierPath(); ray.lineWidth = s * 0.028; ray.lineCapStyle = .round
+        for i in 0...6 {                       // rays on the sun's side only, from top to bottom
+            let a = CGFloat.pi / 2 + CGFloat(i) * CGFloat.pi / 6
+            ray.move(to: NSPoint(x: cx + cos(a) * R * 1.22, y: cy + sin(a) * R * 1.22))
+            ray.line(to: NSPoint(x: cx + cos(a) * R * 1.48, y: cy + sin(a) * R * 1.48))
+        }
+        sun.setStroke(); ray.stroke()
+        let left = NSBezierPath(); left.move(to: NSPoint(x: cx, y: cy + R))
+        left.appendArc(withCenter: NSPoint(x: cx, y: cy), radius: R, startAngle: 90, endAngle: 270); left.close()
+        sun.setFill(); left.fill()
+        NSGraphicsContext.saveGraphicsState()
+        let right = NSBezierPath(); right.move(to: NSPoint(x: cx, y: cy - R))
+        right.appendArc(withCenter: NSPoint(x: cx, y: cy), radius: R, startAngle: 270, endAngle: 450); right.close()
+        right.addClip(); moon.setFill(); right.fill()
+        // the crescent: a dark circle bites into the moon half, kept inside it by the clip
+        let cr = R * 0.80, ccx = cx - R * 0.12, ccy = cy + R * 0.14
+        NSColor(white: 0.04, alpha: 1).setFill()
+        NSBezierPath(ovalIn: NSRect(x: ccx - cr, y: ccy - cr, width: 2 * cr, height: 2 * cr)).fill()
+        NSGraphicsContext.restoreGraphicsState()
+        let ring = NSBezierPath(ovalIn: NSRect(x: cx - R, y: cy - R, width: 2 * R, height: 2 * R))
+        ring.lineWidth = s * 0.012; NSColor(white: 1, alpha: 0.35).setStroke(); ring.stroke()
     } else if symbol.hasPrefix("wordmark:") {
         // wordmark:<WORD>:<#hex> = a company's logotype behind the letters (Marko 5.11.2026: "The text background is
         // Oracle Logotype"): the word in its own colour, wide and heavy, across the middle of the tile
