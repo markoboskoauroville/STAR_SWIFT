@@ -37,12 +37,16 @@ func draw(_ px: Int, top: String, bottom: String, symbol: String, color: NSColor
     // the same black terminal, the cursor in that colour
     // terminal-lead[:#hex] (Marko 5.11.2026, Launcher: "like download monitor ... this cursor entry point should become
     // green and come at the beginning ... one word"): the same black terminal, one word, the cursor before it
+    // matrix:<#hex> (Marko 5.11.2026, Swift Matrix: "a background of a Matrix movie with falling letters, but zoomed in,
+    // not too small ... over that ... David star", the name in lines and the cursor in a colour not used yet)
+    let isMatrix = symbol.hasPrefix("matrix")
     let lead = symbol.hasPrefix("terminal-lead")
-    let isTerm = symbol == "terminal" || symbol.hasPrefix("terminal:") || lead
+    let isTerm = symbol == "terminal" || symbol.hasPrefix("terminal:") || lead || isMatrix
     let green = NSColor(srgbRed: 0.20, green: 0.95, blue: 0.35, alpha: 1)
     let terminalGreen = lead ? (symbol.hasPrefix("terminal-lead:") ? hex(String(symbol.dropFirst(14))) : green)
-        : symbol.hasPrefix("terminal:") ? hex(String(symbol.dropFirst(9))) : green
-    if isTerm || symbol == "sunmoon" { NSColor(white: 0.04, alpha: 1).setFill(); tile.fill() }
+        : symbol.hasPrefix("terminal:") ? hex(String(symbol.dropFirst(9)))
+        : symbol.hasPrefix("matrix:") ? hex(String(symbol.dropFirst(7))) : green
+    if isTerm || symbol == "sunmoon" { NSColor(white: 0.04, alpha: 1).setFill(); tile.fill() }   // matrix too
     // the one picture behind the letters (Marko 4.11.2026): app:<path> that application's own icon (darkened so the
     // letters read), star the David star, text:<glyph>, sf:<symbol> a symbol, all large and clipped by the tile
     tile.addClip()
@@ -64,6 +68,36 @@ func draw(_ px: Int, top: String, bottom: String, symbol: String, color: NSColor
             let b = NSBezierPath(); b.move(to: NSPoint(x: cx, y: cy + d * R))
             b.line(to: NSPoint(x: cx - c * R, y: cy - d * R / 2)); b.line(to: NSPoint(x: cx + c * R, y: cy - d * R / 2)); b.close()
             b.lineWidth = s * 0.045; b.lineJoinStyle = .round; NSColor(white: 1, alpha: 0.38).setStroke(); b.stroke()
+        }
+    } else if isMatrix {
+        // the rain: six big columns of katakana and digits, each a trail fading upward under a bright head
+        let glyphs = Array("ｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖﾗﾘﾙﾚﾛﾜﾝ0123456789Z:・=*+<>").map { String($0) }
+        var seed: UInt64 = 0x5EED_1999
+        func rnd() -> Int { seed = seed &* 6364136223846793005 &+ 1442695040888963407; return Int(seed >> 33) }
+        let cols = 6, cw = box.width / CGFloat(cols), gh = cw * 1.12
+        let mfont = NSFont(name: "Hiragino Kaku Gothic ProN W6", size: cw * 0.92) ?? NSFont.monospacedSystemFont(ofSize: cw * 0.92, weight: .bold)
+        let rows = Int(box.height / gh) + 2
+        for c in 0..<cols {
+            let head = 2 + rnd() % (rows - 2), len = 4 + rnd() % 4
+            for r in 0..<rows {
+                let d = head - r                       // distance above the head (rows count from the top)
+                let inTrail = d >= 0 && d < len
+                let a: CGFloat = !inTrail ? 0.22 : d == 0 ? 1.0 : 0.95 - 0.6 * CGFloat(d) / CGFloat(len)
+                let col = d == 0 ? NSColor(srgbRed: 0.80, green: 1.0, blue: 0.85, alpha: a)
+                                 : NSColor(srgbRed: 0.05, green: 0.95, blue: 0.30, alpha: a)
+                let g = glyphs[rnd() % glyphs.count] as NSString
+                let at: [NSAttributedString.Key: Any] = [.font: mfont, .foregroundColor: col]
+                let sz = g.size(withAttributes: at)
+                g.draw(at: NSPoint(x: box.minX + CGFloat(c) * cw + (cw - sz.width) / 2, y: box.maxY - CGFloat(r + 1) * gh + gh * 0.1),
+                       withAttributes: at)
+            }
+        }
+        NSColor(white: 0, alpha: 0.18).setFill(); box.fill()      // the letters read over the rain
+        let R = box.width * 0.47, cx = s / 2, cy = s / 2, c: CGFloat = 0.8660254
+        for d: CGFloat in [1, -1] {
+            let b = NSBezierPath(); b.move(to: NSPoint(x: cx, y: cy + d * R))
+            b.line(to: NSPoint(x: cx - c * R, y: cy - d * R / 2)); b.line(to: NSPoint(x: cx + c * R, y: cy - d * R / 2)); b.close()
+            b.lineWidth = s * 0.045; b.lineJoinStyle = .round; NSColor(white: 1, alpha: 0.55).setStroke(); b.stroke()
         }
     } else if isTerm {
         // nothing behind the letters: the cursor is drawn after them
