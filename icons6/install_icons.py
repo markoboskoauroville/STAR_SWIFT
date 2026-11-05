@@ -6,7 +6,10 @@ rows={r['key']:r for r in json.load(open(os.path.expanduser('~/.config/star-rows
 icons=json.load(open(H+'/icons.json'))['icons']; m=json.load(open(H+'/repos.json'))
 special={'e16resolve':'icon/e16resolve.icns','claudevoice':'icon/subtitle.icns','answerclaude':'icon/answer.icns'}
 bad=[]
+# Marko 5.11.2026: "bring back old icons": these keep their own old icon, never the six letters
+keep_old={'g815','emmonitor'}
 for k,*_ in icons:
+    if k in keep_old: continue
     app=os.path.expanduser(rows[k]['app']); info=plistlib.load(open(app+'/Contents/Info.plist','rb'))
     f=info.get('CFBundleIconFile') or 'AppIcon'; f+= '' if f.endswith('.icns') else '.icns'
     shutil.copy(f'{O}/{k}/AppIcon.icns',app+'/Contents/Resources/'+f)
