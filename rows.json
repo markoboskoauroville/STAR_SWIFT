@@ -49,11 +49,11 @@
   },
   {
    "key": "download",
-   "name": "Download Monitor",
+   "name": "Download, Copy and Move",
    "group": "Mac",
    "kind": "app",
-   "about": "Every download on this Mac, each with its own bar",
-   "app": "/Applications/Download Monitor (Mantra).app"
+   "about": "Every download, copy and move on this Mac: two panes with folder sizes, one queue, one at a time, each with its own line",
+   "app": "/Applications/Download, Copy and Move (Mantra).app"
   },
   {
    "key": "netaggregate",
