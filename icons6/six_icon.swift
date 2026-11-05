@@ -35,8 +35,13 @@ func draw(_ px: Int, top: String, bottom: String, symbol: String, color: NSColor
     // clear terminal"): the tile is an empty terminal, black, and a green block cursor stands after the bottom row
     // terminal:<#hex> (Marko 5.11.2026, Download Monitor: "look exactly the same as VM remote ... an orange ... square"):
     // the same black terminal, the cursor in that colour
-    let isTerm = symbol == "terminal" || symbol.hasPrefix("terminal:")
-    let terminalGreen = symbol.hasPrefix("terminal:") ? hex(String(symbol.dropFirst(9))) : NSColor(srgbRed: 0.20, green: 0.95, blue: 0.35, alpha: 1)
+    // terminal-lead[:#hex] (Marko 5.11.2026, Launcher: "like download monitor ... this cursor entry point should become
+    // green and come at the beginning ... one word"): the same black terminal, one word, the cursor before it
+    let lead = symbol.hasPrefix("terminal-lead")
+    let isTerm = symbol == "terminal" || symbol.hasPrefix("terminal:") || lead
+    let green = NSColor(srgbRed: 0.20, green: 0.95, blue: 0.35, alpha: 1)
+    let terminalGreen = lead ? (symbol.hasPrefix("terminal-lead:") ? hex(String(symbol.dropFirst(14))) : green)
+        : symbol.hasPrefix("terminal:") ? hex(String(symbol.dropFirst(9))) : green
     if isTerm || symbol == "sunmoon" { NSColor(white: 0.04, alpha: 1).setFill(); tile.fill() }
     // the one picture behind the letters (Marko 4.11.2026): app:<path> that application's own icon (darkened so the
     // letters read), star the David star, text:<glyph>, sf:<symbol> a symbol, all large and clipped by the tile
@@ -121,6 +126,15 @@ func draw(_ px: Int, top: String, bottom: String, symbol: String, color: NSColor
     let f = font(fs), cap = f.capHeight, gap = cap * 0.42
     let y0 = s / 2 - (2 * cap + gap) / 2           // baseline of the bottom row
     let cw = isTerm ? cap * 0.62 : 0          // room for the cursor after the bottom row
+    if lead {
+        // one row, in the middle, the cursor first
+        let w = (top as NSString).size(withAttributes: attrs(fs)).width
+        let x = (s - w - cw * 1.25) / 2, base = s / 2 - cap / 2
+        terminalGreen.setFill(); NSRect(x: x, y: base, width: cw, height: cap).fill()
+        (top as NSString).draw(at: NSPoint(x: x + cw * 1.25, y: base + f.descender), withAttributes: attrs(fs))
+        NSGraphicsContext.restoreGraphicsState()
+        return rep
+    }
     for (str, base) in [(bottom, y0), (top, y0 + cap + gap)] {
         let w = (str as NSString).size(withAttributes: attrs(fs)).width
         let x = (s - w - (str == bottom ? cw * 1.25 : 0)) / 2 + fs * 0.01
