@@ -303,9 +303,9 @@
   ],
   [
    "chromiumvm",
-   "VMM",
-   "REM",
-   "wordmark:ORACLE:#C74634"
+   "VM",
+   "REMOTE",
+   "terminal"
   ],
   [
    "vmrouter",
