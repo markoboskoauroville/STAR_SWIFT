@@ -443,12 +443,12 @@
    "app": "/Applications/Stem Separation (Mantra).app"
   },
   {
-   "key": "streamdeckcontrol",
-   "name": "Stream Deck Control (Mantra) (the apps on the Stream Deck's keys)",
+   "key": "streamdeckremote",
+   "name": "Stream Deck Remote (Mantra) (the real Stream Deck and the phone, one deck)",
    "group": "Keyboard and mouse",
    "kind": "app",
-   "about": "Puts the running apps on the Stream Deck's keys; a pressed app moves to the first key",
-   "app": "/Applications/Stream Deck Control (Mantra).app"
+   "about": "Drives the Stream Deck and the phone app Stream Deck Remote as one deck: APPS and OBS profiles, presses mirrored",
+   "app": "/Applications/Stream Deck Remote (Mantra).app"
   },
   {
    "key": "uhdhddisplay",

@@ -290,9 +290,9 @@
    "sf:square.3.layers.3d"
   ],
   [
-   "streamdeckcontrol",
+   "streamdeckremote",
    "STR",
-   "DCK",
+   "RMT",
    "app:/Applications/Elgato Stream Deck.app"
   ],
   [
@@ -423,7 +423,7 @@
     "keyboardmonitor",
     "controllermapper",
     "macrorecorder",
-    "streamdeckcontrol"
+    "streamdeckremote"
    ]
   },
   "Mac tools": {
