@@ -330,6 +330,12 @@
    "MAN",
    "TRA",
    "text:ॐ"
+  ],
+  [
+   "claudemon",
+   "CLD",
+   "MON",
+   "terminal:#D97757"
   ]
  ],
  "categories": {
@@ -351,7 +357,8 @@
     "cloning",
     "claudevoice",
     "transcribe",
-    "freevoiceconvert"
+    "freevoiceconvert",
+    "claudemon"
    ]
   },
   "DaVinci Resolve": {
