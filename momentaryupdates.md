@@ -196,3 +196,6 @@ rows.json `launcher` points at /Applications/Launcher (Mantra).app; icons6 has `
 ## 5.11.2026
 
 "for a star app g815 and star app itswelf bring back old icons" ... "fore levate media same"
+
+## 7.11.2026, 23:55 (hub session)
+"By the way. You need to Create debug screen brightness automatic was the rename in the meantime. Swift Matrix doesn't see it. Swift Matrix is open. It it recognized the old application which doesn't exist. Please look through the everything registered in Swift Matrix and why it registered applications which doesn't exist anymore and does not know about new name. Please fix that example: is this application? Screen Brightness Automatic. And maybe there are more applications like like this missing.sí Rename again screen brightness automatic to Screen brightness darkening the screen."

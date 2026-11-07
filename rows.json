@@ -1,5 +1,5 @@
 {
- "note": "The rows of Star (Mantra), in the default order. kind \"app\": a Swift .app, opened and quit directly by the star. kind \"lua\": still a Hammerspoon app, toggled through hs (STAR.toggleKey). Converting an app to Swift changes only its row here: kind \"app\" and \"app\" = its path in /Applications. build.sh installs this file as ~/.config/star-rows.json.",
+ "note": "The rows of Star (Mantra), in the default order. kind \"app\": a Swift .app, opened and quit directly by the star. kind \"lua\": still a Hammerspoon app, toggled through hs (STAR.toggleKey). Converting an app to Swift changes only its row here: kind \"app\" and \"app\" = its path in /Applications. build.sh installs this file as ~/.config/star-rows.json. Every app row carries \"bundle\", its bundle id: a renamed app keeps it, so Swift Matrix finds the app after a rename (7.11.2026).",
  "folders": [
   "Claude",
   "DaVinci Resolve",
@@ -20,7 +20,8 @@
    "group": "Mac",
    "kind": "app",
    "app": "/Applications/Swift Matrix (Mantra).app",
-   "about": "A simple task manager: every app running and everything that starts at login, each with QUIT and AUTO-START"
+   "about": "A simple task manager: every app running and everything that starts at login, each with QUIT and AUTO-START",
+   "bundle": "community.auroville.swiftmatrix"
   },
   {
    "key": "mouse",
@@ -28,7 +29,8 @@
    "group": "Keyboard and mouse",
    "kind": "app",
    "about": "When a pop-up appears, puts the pointer on its default button",
-   "app": "/Applications/Automated Mouse Actions (Mantra).app"
+   "app": "/Applications/Automated Mouse Actions (Mantra).app",
+   "bundle": "community.auroville.automatedmouse"
   },
   {
    "key": "enter",
@@ -36,7 +38,8 @@
    "group": "Claude",
    "kind": "app",
    "about": "A plain Return sends the message in a claude.ai tab; Shift+Return makes a new line",
-   "app": "/Applications/Claude Enter (Mantra).app"
+   "app": "/Applications/Claude Enter (Mantra).app",
+   "bundle": "community.auroville.claudeenter"
   },
   {
    "key": "sister",
@@ -45,7 +48,8 @@
    "kind": "app",
    "url": "http://127.0.0.1:8825",
    "about": "MANTRA CHAT: the page that mirrors this session and reads it aloud",
-   "app": "/Applications/Sister App (Mantra).app"
+   "app": "/Applications/Sister App (Mantra).app",
+   "bundle": "community.auroville.sisterapp"
   },
   {
    "key": "download",
@@ -53,7 +57,8 @@
    "group": "Mac",
    "kind": "app",
    "about": "Every download, copy and move on this Mac: two panes with folder sizes, one queue, one at a time, each with its own line",
-   "app": "/Applications/Download, Copy and Move (Mantra).app"
+   "app": "/Applications/Download, Copy and Move (Mantra).app",
+   "bundle": "community.auroville.downloadmonitor"
   },
   {
    "key": "netaggregate",
@@ -61,7 +66,8 @@
    "group": "Mac",
    "kind": "app",
    "about": "Joins the Wi-Fi and the phone on USB into one internet (mantra_networkaggregate); ONE CONNECTION switches it off",
-   "app": "/Applications/Network Aggregate Connection Keeper (Mantra).app"
+   "app": "/Applications/Network Aggregate Connection Keeper (Mantra).app",
+   "bundle": "com.mantra.connectionkeeper.stripe"
   },
   {
    "key": "starapi",
@@ -69,7 +75,8 @@
    "group": "Mac",
    "kind": "app",
    "about": "Keeps the common Star API running for the phone and cloud sessions (STAR_API); ON / OFF in its window",
-   "app": "/Applications/Star API (Mantra).app"
+   "app": "/Applications/Star API (Mantra).app",
+   "bundle": "community.auroville.starapi"
   },
   {
    "key": "resolveactions",
@@ -78,7 +85,8 @@
    "kind": "app",
    "about": "Everything for Resolve in one app: pages on ⌥`, HD/UHD, the import button, one-button actions; opens and quits with DaVinci Resolve",
    "with": "com.blackmagic-design.DaVinciResolve",
-   "app": "/Applications/DaVinci Resolve Actions (Mantra).app"
+   "app": "/Applications/DaVinci Resolve Actions (Mantra).app",
+   "bundle": "community.auroville.davinciresolveactions"
   },
   {
    "key": "gradingtutorial",
@@ -86,7 +94,8 @@
    "group": "DaVinci Resolve",
    "kind": "app",
    "app": "/Applications/DaVinci Grading Tutorial (Mantra).app",
-   "about": "The one-button grading workflow taught by voice, diagrams and pictures: balance, curves, Film Look Creator, export for Svemir; offline"
+   "about": "The one-button grading workflow taught by voice, diagrams and pictures: balance, curves, Film Look Creator, export for Svemir; offline",
+   "bundle": "community.auroville.resolvegradingtutorial"
   },
   {
    "key": "e16resolve",
@@ -94,7 +103,8 @@
    "group": "E16",
    "kind": "app",
    "app": "/Applications/E16 for DaVinci Resolve (Mantra).app",
-   "about": "Columns 1 to 4 of the E16: SOLO, MUTE, VOLUME, PAN; rows: four audio tracks, their names on the screen; Shift twice turns the pages (A5–A8 and on). Only one E16 app at a time."
+   "about": "Columns 1 to 4 of the E16: SOLO, MUTE, VOLUME, PAN; rows: four audio tracks, their names on the screen; Shift twice turns the pages (A5–A8 and on). Only one E16 app at a time.",
+   "bundle": "community.auroville.e16resolve"
   },
   {
    "key": "cloning",
@@ -102,7 +112,8 @@
    "group": "Claude",
    "kind": "app",
    "about": "Clone a voice, choose which one talks, and test every voice you have",
-   "app": "/Applications/Voice Cloning (Mantra).app"
+   "app": "/Applications/Voice Cloning (Mantra).app",
+   "bundle": "community.auroville.voicecloning"
   },
   {
    "key": "find",
@@ -110,7 +121,8 @@
    "group": "Mac",
    "kind": "app",
    "about": "One folder, a name or words: the terminal find or the Spotlight index, live; settings show what Spotlight knows",
-   "app": "/Applications/Find a File (Mantra).app"
+   "app": "/Applications/Find a File (Mantra).app",
+   "bundle": "community.auroville.findafile"
   },
   {
    "key": "dock",
@@ -118,7 +130,8 @@
    "group": "Keyboard and mouse",
    "kind": "app",
    "about": "Control-backtick switches between everything on the Dock, running or not",
-   "app": "/Applications/Dock Switcher (Mantra).app"
+   "app": "/Applications/Dock Switcher (Mantra).app",
+   "bundle": "community.auroville.dockswitcher"
   },
   {
    "key": "appstore",
@@ -126,7 +139,8 @@
    "group": "Mac",
    "kind": "app",
    "about": "Search for an app, fetch the developer's own .dmg, install it",
-   "app": "/Applications/App Store (Mantra).app"
+   "app": "/Applications/App Store (Mantra).app",
+   "bundle": "community.auroville.appstore"
   },
   {
    "key": "appledoor",
@@ -134,7 +148,8 @@
    "group": "Mac",
    "kind": "app",
    "about": "Opens Apple's update servers for thirty minutes, then shuts them again",
-   "app": "/Applications/Apple Door (Mantra).app"
+   "app": "/Applications/Apple Door (Mantra).app",
+   "bundle": "community.auroville.appledoor"
   },
   {
    "key": "freedom",
@@ -142,7 +157,8 @@
    "group": "Mac",
    "kind": "app",
    "about": "Every Apple service and server, step by step: check, free, undo",
-   "app": "/Applications/Freedom (Mantra).app"
+   "app": "/Applications/Freedom (Mantra).app",
+   "bundle": "community.auroville.freedom"
   },
   {
    "key": "liveactions",
@@ -150,7 +166,8 @@
    "group": "E16",
    "kind": "app",
    "about": "Everything for Live in one app: A1, MIDI to MK Control, MIDI to Key Stroke (reads MIDI: in the E16 group, one MIDI app at a time)",
-   "app": "/Applications/Ableton Live Actions (Mantra).app"
+   "app": "/Applications/Ableton Live Actions (Mantra).app",
+   "bundle": "community.auroville.abletonliveactions"
   },
   {
    "key": "oxi",
@@ -158,7 +175,8 @@
    "group": "E16",
    "kind": "app",
    "about": "The OXI E16 in Remote Mode drives Live: knob n sends CC n and note n over 112 pages, its own screen, Shift twice picks a page, profiles placed on pages, a Claude chat per knob",
-   "app": "/Applications/E16 Ableton Remote (Mantra).app"
+   "app": "/Applications/E16 Ableton Remote (Mantra).app",
+   "bundle": "community.auroville.djmantraabletonremote"
   },
   {
    "key": "a1",
@@ -174,7 +192,8 @@
    "group": "Mac",
    "kind": "app",
    "about": "Opens any file of keys and tests each with the cheapest read call; Google keys API by API",
-   "app": "/Applications/KeyringTester (Mantra).app"
+   "app": "/Applications/KeyringTester (Mantra).app",
+   "bundle": "community.auroville.keyringtester"
   },
   {
    "key": "installer",
@@ -182,7 +201,8 @@
    "group": "Mac",
    "kind": "app",
    "about": "Records every file an installer writes, so it can all be taken out again",
-   "app": "/Applications/Installation Logger (Mantra).app"
+   "app": "/Applications/Installation Logger (Mantra).app",
+   "bundle": "community.auroville.installationlogger"
   },
   {
    "key": "speechify",
@@ -190,7 +210,8 @@
    "group": "Mac",
    "kind": "app",
    "about": "Opening: Chrome starts in the ticked profiles. Closing: Speechify's Home window at launch, the Login Item Added banner after 3 s",
-   "app": "/Applications/Opening and Closing (Mantra).app"
+   "app": "/Applications/Opening and Closing (Mantra).app",
+   "bundle": "community.auroville.speechifysplashcloser"
   },
   {
    "key": "monitor",
@@ -198,7 +219,8 @@
    "group": "Mac",
    "kind": "app",
    "about": "The page that runs the star: start, stop, reorder, and how long each app has run",
-   "app": "/Applications/Star Monitor (Mantra).app"
+   "app": "/Applications/Star Monitor (Mantra).app",
+   "bundle": "community.auroville.starmonitor"
   },
   {
    "key": "claudevoice",
@@ -206,7 +228,8 @@
    "group": "Claude",
    "kind": "app",
    "app": "/Applications/Voice Engine (Mantra).app",
-   "about": "One app since 1.11.2026 (Claude to Marko Voice + Voice of Claude): the engine on or off with its three parts, which voice speaks, how the subtitles look"
+   "about": "One app since 1.11.2026 (Claude to Marko Voice + Voice of Claude): the engine on or off with its three parts, which voice speaks, how the subtitles look",
+   "bundle": "community.auroville.voiceengine"
   },
   {
    "key": "transcribe",
@@ -214,7 +237,8 @@
    "group": "Claude",
    "kind": "app",
    "about": "F1: talk, F1 again: what you said is cleaned in your style and typed where the cursor is; the speakers go to 6 % while it listens",
-   "app": "/Applications/Voice to Text (Mantra).app"
+   "app": "/Applications/Voice to Text (Mantra).app",
+   "bundle": "com.mantra.voicetotext"
   },
   {
    "key": "spectral",
@@ -222,7 +246,8 @@
    "group": "Audio Production",
    "kind": "app",
    "app": "/Applications/Spectral Analyzer (Mantra).app",
-   "about": "Any sound passed through and measured like FLUX:: Analyzer; the voice's clips checked for clicks"
+   "about": "Any sound passed through and measured like FLUX:: Analyzer; the voice's clips checked for clicks",
+   "bundle": "community.auroville.spectralanalyzer"
   },
   {
    "key": "soundrecorder",
@@ -230,7 +255,8 @@
    "group": "Audio Production",
    "kind": "app",
    "app": "/Applications/Sound Recorder (Mantra).app",
-   "about": "Input and output with their volume and VU meters in SoundSource's look; record, play, the waveform; nothing kept after QUIT"
+   "about": "Input and output with their volume and VU meters in SoundSource's look; record, play, the waveform; nothing kept after QUIT",
+   "bundle": "community.auroville.mantrasoundrecorder"
   },
   {
    "key": "mackie",
@@ -256,7 +282,8 @@
    "group": "Keyboard and mouse",
    "kind": "app",
    "app": "~/Developer/G815_LIGHTS/build/G815 Lights.app",
-   "about": "Every key of the G815 its own still colour and brightness, three banks M1 M2 M3, painted at every start"
+   "about": "Every key of the G815 its own still colour and brightness, three banks M1 M2 M3, painted at every start",
+   "bundle": "community.auroville.g815lights"
   },
   {
    "key": "keyboardmonitor",
@@ -264,7 +291,8 @@
    "group": "Keyboard and mouse",
    "kind": "app",
    "app": "/Applications/Keyboard Monitor (Mantra).app",
-   "about": "One big glass blob like the volume blob, centred low on the screen: the key just pressed until the next one; ✕ quits"
+   "about": "One big glass blob like the volume blob, centred low on the screen: the key just pressed until the next one; ✕ quits",
+   "bundle": "community.auroville.keyboardmonitor"
   },
   {
    "key": "webcamviewer",
@@ -272,7 +300,8 @@
    "group": "Mac",
    "kind": "app",
    "app": "/Applications/Webcam Recorder (Mantra).app",
-   "about": "Any camera and sound input; the VU on the left edge; ● records ~/Movies/mb_….mov H.265 1080p with the real-time time code; ⌘F full screen, Escape back"
+   "about": "Any camera and sound input; the VU on the left edge; ● records ~/Movies/mb_….mov H.265 1080p with the real-time time code; ⌘F full screen, Escape back",
+   "bundle": "community.auroville.webcamviewer"
   },
   {
    "key": "launcher",
@@ -280,7 +309,8 @@
    "group": "Mac",
    "kind": "app",
    "app": "/Applications/Launcher (Mantra).app",
-   "about": "The search box: Pause (or the star’s first row) opens it in the middle of the screen; the apps you opened last come first as icons; type to filter; ⌘, settings"
+   "about": "The search box: Pause (or the star’s first row) opens it in the middle of the screen; the apps you opened last come first as icons; type to filter; ⌘, settings",
+   "bundle": "com.mantra.starlauncher"
   },
   {
    "key": "djaysync",
@@ -288,7 +318,8 @@
    "group": "DJing",
    "kind": "app",
    "about": "Both sides in one window, each playlist SAME / NEW / CHANGED; SYNC Mac -> phone, PULL phone -> djay; can sync by itself when the phone appears",
-   "app": "/Applications/djay Sync (Mantra).app"
+   "app": "/Applications/djay Sync (Mantra).app",
+   "bundle": "community.auroville.djaysync"
   },
   {
    "key": "djtransfer",
@@ -296,7 +327,8 @@
    "group": "DJing",
    "kind": "app",
    "about": "Live view of djay-sync / adb push: playlist, file, FROM -> TO, file and total bars, MB/s, ETA, files done and skipped",
-   "app": "/Applications/DJ Transfer Monitor (Mantra).app"
+   "app": "/Applications/DJ Transfer Monitor (Mantra).app",
+   "bundle": "community.auroville.djtransfermonitor"
   },
   {
    "key": "screenshot2tidal",
@@ -304,7 +336,8 @@
    "group": "DJing",
    "kind": "app",
    "about": "Reads the newest 3 Desktop screenshots on the Mac (Vision), artist / title rows, finds each on TIDAL with a confidence, CREATE PLAYLIST on his account",
-   "app": "/Applications/Screenshot to TIDAL (Mantra).app"
+   "app": "/Applications/Screenshot to TIDAL (Mantra).app",
+   "bundle": "community.auroville.screenshot2tidal"
   },
   {
    "key": "yshai",
@@ -312,7 +345,8 @@
    "group": "Percussions",
    "kind": "app",
    "about": "Checks every lesson of the course against LESSON<N>: Complete / Missing / partial, DOWNLOAD MISSING or per lesson, never the same file twice (videos by duration); videos through Video DownloadHelper's ffmpeg, Notation PDFs",
-   "app": "/Applications/Yshai Afterman Percussion School (Mantra).app"
+   "app": "/Applications/Yshai Afterman Percussion School (Mantra).app",
+   "bundle": "community.auroville.yshaischool"
   },
   {
    "key": "timer",
@@ -320,7 +354,8 @@
    "group": "Mac",
    "kind": "app",
    "app": "/Applications/Timer Stopwatch Clock (Mantra).app",
-   "about": "A stopwatch, a timer and a clock in one black window, read across a room"
+   "about": "A stopwatch, a timer and a clock in one black window, read across a room",
+   "bundle": "community.auroville.timerstopwatchclock"
   },
   {
    "key": "emmonitor",
@@ -328,7 +363,8 @@
    "group": "Elevate Media",
    "kind": "app",
    "app": "/Applications/Elevate Media Project Monitor (Mantra).app",
-   "about": "The credits of every service Elevate Media uses, what they buy, green / amber / red against the work left, top-up alerts, statistics and CSV export"
+   "about": "The credits of every service Elevate Media uses, what they buy, green / amber / red against the work left, top-up alerts, statistics and CSV export",
+   "bundle": "community.auroville.elevatemediamonitor"
   },
   {
    "key": "cqtutorial",
@@ -336,7 +372,8 @@
    "group": "Audio Production",
    "kind": "app",
    "app": "/Applications/CQ MixPad Tutorial (Mantra).app",
-   "about": "The CQ-12T taught by voice, diagrams and the hand with a ring in CQ MixPad and Live; the Santoshi concert as the case study; offline"
+   "about": "The CQ-12T taught by voice, diagrams and the hand with a ring in CQ MixPad and Live; the Santoshi concert as the case study; offline",
+   "bundle": "community.auroville.cqmixpadtutorial"
   },
   {
    "key": "mantravirtualcam",
@@ -344,7 +381,8 @@
    "group": "Camera",
    "kind": "app",
    "app": "/Applications/Virtual Cam (Mantra).app",
-   "about": "Connects to the phone on the USB cable; its picture is the Mac webcam; its whole camera screen is in the window, mouse and keyboard"
+   "about": "Connects to the phone on the USB cable; its picture is the Mac webcam; its whole camera screen is in the window, mouse and keyboard",
+   "bundle": "com.mantraproductions.mantravirtualcam"
   },
   {
    "key": "obs",
@@ -352,15 +390,17 @@
    "group": "Camera",
    "kind": "app",
    "app": "/Applications/OBS.app",
-   "about": "Open it only when you want to mix. While it runs, OBS Virtual Camera sends the OBS mix; when it closes, Virtual Cam (Mantra) is the webcam again"
+   "about": "Open it only when you want to mix. While it runs, OBS Virtual Camera sends the OBS mix; when it closes, Virtual Cam (Mantra) is the webcam again",
+   "bundle": "com.obsproject.obs-studio"
   },
   {
    "key": "darken",
-   "name": "Darken the Screens (Mantra) (⌃⌥⌘F1: every screen black, again: light)",
+   "name": "Screen Brightness Darkening the Screen (Mantra) (⌃⌥⌘F1: every screen black, again: light)",
    "group": "Mac",
    "kind": "app",
    "about": "⌃⌥⌘F1 darkens every screen to complete darkness; ⌃⌥⌘F1 again brings full light",
-   "app": "/Applications/Darken the Screens (Mantra).app"
+   "app": "/Applications/Screen Brightness Darkening the Screen (Mantra).app",
+   "bundle": "com.mantra.darkenthescreens"
   },
   {
    "key": "codefiller",
@@ -368,7 +408,8 @@
    "group": "Mac",
    "kind": "app",
    "about": "Watches the Nothing phone's SMS and notifications over USB; a new verification code goes into the focused text box, else the clipboard",
-   "app": "/Applications/Code Filler (Mantra).app"
+   "app": "/Applications/Code Filler (Mantra).app",
+   "bundle": "community.auroville.mantracodefiller"
   },
   {
    "key": "answerclaude",
@@ -376,7 +417,17 @@
    "group": "Claude",
    "kind": "app",
    "about": "Claude's questions and permission prompts answered from one small window",
-   "app": "/Applications/Answer Claude (Mantra).app"
+   "app": "/Applications/Answer Claude (Mantra).app",
+   "bundle": "community.auroville.answerclaude"
+  },
+  {
+   "key": "claudemon",
+   "name": "Claude Code Monitor (Mantra) (every open Claude Code session: its topic, GO TO, SUMMARIZE, CLOSE)",
+   "group": "Claude",
+   "kind": "app",
+   "app": "/Applications/Claude Code Monitor (Mantra).app",
+   "about": "One line per Claude Code session: name (topic), what it does, its last prompt; GO TO, TOPIC, SUMMARIZE, CLOSE; HOOK ON | OFF",
+   "bundle": "community.auroville.claudecodemonitor"
   },
   {
    "key": "controllermapper",
@@ -384,7 +435,8 @@
    "group": "Keyboard and mouse",
    "kind": "app",
    "about": "Buttons and knobs of his MIDI and game controllers mapped to keys and actions",
-   "app": "/Applications/Controller Mapper (Mantra).app"
+   "app": "/Applications/Controller Mapper (Mantra).app",
+   "bundle": "community.auroville.controllermapper"
   },
   {
    "key": "freevoiceconvert",
@@ -392,7 +444,8 @@
    "group": "Audio Production",
    "kind": "app",
    "about": "Seed-VC voice conversion, same length frame by frame, studio-profile EQ, -16 LUFS",
-   "app": "/Applications/Free Voice Convert Equalizer (Mantra).app"
+   "app": "/Applications/Free Voice Convert Equalizer (Mantra).app",
+   "bundle": "community.auroville.freevoiceconvert"
   },
   {
    "key": "importbutton",
@@ -400,7 +453,8 @@
    "group": "Mac",
    "kind": "app",
    "about": "One floating button that imports files into the app in front",
-   "app": "/Applications/Import Button (Mantra).app"
+   "app": "/Applications/Import Button (Mantra).app",
+   "bundle": "community.auroville.importbutton"
   },
   {
    "key": "miditools",
@@ -408,7 +462,8 @@
    "group": "Ableton Live",
    "kind": "app",
    "about": "MIDI notes and CCs turned into MK Control actions and key strokes",
-   "app": "/Applications/MIDI Tools (Mantra).app"
+   "app": "/Applications/MIDI Tools (Mantra).app",
+   "bundle": "community.auroville.miditools"
   },
   {
    "key": "macrorecorder",
@@ -416,7 +471,8 @@
    "group": "Keyboard and mouse",
    "kind": "app",
    "about": "Records mouse and keyboard, plays back relative to the window; RECALIBRATE",
-   "app": "/Applications/Macro Recorder (Mantra).app"
+   "app": "/Applications/Macro Recorder (Mantra).app",
+   "bundle": "community.auroville.macrorecorder"
   },
   {
    "key": "resolvepages",
@@ -424,7 +480,8 @@
    "group": "DaVinci Resolve",
    "kind": "app",
    "about": "Switches DaVinci Resolve's pages from a small window",
-   "app": "/Applications/Resolve Pages (Mantra).app"
+   "app": "/Applications/Resolve Pages (Mantra).app",
+   "bundle": "community.auroville.resolvepages"
   },
   {
    "key": "stemseparation",
@@ -432,7 +489,8 @@
    "group": "Audio Production",
    "kind": "app",
    "about": "Splits a song into stems on this Mac",
-   "app": "/Applications/Stem Separation (Mantra).app"
+   "app": "/Applications/Stem Separation (Mantra).app",
+   "bundle": "community.auroville.stemseparation"
   },
   {
    "key": "streamdeckremote",
@@ -440,7 +498,8 @@
    "group": "Keyboard and mouse",
    "kind": "app",
    "about": "Drives the Stream Deck and the phone app Stream Deck Remote as one deck: APPS and OBS profiles, presses mirrored",
-   "app": "/Applications/Stream Deck Remote (Mantra).app"
+   "app": "/Applications/Stream Deck Remote (Mantra).app",
+   "bundle": "community.auroville.streamdeckremote"
   },
   {
    "key": "uhdhddisplay",
@@ -448,15 +507,17 @@
    "group": "Mac",
    "kind": "app",
    "about": "Switches a display between UHD and HD resolution",
-   "app": "/Applications/UHD HD Display (Mantra).app"
+   "app": "/Applications/UHD HD Display (Mantra).app",
+   "bundle": "community.auroville.uhdhddisplay"
   },
   {
    "key": "chromiumvm",
-   "name": "Chromium Virtual Machine (Mantra)",
+   "name": "VM Machine Remote (Mantra)",
    "group": "Mac",
    "kind": "app",
-   "app": "/Applications/Chromium Virtual Machine (Mantra).app",
-   "about": "The Chrome computer in Oracle Cloud: its screen in a window, clipboard shared both ways, files dropped on it go to the VM"
+   "app": "/Applications/VM Machine Remote (Mantra).app",
+   "about": "The Chrome computer in Oracle Cloud: its screen in a window, clipboard shared both ways, files dropped on it go to the VM",
+   "bundle": "community.auroville.chromiumvm"
   },
   {
    "key": "vmrouter",
@@ -464,7 +525,8 @@
    "group": "Mac",
    "kind": "app",
    "app": "/Applications/VM Router (Mantra).app",
-   "about": "One door to the Chrome VM for many sessions at once: each session its own tab, account and folder, clipboard and keys one at a time, Gemini paced per account"
+   "about": "One door to the Chrome VM for many sessions at once: each session its own tab, account and folder, clipboard and keys one at a time, Gemini paced per account",
+   "bundle": "community.auroville.vmrouter"
   },
   {
    "key": "ndimonitor",
@@ -472,7 +534,8 @@
    "group": "Camera",
    "kind": "app",
    "about": "Shows an NDI video source on the Mac",
-   "app": "/Applications/NDI Mantra Monitor.app"
+   "app": "/Applications/NDI Mantra Monitor.app",
+   "bundle": "com.mantraproductions.ndimonitor"
   },
   {
    "key": "mkvconverter",
@@ -480,7 +543,8 @@
    "group": "DaVinci Resolve",
    "kind": "app",
    "app": "/Applications/MKV Converter (MPA).app",
-   "about": "Watches a folder (Downloads) for MPA recordings and converts them to MOV with time code for Resolve"
+   "about": "Watches a folder (Downloads) for MPA recordings and converts them to MOV with time code for Resolve",
+   "bundle": "community.auroville.mkvconverter"
   },
   {
    "key": "indianmantras",
@@ -488,7 +552,8 @@
    "group": "Mantras",
    "kind": "app",
    "app": "/Applications/Indian Mantras (Mantra).app",
-   "about": "The Gayatri Mantra and Asato Ma taught word by word: Devanagari, transliteration and meaning, the MA Reader Web highlight, SPEED down to 0.5, a VOICE switcher (Hume, Google Gemini, Speechify); offline"
+   "about": "The Gayatri Mantra and Asato Ma taught word by word: Devanagari, transliteration and meaning, the MA Reader Web highlight, SPEED down to 0.5, a VOICE switcher (Hume, Google Gemini, Speechify); offline",
+   "bundle": "community.auroville.indianmantras"
   }
  ],
  "exclusive": [
