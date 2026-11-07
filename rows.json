@@ -379,14 +379,6 @@
    "app": "/Applications/Answer Claude (Mantra).app"
   },
   {
-   "key": "claudemon",
-   "name": "Claude Code Monitor (Mantra) (every open Claude Code session: its topic, GO TO, SUMMARIZE, CLOSE)",
-   "group": "Claude",
-   "kind": "app",
-   "app": "/Applications/Claude Code Monitor (Mantra).app",
-   "about": "One line per Claude Code session: name (topic), what it does, its last prompt; GO TO, TOPIC, SUMMARIZE, CLOSE; HOOK ON | OFF"
-  },
-  {
    "key": "controllermapper",
    "name": "Controller Mapper (Mantra) (his controllers mapped to keys and actions)",
    "group": "Keyboard and mouse",
