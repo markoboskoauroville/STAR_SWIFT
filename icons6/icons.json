@@ -336,6 +336,12 @@
    "CLD",
    "MON",
    "terminal:#D97757"
+  ],
+  [
+   "agentmgr",
+   "AGE",
+   "MGR",
+   "sf:person.3.sequence.fill"
   ]
  ],
  "categories": {
@@ -358,7 +364,8 @@
     "claudevoice",
     "transcribe",
     "freevoiceconvert",
-    "claudemon"
+    "claudemon",
+    "agentmgr"
    ]
   },
   "DaVinci Resolve": {

@@ -430,6 +430,15 @@
    "bundle": "community.auroville.claudecodemonitor"
   },
   {
+   "key": "agentmgr",
+   "name": "Agent Manager (Mantra) (tasks and agents of every machine: this Mac, chromium-vm, phones, cloud)",
+   "group": "Claude",
+   "kind": "app",
+   "app": "/Applications/Agent Manager (Mantra).app",
+   "about": "Overview of every Claude Code session, its background agents and tasks, chromium-vm services and workers, phones, cloud sessions; refreshes every 5 s, read-only",
+   "bundle": "community.auroville.agentmanager"
+  },
+  {
    "key": "controllermapper",
    "name": "Controller Mapper (Mantra) (his controllers mapped to keys and actions)",
    "group": "Keyboard and mouse",
