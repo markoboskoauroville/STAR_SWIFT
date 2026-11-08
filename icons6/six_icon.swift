@@ -40,10 +40,11 @@ func draw(_ px: Int, top: String, bottom: String, symbol: String, color: NSColor
     // matrix:<#hex> (Marko 5.11.2026, Swift Matrix: "a background of a Matrix movie with falling letters, but zoomed in,
     // not too small ... over that ... David star", the name in lines and the cursor in a colour not used yet)
     let isMatrix = symbol.hasPrefix("matrix")
-    let lead = symbol.hasPrefix("terminal-lead")
+    let both = symbol.hasPrefix("terminal-both")   // Marko 9.11.2026, Agent Manager CEO: a bar before and after one word
+    let lead = symbol.hasPrefix("terminal-lead") || both
     let isTerm = symbol == "terminal" || symbol.hasPrefix("terminal:") || lead || isMatrix
     let green = NSColor(srgbRed: 0.20, green: 0.95, blue: 0.35, alpha: 1)
-    let terminalGreen = lead ? (symbol.hasPrefix("terminal-lead:") ? hex(String(symbol.dropFirst(14))) : green)
+    let terminalGreen = both ? hex(String(symbol.dropFirst(14))) : lead ? (symbol.hasPrefix("terminal-lead:") ? hex(String(symbol.dropFirst(14))) : green)
         : symbol.hasPrefix("terminal:") ? hex(String(symbol.dropFirst(9)))
         : symbol.hasPrefix("matrix:") ? hex(String(symbol.dropFirst(7))) : green
     if isTerm || symbol == "sunmoon" { NSColor(white: 0.04, alpha: 1).setFill(); tile.fill() }   // matrix too
@@ -161,7 +162,7 @@ func draw(_ px: Int, top: String, bottom: String, symbol: String, color: NSColor
     // cursors, too thick ... taking too much space"): one word fills 84 % of the tile; every cursor a thin bar
     if lead {
         let w1 = (top as NSString).size(withAttributes: attrs(fs)).width
-        fs = min(fs * box.width * 0.84 / (w1 + font(fs).capHeight * 0.30), s * 0.42)
+        fs = min(fs * box.width * (both ? 0.90 : 0.84) / (w1 + font(fs).capHeight * (both ? 0.60 : 0.30)), s * 0.42)
     }
     let f = font(fs), cap = f.capHeight, gap = cap * 0.42
     let y0 = s / 2 - (2 * cap + gap) / 2           // baseline of the bottom row
@@ -170,9 +171,11 @@ func draw(_ px: Int, top: String, bottom: String, symbol: String, color: NSColor
     if lead {
         // one row, in the middle, the cursor first
         let w = (top as NSString).size(withAttributes: attrs(fs)).width
-        let x = (s - w - cw - cgap) / 2, base = s / 2 - cap / 2
+        let nb: CGFloat = both ? 2 : 1
+        let x = (s - w - nb * (cw + cgap)) / 2, base = s / 2 - cap / 2
         terminalGreen.setFill(); NSRect(x: x, y: base - cap * 0.08, width: cw, height: cap * 1.16).fill()
-        (top as NSString).draw(at: NSPoint(x: x + cw + cgap, y: base + f.descender), withAttributes: attrs(fs))
+        (top as NSString).draw(at: NSPoint(x: x + cw + cgap + (both ? fs * 0.014 : 0), y: base + f.descender), withAttributes: attrs(fs))
+        if both { terminalGreen.setFill(); NSRect(x: x + cw + cgap + w + cgap, y: base - cap * 0.08, width: cw, height: cap * 1.16).fill() }
         NSGraphicsContext.restoreGraphicsState()
         return rep
     }
