@@ -15,6 +15,15 @@
  ],
  "rows": [
   {
+   "key": "agentmgr",
+   "name": "Mantra Operating System (CEO): Agent Manager (CEO) (Mantra), start the day here",
+   "group": "Claude",
+   "kind": "app",
+   "app": "/Applications/Agent Manager (Mantra).app",
+   "about": "Overview of every Claude Code session, its background agents and tasks, chromium-vm services and workers, phones, cloud sessions; refreshes every 5 s, read-only",
+   "bundle": "community.auroville.agentmanager"
+  },
+  {
    "key": "matrix",
    "name": "Swift Matrix (Mantra) (what runs now and what starts with the Mac: quit it, or switch its auto-start)",
    "group": "Mac",
@@ -428,15 +437,6 @@
    "app": "/Applications/Claude Code Monitor (Mantra).app",
    "about": "One line per Claude Code session: name (topic), what it does, its last prompt; GO TO, TOPIC, SUMMARIZE, CLOSE; HOOK ON | OFF",
    "bundle": "community.auroville.claudecodemonitor"
-  },
-  {
-   "key": "agentmgr",
-   "name": "Agent Manager (CEO) (Mantra) (tasks and agents of every machine: this Mac, chromium-vm, phones, cloud)",
-   "group": "Claude",
-   "kind": "app",
-   "app": "/Applications/Agent Manager (Mantra).app",
-   "about": "Overview of every Claude Code session, its background agents and tasks, chromium-vm services and workers, phones, cloud sessions; refreshes every 5 s, read-only",
-   "bundle": "community.auroville.agentmanager"
   },
   {
    "key": "controllermapper",
