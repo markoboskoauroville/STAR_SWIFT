@@ -199,3 +199,10 @@ rows.json `launcher` points at /Applications/Launcher (Mantra).app; icons6 has `
 
 ## 7.11.2026, 23:55 (hub session)
 "By the way. You need to Create debug screen brightness automatic was the rename in the meantime. Swift Matrix doesn't see it. Swift Matrix is open. It it recognized the old application which doesn't exist. Please look through the everything registered in Swift Matrix and why it registered applications which doesn't exist anymore and does not know about new name. Please fix that example: is this application? Screen Brightness Automatic. And maybe there are more applications like like this missing.sí Rename again screen brightness automatic to Screen brightness darkening the screen."
+
+## 9.11.2026: CEO first in the star, and a RELOAD item
+
+> CEO is still not at the top of the star menu. How to reload the star menu? Do I need to reload manually? Then give me a reload option in my star menu so I can refresh it.
+
+**Why:** the menu builds Launcher, Swift Matrix, RUNNING, Star Monitor, then folders; agentmgr is in folder "Claude" (several apps, so a submenu), and star-order.json only orders rows inside that. The menu re-reads the files at every opening (menuNeedsUpdate), the running process only needed the new binary rules.
+**Status:** v15 written: `"pin": "top"` in rows.json (agentmgr) puts the row above everything; RELOAD item (id `reload`) and a watcher on ~/.config reload by themselves. Compile waits for GitHub Actions (STAR_SWIFT is private; build.yml added).

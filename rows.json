@@ -16,6 +16,7 @@
  "rows": [
   {
    "key": "agentmgr",
+   "pin": "top",
    "name": "Mantra Operating System (CEO): Agent Manager (CEO) (Mantra), start the day here",
    "group": "Claude",
    "kind": "app",

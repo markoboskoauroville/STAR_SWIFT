@@ -26,7 +26,8 @@ cat > "$APP/Contents/Info.plist" <<PL
 PL
 cp icon/AppIcon.icns "$APP/Contents/Resources/AppIcon.icns"
 cp rows.json "$APP/Contents/Resources/rows.json"
-codesign --force -s "Mantra Apps" "$APP"
+codesign --force -s "${SIGN:-Mantra Apps}" "$APP"
+[ -n "$NO_INSTALL" ] && { echo "built $APP (v$V), not installed"; exit 0; }
 mkdir -p "$HOME/.config"; cp rows.json "$HOME/.config/star-rows.json"
 rm -rf "/Applications/Star (Mantra).app"; cp -R "$APP" /Applications/
 echo "built $APP (v$V), installed in /Applications, rows in ~/.config/star-rows.json"

@@ -20,7 +20,7 @@ import AppKit
 // every application"): the star's one window, MENU BAR ORDER, gets the first row ON OFF … Star … TOP ✕ (TopRow.swift).
 // The star itself still only opens: OFF quits the star alone, the rows' clicks are unchanged.
 // v13 (4.11.2026): Launcher (Mantra) is the first row, above Swift Matrix
-let VERSION = 14
+let VERSION = 15
 let HOME = NSHomeDirectory()
 let CONF = HOME + "/.config"
 let ROWS_FILE = CONF + "/star-rows.json"
@@ -47,6 +47,8 @@ struct Row: Codable {
     // v14 (Marko, 4.11.2026: "Make sure this app starts with DaVinci Resolve and also closes with DaVinci Resolve"):
     // the bundle id of the application this one lives with: it opens (silently) when that one opens, quits when it quits
     var with: String?
+    // v15 (9.11.2026): "pin": "top" puts the row above everything, whatever pickedOrder or the folders say
+    var pin: String?
     var path: String? { app.map { NSString(string: $0).expandingTildeInPath } }
 }
 // v12 (Marko, 31.10.2026: "make an E16 category ... Inside it will be all the apps that use E16, and only one can be
@@ -464,6 +466,7 @@ final class Controller: NSObject, NSMenuDelegate {
         item.button?.image = Controller.starImage()
         item.button?.toolTip = "Star (Mantra) v\(VERSION): every app, a click opens its window; ON / OFF is at the top of the window"
         menu.delegate = self
+        watchFiles()
         menu.autoenablesItems = false
         item.menu = menu
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) { self.star.restore(); self.star.watchCompanions() }
@@ -532,6 +535,10 @@ final class Controller: NSObject, NSMenuDelegate {
         m.removeAllItems()
         // v13 (Marko, 4.11.2026: "When I open Star, there will be a launcher as the first option"): the very first row is
         // Launcher (Mantra) (STAR_LAUNCHER v4): the search box with his recent apps as icons, the same box as Pause
+        // v15 (Marko, 9.11.2026: "CEO is still not at the top of the star menu"): rows with "pin": "top" come before
+        // everything, above the Launcher, the RUNNING block and the folders (it sat inside the Claude folder before)
+        for r in star.rows where r.pin == "top" { m.addItem(rowItem(r, (star.rows.firstIndex { $0.key == r.key } ?? 0) + 1)) }
+        if star.rows.contains(where: { $0.pin == "top" }) { m.addItem(.separator()) }
         add(m, "⌕   Launcher  (search any app · Pause)") { self.openPath(LAUNCHER_APP) }
             .isEnabled = FileManager.default.fileExists(atPath: LAUNCHER_APP)
         // v4: then Swift Matrix (Marko, 14.10.2026: "one more Swift in the star menu, which will be the first one")
@@ -560,7 +567,7 @@ final class Controller: NSObject, NSMenuDelegate {
         }
         m.addItem(.separator())
 
-        let apps = star.rows.filter { $0.key != "monitor" && $0.key != "matrix" }
+        let apps = star.rows.filter { $0.key != "monitor" && $0.key != "matrix" && $0.pin != "top" }
         let numbered = apps.enumerated().map { ($0 + 1, $1) }
         if star.foldersOn {
             var order = star.folders
@@ -588,6 +595,8 @@ final class Controller: NSObject, NSMenuDelegate {
         add(m, "All off") { self.star.allOff {} }.isEnabled = anyOn
         add(m, star.foldersOn ? "Show the apps as one list" : "Show the apps in folders") { self.star.setFolders(!self.star.foldersOn) }
         add(m, "Menu bar order…  (your icons in a fixed order)") { MenuBarWindow.show() }
+        let rl = add(m, "RELOAD   (read the rows, the order and the folders again)") { self.reloadStar() }
+        rl.identifier = NSUserInterfaceItemIdentifier("reload")
         add(m, "Go to the folder (STAR_SWIFT, the rows)") { self.openPath(HOME + "/Developer/STAR_SWIFT") }
         if !star.hsUp {
             let it = add(m, "Hammerspoon is off: the Lua apps wait for it") { self.openPath("/Applications/Hammerspoon.app") }
@@ -597,6 +606,27 @@ final class Controller: NSObject, NSMenuDelegate {
         v.attributedTitle = NSAttributedString(string: v.title, attributes: [.foregroundColor: NSColor.tertiaryLabelColor, .font: NSFont.menuFont(ofSize: 11)])
         m.addItem(.separator())
         add(m, star.hsUp ? "Quit everything (the apps, Hammerspoon, this star)" : "Quit everything (the apps, then this star)") { self.star.quitEverything() }
+    }
+
+    // v15: RELOAD, and the same by itself when star-rows.json / star-order.json / star-groups.json change
+    func reloadStar() {
+        star.load(); star.loadLuaCache(); star.refreshLuaInBackground()
+        item.toolTip = "Star (Mantra) v\(VERSION): every app, a click opens its window; ON / OFF is at the top of the window"
+    }
+    private var confWatch: DispatchSourceFileSystemObject?
+    private var reloadPending = false
+    func watchFiles() {
+        let fd = open(CONF, O_EVTONLY)
+        guard fd >= 0 else { return }
+        let src = DispatchSource.makeFileSystemObjectSource(fileDescriptor: fd, eventMask: [.write, .rename, .extend], queue: .main)
+        src.setEventHandler { [weak self] in
+            guard let self = self, !self.reloadPending else { return }
+            self.reloadPending = true
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { self.reloadPending = false; self.reloadStar() }
+        }
+        src.setCancelHandler { close(fd) }
+        src.resume()
+        confWatch = src
     }
 
     // a heading: grey, small capitals, not clickable
