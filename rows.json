@@ -431,7 +431,7 @@
   },
   {
    "key": "agentmgr",
-   "name": "Agent Manager (Mantra) (tasks and agents of every machine: this Mac, chromium-vm, phones, cloud)",
+   "name": "Agent Manager (CEO) (Mantra) (tasks and agents of every machine: this Mac, chromium-vm, phones, cloud)",
    "group": "Claude",
    "kind": "app",
    "app": "/Applications/Agent Manager (Mantra).app",
