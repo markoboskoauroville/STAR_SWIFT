@@ -522,10 +522,10 @@
   },
   {
    "key": "chromiumvm",
-   "name": "VM Machine Remote (Mantra)",
+   "name": "VM Machine Remote Viewer (Mantra)",
    "group": "Mac",
    "kind": "app",
-   "app": "/Applications/VM Machine Remote (Mantra).app",
+   "app": "/Applications/VM Machine Remote Viewer (Mantra).app",
    "about": "The Chrome computer in Oracle Cloud: its screen in a window, clipboard shared both ways, files dropped on it go to the VM",
    "bundle": "community.auroville.chromiumvm"
   },
