@@ -1,5 +1,5 @@
 {
- "note": "Marko 4.11.2026: every star app's icon is six letters, three on top and three below, over one symbolic picture; nothing else. key = the star row key; top/bottom = the mnemonic; symbol = the SF Symbol drawn large behind; colour from its category (Marko 4.11.2026: \"divide all my applications into categories, and each category gets its own color\"). Background (4.11.2026, Marko): app:<path> = that application's own icon behind it (Resolve, Ableton, Claude, djay, TIDAL...), sf:graduationcap.fill for every tutorial, sf:film for everything film or video, star = the David star for the star's own apps, text:<glyph>, else sf:<symbol>.",
+ "note": "Marko 4.11.2026: every star app's icon is six letters, three on top and three below, over one symbolic picture; nothing else. key = the star row key; top/bottom = the mnemonic; symbol = the SF Symbol drawn large behind; colour from its category (Marko 4.11.2026: \"divide all my applications into categories, and each category gets its own color\"). Background (4.11.2026, Marko): app:<path> = that application's own icon behind it (Resolve, Ableton, Claude, djay, TIDAL...), sf:graduationcap.fill for every tutorial, sf:film for everything film or video, star = the David star for the star's own apps, text:<glyph>, else sf:<symbol>. | DEFAULT 12.11.2026 (Marko): an app not on a website gets the black look: category colour #000000, six letters, sf:cursorarrow behind (like kmrouter).",
  "icons": [
   [
    "launcher",
@@ -342,6 +342,12 @@
    "CEO",
    "",
    "terminal-both:#FFD60A"
+  ],
+  [
+   "kmrouter",
+   "KEY",
+   "MSE",
+   "sf:cursorarrow"
   ]
  ],
  "categories": {
@@ -451,6 +457,13 @@
     "chromiumvm",
     "vmrouter"
    ]
+  },
+  "Between Marko and Claude": {
+   "colour": "#000000",
+   "apps": [
+    "kmrouter"
+   ],
+   "note": "Marko 12.11.2026: black, text over it, and a cursor. The gate between his hands and Claude's."
   }
  }
 }
