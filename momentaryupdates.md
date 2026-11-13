@@ -206,3 +206,11 @@ rows.json `launcher` points at /Applications/Launcher (Mantra).app; icons6 has `
 
 **Why:** the menu builds Launcher, Swift Matrix, RUNNING, Star Monitor, then folders; agentmgr is in folder "Claude" (several apps, so a submenu), and star-order.json only orders rows inside that. The menu re-reads the files at every opening (menuNeedsUpdate), the running process only needed the new binary rules.
 **Status:** v15 written: `"pin": "top"` in rows.json (agentmgr) puts the row above everything; RELOAD item (id `reload`) and a watcher on ~/.config reload by themselves. Compile waits for GitHub Actions (STAR_SWIFT is private; build.yml added).
+
+## 13.11.2026: MIDI to MK Control and MIDI to Key Stroke leave Hammerspoon
+
+> "If something is not converted, please create agents to convert anything that is still on Hammer Spoon to Swift right now ... one agent per application" (Marko, 13.11.2026)
+
+The two Lua rows (mackie, midikeys) are taken out of rows.json: both tools are in MIDI Tools (Mantra), whose row (miditools, Ableton Live, bundle community.auroville.miditools) opens them. Two more rows for the same app would show it three times under RUNNING. To bring a row back: add it with kind "app", the same app and bundle.
+
+**Status:** done 13.11.2026.
