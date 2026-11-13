@@ -547,6 +547,15 @@
    "app": "/Applications/Indian Mantras (Mantra).app",
    "about": "The Gayatri Mantra and Asato Ma taught word by word: Devanagari, transliteration and meaning, the MA Reader Web highlight, SPEED down to 0.5, a VOICE switcher (Hume, Google Gemini, Speechify); offline",
    "bundle": "community.auroville.indianmantras"
+  },
+  {
+   "key": "screencopy",
+   "name": "Screen Copy (Mantra) (the phones on the Mac: one tab per phone, sound and volume)",
+   "group": "Mac",
+   "kind": "app",
+   "app": "/Applications/Screen Copy (Mantra).app",
+   "about": "Tabbed scrcpy client: finds every phone over USB, Wi-Fi and Tailscale, one card per phone, live picture, sound pre-fader on the Mac, the phones' own volume at the bottom",
+   "bundle": "community.auroville.screencopy"
   }
  ],
  "exclusive": [
