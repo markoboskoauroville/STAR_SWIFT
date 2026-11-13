@@ -17,7 +17,7 @@ The star has 34 rows. 29 are Swift apps. **5 still need Hammerspoon** (kind "lua
 | Sister app (MANTRA CHAT) | **done 20.10.2026**: Sister App (Mantra) v1, repo SISTER_APP |
 | MIDI to Key Stroke | waiting, step 1 |
 | MIDI to MK Control | waiting, step 2 |
-| Ableton Assistant A1 | waiting, step 3 |
+| Ableton Assistant A1 | **done 13.11.2026**: the A1 module of Ableton Live Actions (Mantra) (repo ABLETON_LIVE_ACTIONS, Swift since 13.10.2026); the row is kind app, a1.lua unloaded from Hammerspoon |
 | Macro Recorder | waiting, step 4 |
 | Buckets | waiting, step 5 |
 | Hammerspoon itself | waiting, step 6 (after 1–5) |
