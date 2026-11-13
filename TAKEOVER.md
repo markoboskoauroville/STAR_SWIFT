@@ -140,3 +140,7 @@ The plan for the last Lua rows and for retiring Hammerspoon: [HAMMERSPOON_TO_SWI
 
 ## 13.11.2026: the a1 row is an app
 rows.json `a1` (and ~/.config/star-rows.json): kind "app", /Applications/Ableton Live Actions (Mantra).app, bundle community.auroville.abletonliveactions (the A1 module of that app; the row `liveactions` opens the same app, so both ticks agree). MANTRA_STAR star.lua skips apps/a1.lua at the next load (LUA_ROWS). Rows left on "lua": mackie, midikeys.
+
+## State at close, 13.11.2026
+
+13.11.2026: rows: Ableton Live Actions (Mantra) as app (A1), Screen Copy (Mantra) added, MIDI to MK Control and MIDI to Key Stroke removed (MIDI Tools (Mantra) opens both), VM Machine Remote Viewer renamed Mantra Remote Viewing; every paid call asks the Cost Agent gate. icons6/out/sheet.png was modified by another process and is not committed here.

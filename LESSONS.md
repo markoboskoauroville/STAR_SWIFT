@@ -41,3 +41,7 @@
 - (31.10.2026) **The notch hides the menu bar's left part.** On the MacBook's screen the star had been invisible (only
   the BenQ showed it); read the bar on the screen that shows the most icons. CGWindowList gives the icons' names
   (Item-0, SSMainAppMenuIcon) only with Screen Recording, and cuts owner names at 31 characters.
+
+## 13.11.2026
+
+- 13.11.2026: the star only launches; a merged tool gets one row, the old rows go away the same turn.
