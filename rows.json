@@ -423,6 +423,15 @@
    "bundle": "community.auroville.claudecodemonitor"
   },
   {
+   "key": "costagent",
+   "name": "Cost Agent (Mantra): money spent on AI, and the guard that asks first",
+   "group": "Claude",
+   "kind": "app",
+   "app": "/Applications/Cost Agent (Mantra).app",
+   "about": "Money spent today / this week / this month per provider and process, the questions waiting (YES / NO) and the history of your answers; the gate asks before every paid call",
+   "bundle": "community.auroville.costagent"
+  },
+  {
    "key": "controllermapper",
    "name": "Controller Mapper (Mantra) (his controllers mapped to keys and actions)",
    "group": "Keyboard and mouse",
