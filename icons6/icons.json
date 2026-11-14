@@ -348,6 +348,12 @@
    "KEY",
    "MSE",
    "sf:cursorarrow"
+  ],
+  [
+   "groqqueen",
+   "GRO",
+   "QUE",
+   "sf:cursorarrow"
   ]
  ],
  "categories": {
@@ -461,7 +467,8 @@
   "Between Marko and Claude": {
    "colour": "#000000",
    "apps": [
-    "kmrouter"
+    "kmrouter",
+    "groqqueen"
    ],
    "note": "Marko 12.11.2026: black, text over it, and a cursor. The gate between his hands and Claude's."
   }
