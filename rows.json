@@ -558,6 +558,15 @@
    "bundle": "com.mantraproductions.ndimonitor"
   },
   {
+   "key": "sonyremotemac",
+   "name": "Sony Remote (Mantra) (the α7 V records on its card, REC from the Mac over Wi-Fi)",
+   "group": "Camera",
+   "kind": "app",
+   "app": "/Applications/Sony Remote (Mantra).app",
+   "about": "Finds the Sony α7 V on the network, SSH Access Authentication, live view, ③ REC START / STOP on the camera's own card, card time and battery; API 127.0.0.1:8881 for Queen and Second Take",
+   "bundle": "community.auroville.sonyremote"
+  },
+  {
    "key": "mkvconverter",
    "name": "MKV Converter (MPA) (classroom recordings → MOV for DaVinci Resolve)",
    "group": "DaVinci Resolve",
