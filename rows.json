@@ -252,6 +252,15 @@
    "bundle": "com.mantra.voicetotext"
   },
   {
+   "key": "talkmode",
+   "name": "Talk Mode (Mantra) (talk with a Claude Code session hands-free: you pause, Claude answers aloud)",
+   "group": "Claude",
+   "kind": "app",
+   "app": "/Applications/Talk Mode (Mantra).app",
+   "about": "Listens, waits for your pause, writes your words into the chosen Claude Code session, stays deaf while the voice speaks; LISTENING / HEARD / CLAUDE IS THINKING / SPEAKING readable from the camera",
+   "bundle": "community.auroville.talkmode"
+  },
+  {
    "key": "spectral",
    "name": "Spectral Analyzer (Mantra) (the sound seen: FLUX's meters, clicks found)",
    "group": "Audio Production",

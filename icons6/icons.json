@@ -354,6 +354,18 @@
    "GRO",
    "QUE",
    "sf:cursorarrow"
+  ],
+  [
+   "soundlink",
+   "SND",
+   "LNK",
+   "sf:antenna.radiowaves.left.and.right"
+  ],
+  [
+   "talkmode",
+   "TAL",
+   "MOD",
+   "app:/Applications/Claude.app"
   ]
  ],
  "categories": {
@@ -377,7 +389,8 @@
     "transcribe",
     "freevoiceconvert",
     "claudemon",
-    "agentmgr"
+    "agentmgr",
+    "talkmode"
    ]
   },
   "DaVinci Resolve": {
@@ -413,7 +426,8 @@
    "apps": [
     "spectral",
     "soundrecorder",
-    "stemseparation"
+    "stemseparation",
+    "soundlink"
    ]
   },
   "DJ and music": {
