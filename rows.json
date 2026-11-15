@@ -531,6 +531,15 @@
    "bundle": "community.auroville.vmrouter"
   },
   {
+   "key": "streamdash",
+   "name": "Streaming Dashboard (Mantra) (the streams on the VM: start the Meditation Room stream, go live, viewers and speeds)",
+   "group": "Mac",
+   "kind": "app",
+   "app": "/Applications/Streaming Dashboard (Mantra).app",
+   "about": "PHONE · MAC · VM · SITE lights, 1 START the VM test stream, 2 GO LIVE as VM Test, Mac → VM speed, viewers and the speed of each, VM CPU/RAM/net, SIM data left; the same page on the VM at :8996",
+   "bundle": "community.auroville.streamingdashboard"
+  },
+  {
    "key": "ndimonitor",
    "name": "NDI Mantra Monitor (an NDI video feed watched on the Mac)",
    "group": "Camera",
