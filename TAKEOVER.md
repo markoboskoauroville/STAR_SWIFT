@@ -144,3 +144,6 @@ rows.json `a1` (and ~/.config/star-rows.json): kind "app", /Applications/Ableton
 ## State at close, 13.11.2026
 
 13.11.2026: rows: Ableton Live Actions (Mantra) as app (A1), Screen Copy (Mantra) added, MIDI to MK Control and MIDI to Key Stroke removed (MIDI Tools (Mantra) opens both), VM Machine Remote Viewer renamed Mantra Remote Viewing; every paid call asks the Cost Agent gate. icons6/out/sheet.png was modified by another process and is not committed here.
+
+## Menu-bar hover card and pipes (v17, 16.11.2026)
+Marko: "with all my apps on the menu bar, make a comprehensive pop-up menu. When I hover over, I want to see what is it and what is it doing." and "for my apps always make a pipes before and after so I know where one app ends and other begins." `app/HoverCard.swift` is the shared kit file (MANTRA_MANIFEST kits/menubar-hover, rule modules/menubar-hover.md): hovering the item about 0.4 s shows a card with name, what it is, state and live lines; a thin grey pipe stands before and after the visible title. The app supplies its lines in the `HoverCard.attach(...)` closure. Test without a mouse: launch with `--hovercard-shot`. Change the lines in the app; change the module only in the kit.
