@@ -592,6 +592,15 @@
    "app": "/Applications/Screen Copy (Mantra).app",
    "about": "Tabbed scrcpy client: finds every phone over USB, Wi-Fi and Tailscale, one card per phone, live picture, sound pre-fader on the Mac, the phones' own volume at the bottom",
    "bundle": "community.auroville.screencopy"
+  },
+  {
+   "key": "skeleton",
+   "name": "Skeleton (Mantra) (any camera, a skeleton that follows you, pose matching, record for the Blender mannequin)",
+   "group": "Mac",
+   "kind": "app",
+   "app": "/Applications/Skeleton (Mantra).app",
+   "about": "Looks at the camera you choose and draws your body pose with Apple Vision (all on the Mac); a target pose as a white ghost, green/yellow/red per limb, three levels, a voice-guided session, RECORD to a skeleton file and RENDER MANNEQUIN in Blender",
+   "bundle": "community.auroville.skeleton"
   }
  ],
  "exclusive": [
