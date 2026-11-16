@@ -601,6 +601,15 @@
    "app": "/Applications/Skeleton (Mantra).app",
    "about": "Looks at the camera you choose and draws your body pose with Apple Vision (all on the Mac); a target pose as a white ghost, green/yellow/red per limb, three levels, a voice-guided session, RECORD to a skeleton file and RENDER MANNEQUIN in Blender",
    "bundle": "community.auroville.skeleton"
+  },
+  {
+   "key": "queen",
+   "name": "Queen (the AI that does the work on this Mac; command qwen)",
+   "group": "Claude",
+   "kind": "app",
+   "app": "/Applications/Queen.app",
+   "about": "Queen, formerly Groq/Queen AI Studio (Mantra): chat, her skills, WhatsApp drafts, API 127.0.0.1:8765",
+   "bundle": "community.auroville.groqaistudio"
   }
  ],
  "exclusive": [
