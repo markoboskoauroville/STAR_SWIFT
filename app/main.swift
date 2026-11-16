@@ -20,7 +20,7 @@ import AppKit
 // every application"): the star's one window, MENU BAR ORDER, gets the first row ON OFF … Star … TOP ✕ (TopRow.swift).
 // The star itself still only opens: OFF quits the star alone, the rows' clicks are unchanged.
 // v13 (4.11.2026): Launcher (Mantra) is the first row, above Swift Matrix
-let VERSION = 16
+let VERSION = 17
 let HOME = NSHomeDirectory()
 let CONF = HOME + "/.config"
 let ROWS_FILE = CONF + "/star-rows.json"
