@@ -214,3 +214,6 @@ rows.json `launcher` points at /Applications/Launcher (Mantra).app; icons6 has `
 The two Lua rows (mackie, midikeys) are taken out of rows.json: both tools are in MIDI Tools (Mantra), whose row (miditools, Ableton Live, bundle community.auroville.miditools) opens them. Two more rows for the same app would show it three times under RUNNING. To bring a row back: add it with kind "app", the same app and bundle.
 
 **Status:** done 13.11.2026.
+
+16.11.2026 (Marko, 16.11.2026): "Please with all my apps on the menu bar, make a comprehensive pop-up menu. When I hover over, I want to see what is it and what is it doing." and "for my apps always make a pipes before and after so I know where one app ends and other begins."
+**Status:** saved first; building in v16 (HoverCard kit, pipes around the star).

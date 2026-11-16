@@ -20,7 +20,7 @@ import AppKit
 // every application"): the star's one window, MENU BAR ORDER, gets the first row ON OFF … Star … TOP ✕ (TopRow.swift).
 // The star itself still only opens: OFF quits the star alone, the rows' clicks are unchanged.
 // v13 (4.11.2026): Launcher (Mantra) is the first row, above Swift Matrix
-let VERSION = 15
+let VERSION = 16
 let HOME = NSHomeDirectory()
 let CONF = HOME + "/.config"
 let ROWS_FILE = CONF + "/star-rows.json"
@@ -452,7 +452,9 @@ final class Controller: NSObject, NSMenuDelegate {
         // there is Star, and after Star I have sound source. This is the fixed positioning on my menu bar."): the star's
         // place is asserted at every launch, before the item exists, so a drag or a new app never moves it for good
         MenuBarOrder.placeStar()
-        let it = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
+        let it = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
+        it.button?.imagePosition = .imageLeading
+        it.button?.attributedTitle = HoverCard.rightPipe()
         it.autosaveName = MenuBarOrder.STAR_NAME
         return it
     }()
@@ -465,6 +467,15 @@ final class Controller: NSObject, NSMenuDelegate {
         RunLoop.main.add(lt, forMode: .common)
         item.button?.image = Controller.starImage()
         item.button?.toolTip = "Star (Mantra) v\(VERSION): every app, a click opens its window; ON / OFF is at the top of the window"
+        HoverCard.attach(to: item) { [weak self] in
+            let st = self?.star, rows = st?.rows ?? []
+            let apps = rows.filter { $0.kind == "app" }
+            let up = apps.filter { !(st?.running($0).isEmpty ?? true) }
+            var lines = ["Apps listed: \(apps.count)", "Running now: \(up.count)"]
+            lines.append("Hammerspoon (Lua rows): " + (st?.hsUp == true ? "up" : "down"))
+            if !up.isEmpty { lines.append("Up: " + up.prefix(4).map { $0.name }.joined(separator: ", ") + (up.count > 4 ? "…" : "")) }
+            return HoverCard.Content(name: "Star (Mantra)", what: "Opens and closes every Mantra app", state: "v\(VERSION)", stateColor: .systemYellow, lines: lines)
+        }
         menu.delegate = self
         watchFiles()
         menu.autoenablesItems = false
@@ -509,7 +520,8 @@ final class Controller: NSObject, NSMenuDelegate {
     // five-pointed one.
     // v7 (30.10.2026, Marko: "Let it be red"): the star is red while a macro records and green while one plays, as the
     // Lua star was; Macro Recorder (Mantra) posts community.auroville.star.tint with "red", "green" or "" (back to white)
-    static func starImage(_ tint: String = "") -> NSImage {
+    static func starImage(_ tint: String = "") -> NSImage { HoverCard.pipedIcon(rawStarImage(tint)) ?? rawStarImage(tint) }
+    static func rawStarImage(_ tint: String = "") -> NSImage {
         let ink = tint == "red" ? NSColor(srgbRed: 1, green: 0.23, blue: 0.19, alpha: 1)
                 : tint == "green" ? NSColor(srgbRed: 0x33/255.0, green: 0xD1/255.0, blue: 0x7A/255.0, alpha: 1)
                 : NSColor(white: 1, alpha: 0.6)
