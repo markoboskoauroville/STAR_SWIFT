@@ -11,6 +11,7 @@
   "Mantras",
   "Keyboard and mouse",
   "Mac",
+  "Networking",
   "E16"
  ],
  "rows": [
@@ -73,11 +74,52 @@
   {
    "key": "netaggregate",
    "name": "Network Aggregate Connection Keeper (two lines at once: Wi-Fi + phone; Connection Keeper, aggregate)",
-   "group": "Mac",
+   "group": "Networking",
    "kind": "app",
    "about": "Joins the Wi-Fi and the phone on USB into one internet (mantra_networkaggregate); ONE CONNECTION switches it off",
    "app": "/Applications/Network Aggregate Connection Keeper (Mantra).app",
    "bundle": "com.mantra.connectionkeeper.stripe"
+  },
+  {
+   "key": "connectioncontroller",
+   "name": "Connection Controller Dashboard Viewer (Mantra) (every interface, its Internet light, and IGNORE for the service)",
+   "group": "Networking",
+   "kind": "app",
+   "about": "The active interface first; green Internet, yellow local network, red none. IGNORE disables that macOS network service and remembering it keeps it ignored.",
+   "app": "/Applications/Connection Controller Dashboard Viewer (Mantra).app",
+   "bundle": "community.auroville.connectioncontrollerdashboardviewer"
+  },
+  {
+   "key": "vpn",
+   "name": "VPN (Mantra) (the Mac's VPN in one app)",
+   "group": "Networking",
+   "kind": "app",
+   "app": "/Applications/VPN (Mantra).app",
+   "bundle": "com.mantraproductions.vpn"
+  },
+  {
+   "key": "routermode",
+   "name": "Router Mode (Mantra)",
+   "group": "Networking",
+   "kind": "app",
+   "app": "/Applications/Router Mode (Mantra).app",
+   "bundle": "community.auroville.routermode"
+  },
+  {
+   "key": "tailscale",
+   "name": "Tailscale (the private network between the Mac and both phones)",
+   "group": "Networking",
+   "kind": "app",
+   "app": "/Applications/Tailscale.app",
+   "bundle": "io.tailscale.ipn.macsys"
+  },
+  {
+   "key": "protonvpn",
+   "name": "Proton VPN",
+   "group": "Networking",
+   "kind": "app",
+   "app": "/Applications/ProtonVPN.app",
+   "bundle": "ch.protonvpn.mac"
   },
   {
    "key": "starapi",
