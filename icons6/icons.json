@@ -44,6 +44,12 @@
    "sf:network"
   ],
   [
+   "lanscanner",
+   "LAN",
+   "SCN",
+   "sf:wifi"
+  ],
+  [
    "starapi",
    "STA",
    "API",
@@ -471,6 +477,7 @@
     "download",
     "find",
     "installer",
+    "lanscanner",
     "appstore",
     "appledoor",
     "freedom",

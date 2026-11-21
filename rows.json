@@ -81,6 +81,15 @@
    "bundle": "com.mantra.connectionkeeper.stripe"
   },
   {
+   "key": "lanscanner",
+   "name": "LAN Scanner (Mantra) (every device on the network this Mac is on: name, IP, MAC, maker, kind)",
+   "group": "Networking",
+   "kind": "app",
+   "about": "One window, one button SCAN: every device on the current network, from the router's own ARP table, Bonjour and reverse DNS; lanscan prints the same in the terminal",
+   "app": "/Applications/LAN Scanner (Mantra).app",
+   "bundle": "community.auroville.lanscanner"
+  },
+  {
    "key": "connectioncontroller",
    "name": "Connection Controller Dashboard Viewer (Mantra) (every interface, its Internet light, and IGNORE for the service)",
    "group": "Networking",
