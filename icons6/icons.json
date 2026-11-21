@@ -366,6 +366,12 @@
    "TAL",
    "MOD",
    "app:/Applications/Claude.app"
+  ],
+  [
+   "cleanstart",
+   "CLE",
+   "STA",
+   "sf:power"
   ]
  ],
  "categories": {
@@ -482,7 +488,8 @@
    "colour": "#000000",
    "apps": [
     "kmrouter",
-    "groqqueen"
+    "groqqueen",
+    "cleanstart"
    ],
    "note": "Marko 12.11.2026: black, text over it, and a cursor. The gate between his hands and Claude's."
   }

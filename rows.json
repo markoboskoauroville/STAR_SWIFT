@@ -645,6 +645,15 @@
    "bundle": "community.auroville.skeleton"
   },
   {
+   "key": "cleanstart",
+   "name": "Clean Start (Mantra) (everything that starts by itself: off for the next start, or back as it was)",
+   "group": "Mac",
+   "kind": "app",
+   "app": "/Applications/Clean Start (Mantra).app",
+   "about": "One window: CLEAN START switches every non-Apple item that starts by itself off for the next login or boot, NORMAL START brings everything back as it was except what you switched yourself, and a list of every startup item with its own switch; Apple's own items are never touched",
+   "bundle": "com.mantra.cleanstart"
+  },
+  {
    "key": "queen",
    "name": "Queen (the AI that does the work on this Mac; command qwen)",
    "group": "Claude",
