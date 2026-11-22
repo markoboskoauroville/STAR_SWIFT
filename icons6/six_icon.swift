@@ -164,6 +164,11 @@ func draw(_ px: Int, top: String, bottom: String, symbol: String, color: NSColor
         let w1 = (top as NSString).size(withAttributes: attrs(fs)).width
         fs = min(fs * box.width * (both ? 0.90 : 0.84) / (w1 + font(fs).capHeight * (both ? 0.60 : 0.30)), s * 0.42)
     }
+    // one word (empty bottom row, Marko 17.11.2026, Queen: "just say QUEEN"): one row in the middle, 84 % of the tile
+    if bottom.isEmpty && !lead {
+        let w1 = (top as NSString).size(withAttributes: attrs(fs)).width
+        fs = min(fs * box.width * 0.84 / w1, s * 0.42)
+    }
     let f = font(fs), cap = f.capHeight, gap = cap * 0.42
     let y0 = s / 2 - (2 * cap + gap) / 2           // baseline of the bottom row
     let cw = isTerm ? cap * 0.13 : 0          // the thin cursor bar (was a block, 0.62)
@@ -176,6 +181,12 @@ func draw(_ px: Int, top: String, bottom: String, symbol: String, color: NSColor
         terminalGreen.setFill(); NSRect(x: x, y: base - cap * 0.08, width: cw, height: cap * 1.16).fill()
         (top as NSString).draw(at: NSPoint(x: x + cw + cgap + (both ? fs * 0.014 : 0), y: base + f.descender), withAttributes: attrs(fs))
         if both { terminalGreen.setFill(); NSRect(x: x + cw + cgap + w + cgap, y: base - cap * 0.08, width: cw, height: cap * 1.16).fill() }
+        NSGraphicsContext.restoreGraphicsState()
+        return rep
+    }
+    if bottom.isEmpty && !lead {
+        let w = (top as NSString).size(withAttributes: attrs(fs)).width
+        (top as NSString).draw(at: NSPoint(x: (s - w) / 2 + fs * 0.01, y: s / 2 - cap / 2 + f.descender), withAttributes: attrs(fs))
         NSGraphicsContext.restoreGraphicsState()
         return rep
     }

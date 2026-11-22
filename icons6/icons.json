@@ -357,8 +357,8 @@
   ],
   [
    "groqqueen",
-   "GRO",
-   "QUE",
+   "QUEEN",
+   "",
    "sf:cursorarrow"
   ],
   [
@@ -371,6 +371,12 @@
    "talkmode",
    "TAL",
    "MOD",
+   "app:/Applications/Claude.app"
+  ],
+  [
+   "claudecontrol",
+   "CLA",
+   "CTL",
    "app:/Applications/Claude.app"
   ],
   [
@@ -402,7 +408,8 @@
     "freevoiceconvert",
     "claudemon",
     "agentmgr",
-    "talkmode"
+    "talkmode",
+    "claudecontrol"
    ]
   },
   "DaVinci Resolve": {
